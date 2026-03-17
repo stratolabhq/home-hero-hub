@@ -1,0 +1,967 @@
+{
+  "database_info": {
+    "name": "Home Hero Hub - Smart Home Compatibility Database",
+    "version": "1.0",
+    "created": "2026-03-01",
+    "description": "Starter database with popular smart home devices and their ecosystem compatibility",
+    "total_devices": 50
+  },
+  "ecosystems": {
+    "alexa": {
+      "name": "Amazon Alexa",
+      "protocols": ["WiFi", "Zigbee", "Matter"],
+      "requires_hub": false,
+      "description": "Amazon's voice assistant ecosystem"
+    },
+    "google_home": {
+      "name": "Google Home",
+      "protocols": ["WiFi", "Thread", "Matter"],
+      "requires_hub": false,
+      "description": "Google's smart home platform"
+    },
+    "apple_homekit": {
+      "name": "Apple HomeKit",
+      "protocols": ["WiFi", "Thread", "Matter"],
+      "requires_hub": false,
+      "description": "Apple's smart home ecosystem"
+    },
+    "smartthings": {
+      "name": "Samsung SmartThings",
+      "protocols": ["WiFi", "Zigbee", "Z-Wave", "Matter"],
+      "requires_hub": true,
+      "description": "Samsung's smart home hub platform"
+    },
+    "matter": {
+      "name": "Matter",
+      "protocols": ["Thread", "WiFi"],
+      "requires_hub": false,
+      "description": "Universal smart home standard"
+    },
+    "home_assistant": {
+      "name": "Home Assistant",
+      "protocols": ["WiFi", "Zigbee", "Z-Wave", "Thread", "Matter"],
+      "requires_hub": true,
+      "description": "Open-source smart home platform"
+    }
+  },
+  "protocols": {
+    "zigbee": {
+      "name": "Zigbee",
+      "type": "mesh",
+      "range": "10-100m",
+      "power": "low",
+      "requires_hub": true
+    },
+    "zwave": {
+      "name": "Z-Wave",
+      "type": "mesh",
+      "range": "30-100m",
+      "power": "low",
+      "requires_hub": true
+    },
+    "thread": {
+      "name": "Thread",
+      "type": "mesh",
+      "range": "10-30m",
+      "power": "very_low",
+      "requires_hub": true,
+      "note": "Requires Thread Border Router"
+    },
+    "wifi": {
+      "name": "WiFi",
+      "type": "direct",
+      "range": "30-50m",
+      "power": "medium",
+      "requires_hub": false
+    },
+    "bluetooth": {
+      "name": "Bluetooth",
+      "type": "direct",
+      "range": "10m",
+      "power": "low",
+      "requires_hub": false
+    },
+    "matter": {
+      "name": "Matter",
+      "type": "standard",
+      "range": "varies",
+      "power": "low",
+      "requires_hub": false,
+      "note": "Uses Thread or WiFi as underlying protocol"
+    }
+  },
+  "devices": [
+    {
+      "id": "hue_bulb_a19",
+      "name": "Philips Hue A19 Color Bulb",
+      "brand": "Philips",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["Zigbee", "Bluetooth", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "optional",
+      "hub_name": "Philips Hue Bridge",
+      "notes": "Newer models support Matter directly. Hub unlocks advanced features."
+    },
+    {
+      "id": "kasa_plug_mini",
+      "name": "Kasa Smart Plug Mini KP125M",
+      "brand": "TP-Link",
+      "category": "plugs",
+      "type": "smart_plug",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["energy_monitoring", "15A", "compact"],
+      "notes": "Works with all major ecosystems via Matter. Local control supported."
+    },
+    {
+      "id": "nest_thermostat",
+      "name": "Google Nest Thermostat",
+      "brand": "Google",
+      "category": "climate",
+      "type": "thermostat",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "partial",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["learning", "energy_savings", "remote_sensors"],
+      "notes": "First thermostat with Matter support. Best with Google ecosystem."
+    },
+    {
+      "id": "ring_doorbell_pro",
+      "name": "Ring Video Doorbell Pro 2",
+      "brand": "Ring",
+      "category": "security",
+      "type": "doorbell",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "none",
+        "apple_homekit": "none",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["1536p_video", "3D_motion_detection", "two_way_audio"],
+      "notes": "Amazon-owned. Best integration with Alexa ecosystem only."
+    },
+    {
+      "id": "aqara_hub_m3",
+      "name": "Aqara Hub M3",
+      "brand": "Aqara",
+      "category": "hubs",
+      "type": "smart_hub",
+      "protocols": ["WiFi", "Zigbee", "Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["thread_border_router", "zigbee_hub", "local_control"],
+      "notes": "Acts as Thread Border Router and Zigbee hub. Excellent multi-protocol support."
+    },
+    {
+      "id": "nanoleaf_bulb",
+      "name": "Nanoleaf Essentials A19 Bulb",
+      "brand": "Nanoleaf",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "thread_border_router",
+      "features": ["thread_native", "RGBW", "16_million_colors"],
+      "notes": "Thread-first design. Requires Thread Border Router like HomePod mini or Nest Hub."
+    },
+    {
+      "id": "ecobee_smart_thermostat",
+      "name": "Ecobee SmartThermostat Enhanced",
+      "brand": "Ecobee",
+      "category": "climate",
+      "type": "thermostat",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["room_sensors", "built_in_alexa", "energy_reports"],
+      "notes": "Excellent multi-platform support. Built-in Alexa voice assistant."
+    },
+    {
+      "id": "august_lock_pro",
+      "name": "August Smart Lock Pro",
+      "brand": "August",
+      "category": "security",
+      "type": "smart_lock",
+      "protocols": ["WiFi", "Bluetooth"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": "optional",
+      "hub_name": "August Connect Bridge",
+      "features": ["auto_lock", "auto_unlock", "door_sense"],
+      "notes": "Requires August Connect for remote access. HomeKit Secure Video compatible."
+    },
+    {
+      "id": "wyze_cam_v3",
+      "name": "Wyze Cam v3",
+      "brand": "Wyze",
+      "category": "security",
+      "type": "camera",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["1080p", "night_vision", "two_way_audio", "local_storage"],
+      "notes": "Budget-friendly. Limited ecosystem support but Alexa/Google work well."
+    },
+    {
+      "id": "lifx_a19",
+      "name": "LIFX A19 Color Bulb",
+      "brand": "LIFX",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["1100_lumens", "16_million_colors", "infrared"],
+      "notes": "No hub required. WiFi-direct connection. Bright and vivid colors."
+    },
+    {
+      "id": "eve_energy",
+      "name": "Eve Energy Smart Plug",
+      "brand": "Eve Systems",
+      "category": "plugs",
+      "type": "smart_plug",
+      "protocols": ["Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "thread_border_router",
+      "features": ["energy_monitoring", "thread_native", "offline_automation"],
+      "notes": "Matter-over-Thread. Excellent for local automation. Energy tracking."
+    },
+    {
+      "id": "schlage_encode",
+      "name": "Schlage Encode Smart WiFi Deadbolt",
+      "brand": "Schlage",
+      "category": "security",
+      "type": "smart_lock",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "none",
+        "apple_homekit": "full",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["built_in_wifi", "access_codes", "auto_lock"],
+      "notes": "Built-in WiFi, no bridge needed. Best for Alexa or HomeKit."
+    },
+    {
+      "id": "arlo_pro_4",
+      "name": "Arlo Pro 4 Spotlight Camera",
+      "brand": "Arlo",
+      "category": "security",
+      "type": "camera",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "partial",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["2K_HDR", "color_night_vision", "spotlight", "wireless"],
+      "notes": "Wireless with rechargeable battery. Subscription required for advanced features."
+    },
+    {
+      "id": "sengled_bulb",
+      "name": "Sengled Smart LED Bulb",
+      "brand": "Sengled",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["Zigbee", "WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "full",
+        "matter": "none"
+      },
+      "requires_hub": true,
+      "features": ["budget_friendly", "dimmable", "800_lumens"],
+      "notes": "Requires Zigbee hub (Echo Plus, SmartThings, etc). Very affordable."
+    },
+    {
+      "id": "switchbot_hub",
+      "name": "SwitchBot Hub 3",
+      "brand": "SwitchBot",
+      "category": "hubs",
+      "type": "smart_hub",
+      "protocols": ["WiFi", "Bluetooth", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["IR_remote", "temp_humidity_sensor", "motion_detector"],
+      "notes": "Multi-function hub. IR control for non-smart devices. Matter button controller."
+    },
+    {
+      "id": "homepod_mini",
+      "name": "Apple HomePod mini",
+      "brand": "Apple",
+      "category": "speakers",
+      "type": "smart_speaker",
+      "protocols": ["WiFi", "Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "none",
+        "google_home": "none",
+        "apple_homekit": "full",
+        "smartthings": "none",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["thread_border_router", "siri", "airplay_2", "intercom"],
+      "notes": "Acts as Thread Border Router. Required for HomeKit. Matter controller."
+    },
+    {
+      "id": "echo_show_15",
+      "name": "Amazon Echo Show 15",
+      "brand": "Amazon",
+      "category": "displays",
+      "type": "smart_display",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "none",
+        "apple_homekit": "none",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["15.6_inch_display", "wall_mount", "visual_id", "widgets"],
+      "notes": "Largest Echo display. Matter support. Best for Alexa ecosystem."
+    },
+    {
+      "id": "nest_hub_max",
+      "name": "Google Nest Hub Max",
+      "brand": "Google",
+      "category": "displays",
+      "type": "smart_display",
+      "protocols": ["WiFi", "Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "none",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["10_inch_display", "thread_border_router", "nest_cam", "face_match"],
+      "notes": "Thread Border Router. Built-in Nest Cam. Matter controller."
+    },
+    {
+      "id": "tp_link_tapo_bulb",
+      "name": "TP-Link Tapo L530E RGBW Bulb",
+      "brand": "TP-Link",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["matter_certified", "16_million_colors", "no_hub"],
+      "notes": "Budget Matter bulb. WiFi-based. Good starter option."
+    },
+    {
+      "id": "aqara_door_sensor",
+      "name": "Aqara Door and Window Sensor P2",
+      "brand": "Aqara",
+      "category": "sensors",
+      "type": "contact_sensor",
+      "protocols": ["Zigbee", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": true,
+      "hub_name": "Aqara Hub M3",
+      "features": ["2_year_battery", "matter_support", "tamper_alarm"],
+      "notes": "Requires Aqara hub. Very long battery life. Matter certified."
+    },
+    {
+      "id": "yale_assure_lock",
+      "name": "Yale Assure Lock 2",
+      "brand": "Yale",
+      "category": "security",
+      "type": "smart_lock",
+      "protocols": ["WiFi", "Zigbee", "Z-Wave", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "optional",
+      "features": ["multiple_protocols", "auto_unlock", "tamper_alert"],
+      "notes": "Modular design. Choose your protocol module. Excellent compatibility."
+    },
+    {
+      "id": "meross_outdoor_plug",
+      "name": "Meross Outdoor Smart Plug",
+      "brand": "Meross",
+      "category": "plugs",
+      "type": "outdoor_plug",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["weather_resistant", "dual_outlets", "15A"],
+      "notes": "Budget HomeKit outdoor plug. Weather-resistant. Independent outlet control."
+    },
+    {
+      "id": "lutron_caseta_dimmer",
+      "name": "Lutron Caséta Wireless Dimmer",
+      "brand": "Lutron",
+      "category": "switches",
+      "type": "smart_dimmer",
+      "protocols": ["Clear_Connect_RF"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "none"
+      },
+      "requires_hub": true,
+      "hub_name": "Lutron Caséta Smart Bridge",
+      "features": ["professional_grade", "reliable", "pico_remotes"],
+      "notes": "Proprietary protocol. Extremely reliable. Requires Caséta bridge."
+    },
+    {
+      "id": "govee_light_strip",
+      "name": "Govee RGBIC LED Strip Lights",
+      "brand": "Govee",
+      "category": "lighting",
+      "type": "light_strip",
+      "protocols": ["WiFi", "Bluetooth"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["music_sync", "segmented_color", "budget_friendly"],
+      "notes": "No HomeKit support. Great for Alexa/Google. Affordable option."
+    },
+    {
+      "id": "honeywell_t9",
+      "name": "Honeywell Home T9 Thermostat",
+      "brand": "Honeywell",
+      "category": "climate",
+      "type": "thermostat",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["room_sensors", "geofencing", "multi_room"],
+      "notes": "Excellent multi-platform support. Room sensors sold separately."
+    },
+    {
+      "id": "eufy_doorbell",
+      "name": "Eufy Video Doorbell 2K",
+      "brand": "Eufy",
+      "category": "security",
+      "type": "doorbell",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": "optional",
+      "hub_name": "HomeBase 2",
+      "features": ["2K_resolution", "local_storage", "no_monthly_fees"],
+      "notes": "No subscription required. Local storage via HomeBase. HomeKit Secure Video."
+    },
+    {
+      "id": "leviton_switch",
+      "name": "Leviton Decora Smart WiFi Switch",
+      "brand": "Leviton",
+      "category": "switches",
+      "type": "smart_switch",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["matter_certified", "15A", "schedules"],
+      "notes": "Matter-certified. No neutral wire needed on some models. Standard size."
+    },
+    {
+      "id": "ring_alarm_pro",
+      "name": "Ring Alarm Pro Base Station",
+      "brand": "Ring",
+      "category": "security",
+      "type": "alarm_system",
+      "protocols": ["WiFi", "Z-Wave"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "none",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["eero_wifi_6_router", "cellular_backup", "professional_monitoring"],
+      "notes": "Includes Eero WiFi 6 router. Alexa-only integration. Z-Wave hub for sensors."
+    },
+    {
+      "id": "aqara_motion_sensor",
+      "name": "Aqara Motion and Light Sensor P2",
+      "brand": "Aqara",
+      "category": "sensors",
+      "type": "motion_sensor",
+      "protocols": ["Zigbee", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": true,
+      "hub_name": "Aqara Hub M3",
+      "features": ["light_sensor", "2_year_battery", "separate_sensors"],
+      "notes": "Dual sensor. Light sensor works independently. Longest battery life."
+    },
+    {
+      "id": "wemo_smart_plug",
+      "name": "Wemo WiFi Smart Plug",
+      "brand": "Belkin",
+      "category": "plugs",
+      "type": "smart_plug",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["matter_support", "away_mode", "compact"],
+      "notes": "Recently added Matter support. Well-established brand. Reliable."
+    },
+    {
+      "id": "ikea_tradfri_bulb",
+      "name": "IKEA TRÅDFRI LED Bulb",
+      "brand": "IKEA",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["Zigbee", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": true,
+      "hub_name": "TRÅDFRI Gateway",
+      "features": ["budget_friendly", "matter_upgrade", "dimmable"],
+      "notes": "Very affordable. Requires TRÅDFRI gateway. Matter support via firmware update."
+    },
+    {
+      "id": "shelly_plug",
+      "name": "Shelly Plug S",
+      "brand": "Shelly",
+      "category": "plugs",
+      "type": "smart_plug",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "partial",
+        "smartthings": "full",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["energy_monitoring", "local_api", "compact", "EU_format"],
+      "notes": "European plug. Strong local control. Great for Home Assistant users."
+    },
+    {
+      "id": "aqara_light_switch",
+      "name": "Aqara Light Switch H2",
+      "brand": "Aqara",
+      "category": "switches",
+      "type": "smart_switch",
+      "protocols": ["Zigbee", "Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "optional",
+      "features": ["dual_protocol", "energy_monitoring", "3_channels"],
+      "notes": "Works with or without Aqara hub via Matter/Thread. Supports both neutral and no-neutral wiring."
+    },
+    {
+      "id": "tplink_kasa_cam",
+      "name": "TP-Link Kasa Spot Camera",
+      "brand": "TP-Link",
+      "category": "security",
+      "type": "camera",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["1080p", "night_vision", "motion_detection", "local_storage"],
+      "notes": "Budget indoor camera. MicroSD slot for local storage. No subscription required."
+    },
+    {
+      "id": "ge_cync_bulb",
+      "name": "GE Cync Smart LED Bulb",
+      "brand": "GE",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["WiFi", "Bluetooth"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["no_hub_required", "bluetooth_mesh", "direct_connect"],
+      "notes": "WiFi/Bluetooth. No hub needed. Good for Alexa/Google ecosystems."
+    },
+    {
+      "id": "sonos_one",
+      "name": "Sonos One SL",
+      "brand": "Sonos",
+      "category": "speakers",
+      "type": "smart_speaker",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["airplay_2", "premium_audio", "multi_room"],
+      "notes": "Premium audio. Works with Alexa/Google/AirPlay 2. No built-in assistant in SL model."
+    },
+    {
+      "id": "aqara_dimmer",
+      "name": "Aqara Dimmer Switch H2",
+      "brand": "Aqara",
+      "category": "switches",
+      "type": "smart_dimmer",
+      "protocols": ["Zigbee", "Thread", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "optional",
+      "features": ["smooth_dimming", "energy_tracking", "flicker_free"],
+      "notes": "Dual protocol support. Neutral and no-neutral options. Matter certified."
+    },
+    {
+      "id": "arlo_essential_doorbell",
+      "name": "Arlo Essential Video Doorbell",
+      "brand": "Arlo",
+      "category": "security",
+      "type": "doorbell",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["1536p_video", "package_detection", "two_way_audio"],
+      "notes": "Wired or wireless options. No HomeKit support. Subscription for cloud storage."
+    },
+    {
+      "id": "chamberlain_myq",
+      "name": "Chamberlain myQ Smart Garage Hub",
+      "brand": "Chamberlain",
+      "category": "garage",
+      "type": "garage_controller",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["open_close_alerts", "guest_access", "scheduling"],
+      "notes": "Retrofits most garage door openers. HomeKit requires additional bridge."
+    },
+    {
+      "id": "amazon_smart_thermostat",
+      "name": "Amazon Smart Thermostat",
+      "brand": "Amazon",
+      "category": "climate",
+      "type": "thermostat",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "none",
+        "apple_homekit": "none",
+        "smartthings": "none",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["energy_star", "hunches", "alexa_only"],
+      "notes": "Budget option. Alexa-exclusive. Made with Honeywell. Energy Star certified."
+    },
+    {
+      "id": "wiz_bulb",
+      "name": "WiZ Connected LED Bulb",
+      "brand": "WiZ",
+      "category": "lighting",
+      "type": "smart_bulb",
+      "protocols": ["WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "none",
+        "smartthings": "partial",
+        "matter": "none"
+      },
+      "requires_hub": false,
+      "features": ["circadian_rhythm", "preset_modes", "budget_friendly"],
+      "notes": "Owned by Signify (Philips). No hub required. Good Alexa/Google integration."
+    },
+    {
+      "id": "switchbot_curtain",
+      "name": "SwitchBot Curtain",
+      "brand": "SwitchBot",
+      "category": "blinds",
+      "type": "curtain_motor",
+      "protocols": ["Bluetooth", "WiFi"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "partial",
+        "matter": "partial"
+      },
+      "requires_hub": "optional",
+      "hub_name": "SwitchBot Hub",
+      "features": ["quiet_operation", "solar_panel", "light_sensor"],
+      "notes": "Requires SwitchBot Hub for WiFi/Matter. Battery or solar powered. Easy installation."
+    },
+    {
+      "id": "flic_twist",
+      "name": "Flic Twist Smart Controller",
+      "brand": "Flic",
+      "category": "controllers",
+      "type": "smart_controller",
+      "protocols": ["Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["button_dial_combo", "24_triggers", "12_dimmers"],
+      "notes": "Matter-certified controller. Button + dial + 12-mode selector. Very versatile."
+    },
+    {
+      "id": "level_lock",
+      "name": "Level Lock+ (Matter)",
+      "brand": "Level",
+      "category": "security",
+      "type": "smart_lock",
+      "protocols": ["Matter", "Thread"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": "thread_border_router",
+      "features": ["invisible_design", "matter_native", "auto_unlock"],
+      "notes": "Invisible from outside. Matter-over-Thread. Premium minimalist design."
+    },
+    {
+      "id": "govee_outdoor_lights",
+      "name": "Govee Permanent Outdoor Lights Prism",
+      "brand": "Govee",
+      "category": "lighting",
+      "type": "outdoor_lights",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "partial",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["permanent_installation", "IP67", "vibrant_colors"],
+      "notes": "Matter support. Permanent outdoor installation. 100ft, 150ft, 200ft options."
+    },
+    {
+      "id": "aqara_smart_lock",
+      "name": "Aqara Smart Lock U50",
+      "brand": "Aqara",
+      "category": "security",
+      "type": "smart_lock",
+      "protocols": ["Zigbee", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": true,
+      "hub_name": "Aqara Hub M3",
+      "features": ["NFC", "keypad", "USB-C_emergency"],
+      "notes": "Multiple unlock methods. Matter certified. Requires Aqara hub."
+    },
+    {
+      "id": "candle_warmer",
+      "name": "SwitchBot Candle Warmer",
+      "brand": "SwitchBot",
+      "category": "accessories",
+      "type": "candle_warmer",
+      "protocols": ["Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "full",
+        "smartthings": "full",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["timer", "dimming", "flameless"],
+      "notes": "Flame-free candle melting. Matter-enabled. Timer and dimming controls."
+    },
+    {
+      "id": "govee_wall_light",
+      "name": "Govee UpDown Wall Light",
+      "brand": "Govee",
+      "category": "lighting",
+      "type": "outdoor_fixture",
+      "protocols": ["WiFi", "Matter"],
+      "ecosystems": {
+        "alexa": "full",
+        "google_home": "full",
+        "apple_homekit": "partial",
+        "smartthings": "partial",
+        "matter": "full"
+      },
+      "requires_hub": false,
+      "features": ["RGBW", "outdoor_rated", "dual_sided"],
+      "notes": "Outdoor wall washer. Matter compatible. Four-sided RGB + white illumination."
+    }
+  ]
+}

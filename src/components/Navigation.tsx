@@ -1,0 +1,200 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+export default function Navigation() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push('/');
+    router.refresh();
+  };
+
+  const navItems = [
+    { name: 'Home', path: '/', icon: '🏠' },
+    { name: 'Dashboard', path: '/dashboard', icon: '📊', requiresAuth: true },
+    { name: 'Compatibility', path: '/compatibility', icon: '🔍' },
+    { name: 'Add Product', path: '/add-product', icon: '➕', requiresAuth: true },
+    { name: 'My Products', path: '/my-products', icon: '📦', requiresAuth: true },
+    { name: 'Getting Started', path: '/getting-started', icon: '📚' },
+    { name: 'Request Device', path: '/request-device', icon: '🙋' },
+  ];
+
+  const visibleNavItems = navItems.filter(item => !item.requiresAuth || user);
+
+  const isActive = (path: string) => {
+    if (path === '/') return pathname === '/';
+    return pathname.startsWith(path);
+  };
+
+  return (
+    <nav className="bg-white shadow-sm border-b border-[#d1ecd7] sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          {/* Logo + desktop nav */}
+          <div className="flex">
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold text-green-gradient" style={{
+                background: 'linear-gradient(135deg, #2e6f40, #3d8b54)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                Home Hero Hub
+              </span>
+            </Link>
+
+            <div className="hidden md:ml-10 md:flex md:space-x-1">
+              {visibleNavItems.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isActive(item.path)
+                      ? 'bg-[#f0f9f2] text-[#2e6f40] font-semibold'
+                      : 'text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40]'
+                  }`}
+                >
+                  <span>{item.icon}</span>
+                  <span>{item.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop auth controls */}
+          <div className="hidden md:flex items-center gap-3">
+            {loading ? (
+              <div className="text-sm text-gray-500">Loading...</div>
+            ) : user ? (
+              <>
+                <span className="text-sm text-gray-600">{user.email}</span>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40] rounded-lg font-medium text-sm transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="px-4 py-2 text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40] rounded-lg font-medium text-sm transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/signup"
+                  className="px-4 py-2 bg-[#2e6f40] text-white rounded-lg hover:bg-[#3d8b54] font-medium text-sm transition-colors shadow-sm"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40] focus:outline-none transition-colors"
+            >
+              <span className="sr-only">Open menu</span>
+              {mobileMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-[#d1ecd7] bg-white">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {visibleNavItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors ${
+                  isActive(item.path)
+                    ? 'bg-[#f0f9f2] text-[#2e6f40] font-semibold'
+                    : 'text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40]'
+                }`}
+              >
+                <span className="text-xl">{item.icon}</span>
+                <span>{item.name}</span>
+              </Link>
+            ))}
+
+            {user ? (
+              <div className="pt-4 border-t border-[#d1ecd7]">
+                <div className="px-3 py-2 text-sm text-gray-600">{user.email}</div>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg font-medium"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="pt-4 border-t border-[#d1ecd7] space-y-2">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 text-gray-700 hover:bg-[#f0f9f2] rounded-lg font-medium text-center"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 bg-[#2e6f40] text-white rounded-lg hover:bg-[#3d8b54] font-medium text-center transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}

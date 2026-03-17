@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ── Forest Green Design Tokens ─────────────────────────────────────────── */
+@theme {
+  /* Primary Forest Green Palette */
+  --color-green-900: #1a3d23;
+  --color-green-800: #1f4d2b;
+  --color-green-700: #256037;
+  --color-green-600: #2e6f40;
+  --color-green-500: #3d8b54;
+  --color-green-400: #4da568;
+  --color-green-300: #6fbf7d;
+  --color-green-200: #a3d9b0;
+  --color-green-100: #d1ecd7;
+  --color-green-50:  #f0f9f2;
+
+  /* Semantic accent colors (keep ecosystem-specific colours intact) */
+  --color-emerald-50:  #ecfdf5;
+  --color-emerald-500: #10b981;
+
+  /* Warm / warning */
+  --color-amber-50:  #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-orange-50:  #fff7ed;
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+
+  /* Error */
+  --color-red-50:  #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+
+  /* Info / ecosystems */
+  --color-blue-50:   #eff6ff;
+  --color-blue-100:  #dbeafe;
+  --color-blue-600:  #2563eb;
+  --color-blue-700:  #1d4ed8;
+  --color-blue-800:  #1e40af;
+  --color-indigo-50: #eef2ff;
+  --color-indigo-600:#4f46e5;
+  --color-purple-50: #faf5ff;
+  --color-purple-100:#f3e8ff;
+  --color-purple-600:#9333ea;
+  --color-purple-800:#6b21a8;
+  --color-pink-50:   #fdf2f8;
+  --color-cyan-50:   #ecfeff;
+  --color-cyan-100:  #cffafe;
+  --color-cyan-500:  #06b6d4;
+  --color-cyan-800:  #155e75;
+
+  /* Neutrals */
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Slate (for dark code blocks) */
+  --color-slate-50:  #f8fafc;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+}
+
+/* ── CSS Custom Properties ───────────────────────────────────────────────── */
+:root {
+  /* App brand */
+  --primary:          #2e6f40;
+  --primary-hover:    #3d8b54;
+  --primary-dark:     #1f4d2b;
+  --primary-darker:   #1a3d23;
+  --primary-light:    #f0f9f2;
+  --primary-border:   #a3d9b0;
+  --primary-muted:    #d1ecd7;
+
+  /* Semantic */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error:   #ef4444;
+  --info:    #3b82f6;
+
+  /* Page */
+  --background: #f9fafb;
+  --foreground:  #111827;
+  --surface:     #ffffff;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ── Green gradient utilities ────────────────────────────────────────────── */
+.bg-green-gradient {
+  background: linear-gradient(135deg, #2e6f40 0%, #3d8b54 100%);
+}
+
+.bg-green-gradient-subtle {
+  background: linear-gradient(135deg, #f0f9f2 0%, #d1ecd7 100%);
+}
+
+.text-green-gradient {
+  background: linear-gradient(135deg, #2e6f40, #3d8b54);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Focus rings (override Tailwind default blue) ────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #2e6f40;
+  outline-offset: 2px;
+}
+
+/* Form controls */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #2e6f40 !important;
+  box-shadow: 0 0 0 3px rgba(46, 111, 64, 0.15) !important;
+}
+
+/* Checkboxes */
+input[type="checkbox"]:checked {
+  accent-color: #2e6f40;
+}
+
+/* ── Scrollbar (subtle green tint) ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f0f9f2; }
+::-webkit-scrollbar-thumb { background: #a3d9b0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2e6f40; }
+
+/* ── Dark code block (YAML generator) ───────────────────────────────────── */
+.code-block {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Fira Mono', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  border-radius: 0;
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
+/* YAML syntax highlighting */
+.yaml-comment { color: #6b7280; font-style: italic; }
+.yaml-key     { color: #4da568; font-weight: 600; }   /* green tint for keys */
+.yaml-string  { color: #a3d9b0; }
+.yaml-bool    { color: #f59e0b; }
+.yaml-number  { color: #6fbf7d; }
+.yaml-bullet  { color: #10b981; }
+
+/* Streaming cursor */
+.streaming-cursor::after {
+  content: '▊';
+  animation: blink 0.8s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Loading spinner ─────────────────────────────────────────────────────── */
+.spinner {
+  border: 2px solid #d1ecd7;
+  border-top-color: #2e6f40;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

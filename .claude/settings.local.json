@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(which supabase:*)",
+      "Bash(node:*)",
+      "Bash(which psql:*)",
+      "Bash(npm list:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:21st.dev)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
