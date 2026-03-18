@@ -8,7 +8,8 @@
       "Bash(npm list:*)",
       "Bash(npm install:*)",
       "WebFetch(domain:21st.dev)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(git add:*)"
     ]
   }
 }

@@ -94,7 +94,14 @@ export default function Navigation() {
               <div className="text-sm text-gray-500">Loading...</div>
             ) : user ? (
               <>
-                <span className="text-sm text-gray-600">{user.email}</span>
+                <span className="text-sm text-gray-600 flex items-center gap-2">
+                  {user.email}
+                  {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+                    <span className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none">
+                      Admin
+                    </span>
+                  )}
+                </span>
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40] rounded-lg font-medium text-sm transition-colors"
@@ -163,7 +170,14 @@ export default function Navigation() {
 
             {user ? (
               <div className="pt-4 border-t border-[#d1ecd7]">
-                <div className="px-3 py-2 text-sm text-gray-600">{user.email}</div>
+                <div className="px-3 py-2 text-sm text-gray-600 flex items-center gap-2">
+                  {user.email}
+                  {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+                    <span className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none">
+                      Admin
+                    </span>
+                  )}
+                </div>
                 <button
                   onClick={() => {
                     handleLogout();
