@@ -9,7 +9,11 @@
       "Bash(npm install:*)",
       "WebFetch(domain:21st.dev)",
       "Bash(npm run:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh auth:*)",
+      "Bash(ssh:*)"
     ]
   }
 }
