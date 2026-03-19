@@ -13,7 +13,20 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(gh auth:*)",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(xargs ls:*)",
+      "Bash(npx ts-node:*)",
+      "Bash(sudo apt-get:*)",
+      "Bash(npx puppeteer:*)",
+      "Read(//usr/bin/**)",
+      "Read(//snap/bin/**)",
+      "Bash(ldd /home/stratolabhq/.cache/puppeteer/chrome/linux-146.0.7680.76/chrome-linux64/chrome)",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/122.0.0.0 Safari/537.36\" \"https://www.philips-hue.com/en-us/products\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/products\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/products/all-products?page=1\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-a19-starter-kit/046677562786\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-bridge/046677458478\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-a19-bulb-e26/046677562786\")"
     ]
   }
 }
