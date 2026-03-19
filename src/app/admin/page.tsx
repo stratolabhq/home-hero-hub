@@ -22,11 +22,11 @@ interface Stats {
 }
 
 const QUICK_LINKS = [
-  { label: 'Review Device Requests', path: '/admin/requests', icon: '📋', desc: 'Approve or reject community submissions' },
-  { label: 'Import Devices',         path: '/admin/import',   icon: '⬆️', desc: 'Run Amazon PA API import' },
-  { label: 'Manage Devices',         path: '/admin/devices',  icon: '🔌', desc: 'Edit, add, or delete products' },
+  { label: 'Review Device Requests', path: '/admin/requests',  icon: '📋', desc: 'Approve or reject community submissions' },
+  { label: 'Device Library',         path: '/admin/devices',   icon: '🔌', desc: 'Edit, add, or delete products' },
+  { label: 'Data Collector',         path: '/admin/collector', icon: '🔄', desc: 'Collect devices from external sources' },
   { label: 'View Analytics',         path: '/admin/analytics', icon: '📈', desc: 'Usage stats and trends' },
-  { label: 'Manage Users',           path: '/admin/users',    icon: '👥', desc: 'Browse registered users' },
+  { label: 'Manage Users',           path: '/admin/users',     icon: '👥', desc: 'Browse registered users' },
 ];
 
 const STATUS_BADGE: Record<string, { label: string; variant: 'amber' | 'green' | 'red' | 'blue' | 'gray' }> = {

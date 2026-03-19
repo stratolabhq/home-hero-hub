@@ -97,9 +97,12 @@ export default function Navigation() {
                 <span className="text-sm text-gray-600 flex items-center gap-2">
                   {user.email}
                   {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none">
+                    <Link
+                      href="/admin"
+                      className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none hover:bg-[#3d8b54] transition-colors"
+                    >
                       Admin
-                    </span>
+                    </Link>
                   )}
                 </span>
                 <button
@@ -173,9 +176,13 @@ export default function Navigation() {
                 <div className="px-3 py-2 text-sm text-gray-600 flex items-center gap-2">
                   {user.email}
                   {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none">
+                    <Link
+                      href="/admin"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none hover:bg-[#3d8b54] transition-colors"
+                    >
                       Admin
-                    </span>
+                    </Link>
                   )}
                 </div>
                 <button

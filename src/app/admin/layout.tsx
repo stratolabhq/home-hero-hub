@@ -11,12 +11,13 @@ const supabase = createClient(
 );
 
 const NAV_ITEMS = [
-  { label: 'Dashboard',       path: '/admin',            icon: '📊' },
-  { label: 'Device Requests', path: '/admin/requests',   icon: '📋' },
-  { label: 'Import Devices',  path: '/admin/import',     icon: '⬆️' },
-  { label: 'Analytics',       path: '/admin/analytics',  icon: '📈' },
-  { label: 'Users',           path: '/admin/users',      icon: '👥' },
-  { label: 'Devices',         path: '/admin/devices',    icon: '🔌' },
+  { label: 'Dashboard',       path: '/admin',             icon: '📊' },
+  { label: 'Device Requests', path: '/admin/requests',    icon: '📋' },
+  { label: 'Device Library',  path: '/admin/devices',     icon: '🔌' },
+  { label: 'Data Collector',  path: '/admin/collector',   icon: '🔄' },
+  { label: 'Users',           path: '/admin/users',       icon: '👥' },
+  { label: 'Analytics',       path: '/admin/analytics',   icon: '📈' },
+  { label: 'Import (Amazon)', path: '/admin/import',      icon: '⬆️' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
