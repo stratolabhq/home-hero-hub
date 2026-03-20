@@ -26,7 +26,7 @@ interface Product {
 export default function AddProduct() {
   const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -39,28 +39,40 @@ export default function AddProduct() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (searchTerm.trim().length < 2) {
+      setProducts([]);
+      return;
+    }
 
-  const fetchProducts = async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => {
+      searchProducts(searchTerm.trim());
+    }, 300);
+
+    return () => {
+      clearTimeout(timeout);
+      controller.abort();
+    };
+  }, [searchTerm]);
+
+  const searchProducts = async (term: string) => {
     setLoading(true);
     const { data, error } = await supabase
       .from('products')
       .select('*')
-      .order('name');
+      .or(`name.ilike.%${term}%,brand.ilike.%${term}%,model_number.ilike.%${term}%`)
+      .order('name')
+      .limit(100);
 
     if (error) {
-      console.error('Error fetching products:', error);
+      console.error('Error searching products:', error);
     } else {
       setProducts(data || []);
     }
     setLoading(false);
   };
 
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.brand.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProducts = products;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -155,7 +167,7 @@ export default function AddProduct() {
               </label>
                <input
                type="text"
-               placeholder="Search by name or brand..."
+               placeholder="Search by name, brand, or model number..."
                value={searchTerm}
                onChange={(e) => {
   const value = (e.target as HTMLInputElement).value;
@@ -191,7 +203,9 @@ export default function AddProduct() {
 
             <div className="border border-gray-200 rounded-lg max-h-96 overflow-y-auto">
               {loading ? (
-                <div className="p-8 text-center text-gray-500">Loading devices...</div>
+                <div className="p-8 text-center text-gray-500">Searching...</div>
+              ) : searchTerm.trim().length < 2 ? (
+                <div className="p-8 text-center text-gray-500">Type at least 2 characters to search 10,000+ devices</div>
               ) : filteredProducts.length === 0 ? (
                 <div className="p-8 text-center text-gray-500">No devices found</div>
               ) : (
