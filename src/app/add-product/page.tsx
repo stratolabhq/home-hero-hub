@@ -60,12 +60,13 @@ export default function AddProduct() {
     const { data, error } = await supabase
       .from('products')
       .select('*')
-      .or(`name.ilike.%${term}%,brand.ilike.%${term}%,model_number.ilike.%${term}%`)
+      .or(`name.ilike.%${term}%,brand.ilike.%${term}%,notes.ilike.%${term}%`)
       .order('name')
       .limit(100);
 
     if (error) {
       console.error('Error searching products:', error);
+      setProducts([]);
     } else {
       setProducts(data || []);
     }
