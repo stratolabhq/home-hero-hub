@@ -1,0 +1,650 @@
+[
+  {
+    "product_id": "wyze-wyze-window-cam",
+    "name": "Wyze Window Cam",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-window-cam-wyze-labs-inc-1320283.webp?v=1764170052",
+    "price_range": "$34.98 – $59.98",
+    "description": " No Tools, Just Stick It Upgraded Color Night Vision Specialized Design to Reduce Glare AI-Powered Motion Detection &amp;amp; Alerts 24/7 Local Recording with MicroSD Card Easy Setup with Bluetooth® Timelapse Video Mode Alexa, Google Assistant, IFTTT Support ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-window-cam"
+  },
+  {
+    "product_id": "wyze-wyze-solar-cam-pan",
+    "name": "Wyze Solar Cam Pan",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-solar-cam-pan-wyze-labs-inc-2869104.webp?v=1761077110",
+    "price_range": "$79.98 – $219.98",
+    "description": " Integrated High-Efficiency Solar Panel 360° Pan &amp;amp; 70° Tilt Coverage AI-Powered Person Tracking 2K HD Resolution with WDR Quick, Easy Mounting IP65 Weather Resistance ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-solar-cam-pan"
+  },
+  {
+    "product_id": "wyze-wyze-battery-video-doorbell",
+    "name": "Wyze Battery Video Doorbell",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Video Doorbell",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-battery-video-doorbell-wyze-labs-inc-6120700.webp?v=1771537530",
+    "price_range": "$65.98 – $165.98",
+    "description": "   Head-to-Toe Viewing   1536 x 1536 HD+ Resolution   Wire-Free or Wired Up to 6-Month Battery Life   AI-Powered Person &amp;amp; Package Detection Easy Install in Minutes ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-battery-video-doorbell"
+  },
+  {
+    "product_id": "wyze-wyze-bulb-cam",
+    "name": "Wyze Bulb Cam",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-bulb-cam-wyze-labs-inc-400673.png?v=1762448182",
+    "price_range": "$49.98 – $134.99",
+    "description": "Protect your home day and night with Wyze Bulb Cam, the 2-in-1 outdoor security camera and smart LED light bulb. Capture clear 2K HD video with color night vision, receive instant motion alerts, and control your lighting from anywhere with the Wyze app. Easy to install, fits most fixtures, and supports local video storage—no subscription needed.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-bulb-cam"
+  },
+  {
+    "product_id": "wyze-wyze-video-doorbell-v2",
+    "name": "Wyze Video Doorbell v2",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Video Doorbell",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/refurbished-wyze-video-doorbell-v2-wyze-labs-inc-317951.png?v=1762440362",
+    "price_range": "$59.98 – $74.98",
+    "description": " Answer your door from anywhere with our clearest and most capable wired video doorbell yet. Wyze Video Doorbell v2 gives you 2K video and local microSD storage, so you can capture every moment in more detail than ever. Plus, get video doorbell essentials like two-way audio, real-time alerts, and motion-activated voice deterrence.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-video-doorbell-v2"
+  },
+  {
+    "product_id": "wyze-wyze-palm-lock",
+    "name": "Wyze Palm Lock",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Smart Lock",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-palm-lock-wyze-labs-inc-4095521.png?v=1758120059",
+    "price_range": "$129.98",
+    "description": "   Contactless entry with palm vein recognition.  Numbered keypad with access codes. Control from anywhere with Wi-Fi. Up to 6 months of battery life. Manual lock and key option. Peace of mind with auto lock. ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-palm-lock"
+  },
+  {
+    "product_id": "wyze-wyze-lock-bolt-v2",
+    "name": "Wyze Lock Bolt v2",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Smart Lock",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-lock-bolt-v2-wyze-labs-inc-1774999.webp?v=1763490661",
+    "price_range": "$79.98",
+    "description": "  Fast, secure fingerprint entry AI self-learning fingerprint scanner Wi-Fi control from anywhere Up to 8 months of battery life Durable, anti-glare tempered glass Manual lock and key option Peace of mind with Auto Lock BHMA® Certified Grade 2 Data stored locally on device  ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-lock-bolt-v2"
+  },
+  {
+    "product_id": "wyze-wyze-bulb-color",
+    "name": "Wyze Bulb Color",
+    "brand": "Wyze",
+    "category": "Lighting",
+    "type": "Smart Bulb",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-bulb-color-wyze-labs-inc-733750.png?v=1762447654",
+    "price_range": "$24.98 – $65.99",
+    "description": "Wyze Bulb Color went to Mardi Gras, and thought it was drab. It yawned at the Holi Festival in India. It fell asleep at the fireworks show on the 4th of July. Wyze Bulb Color is an insufferable snob, but it&#39;s tough to get excited when you&#39;re the greatest 16 million color smart bulb on earth. It has a dimmable option, yes, but takes personal offense if you use it.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-bulb-color"
+  },
+  {
+    "product_id": "wyze-wyze-cordless-vacuum-s",
+    "name": "Wyze Cordless Vacuum S",
+    "brand": "Wyze",
+    "category": "Appliances",
+    "type": "Robot Vacuum",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-cordless-vacuum-s-wyze-labs-inc-873188.png?v=1762440349",
+    "price_range": "$139.99",
+    "description": "  Finally! A vacuum that is free and independent and no longer reliant on its parents for financial and emotional support. Wyze Cordless Vacuum S! If those other vacuums would cut the cord and move out of their parents&#39; basements, maybe they&#39;d know what it was like to live with 20,000 Pa suction power and a 40-minute interchangeable lithium ion battery. Plus, not just one, but two motors, and exactly the same weight as 2.8 pounds of feathers. ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-cordless-vacuum-s"
+  },
+  {
+    "product_id": "wyze-wyze-scale-ultra-bodyscan",
+    "name": "Wyze Scale Ultra BodyScan",
+    "brand": "Wyze",
+    "category": "Other",
+    "type": "Personal Device",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-scale-ultra-bodyscan-wyze-labs-inc-8562001.webp?v=1761822712",
+    "price_range": "$119.98",
+    "description": " Smart 8-Electrode Body Fat Scale 13 Body Composition Metrics with BMI 4.3&quot; Color Display Muscle Mass &amp;amp; Heart Rate Wi-Fi/Bluetooth® Baby/Pet Mode ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-scale-ultra-bodyscan"
+  },
+  {
+    "product_id": "wyze-wyze-scale-ultra",
+    "name": "Wyze Scale Ultra",
+    "brand": "Wyze",
+    "category": "Other",
+    "type": "Personal Device",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-scale-ultra-wyze-labs-inc-451300.png?v=1770148791",
+    "price_range": "$49.98",
+    "description": "Step up to an ultra-new way to track your health. Wyze Scale Ultra measures 13 body composition metrics and displays your data on a huge 4.3-inch TFT screen in full color. Connect to Wi-Fi for easy data syncs to your favorite fitness apps, without your phone nearby. Full-surface glass sensors, smart user recognition and long-lasting battery life make this scale a must-have tool for your fitness journey.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-scale-ultra"
+  },
+  {
+    "product_id": "wyze-wyze-noise-cancelling-headphones",
+    "name": "Wyze Noise-Cancelling Headphones",
+    "brand": "Wyze",
+    "category": "Other",
+    "type": "Personal Device",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-noise-cancelling-headphones-wyze-labs-inc-5598498.jpg?v=1762439806",
+    "price_range": "$29.99 – $35.99",
+    "description": "Like a symphony playing just for you.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-headphones"
+  },
+  {
+    "product_id": "wyze-wyze-bulb-cam-accessory-bulbs",
+    "name": "Wyze Bulb Cam + Accessory Bulbs",
+    "brand": "Wyze",
+    "category": "Security",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-bulb-cam-accessory-bulbs-wyze-labs-inc-136426.png?v=1762448402",
+    "price_range": "$64.98 – $84.98",
+    "description": "Protect your home day and night with Wyze Bulb Cam and Wyze Accessory Bulb. Capture clear 2K HD video with color night vision, receive instant motion alerts, and control your lighting from anywhere with the Wyze app. Easy to install, fits most fixtures, and supports local video storage—no subscription needed.  This bundle includes the Wyze Accessory Bulb for the perfect outdoor setup.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-bulb-cam-accessory-bulbs"
+  },
+  {
+    "product_id": "wyze-wyze-lamp-socket",
+    "name": "Wyze Lamp Socket",
+    "brand": "Wyze",
+    "category": "Lighting",
+    "type": "Smart Lamp",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/products/wyze-lamp-socket-wyze-labs-inc-613917.png?v=1762439850",
+    "price_range": "$14.98 – $58.97",
+    "description": "Make your exterior lighting smart. Power Wyze Cam v3 and v4 without a plug.  The original model of the Wyze Lamp Socket.  ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-lamp-socket"
+  },
+  {
+    "product_id": "wyze-wyze-night-light",
+    "name": "Wyze Night Light",
+    "brand": "Wyze",
+    "category": "Other",
+    "type": "Smart Device",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-night-light-wyze-labs-inc-802890.png?v=1762439823",
+    "price_range": "$24.99 – $39.98",
+    "description": " Illuminate the night with soft, motion-activated light.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-night-light"
+  },
+  {
+    "product_id": "wyze-wyze-light-strip-pro",
+    "name": "Wyze Light Strip Pro",
+    "brand": "Wyze",
+    "category": "Lighting",
+    "type": "Light Strip",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/products/wyze-light-strip-pro-wyze-labs-inc-578585.jpg?v=1762439825",
+    "price_range": "$29.99 – $44.99",
+    "description": "  Customize your vibe with multi-color segment control.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-lightstrip-pro"
+  },
+  {
+    "product_id": "wyze-wyze-lamp-socket-v2",
+    "name": "Wyze Lamp Socket v2",
+    "brand": "Wyze",
+    "category": "Lighting",
+    "type": "Smart Lamp",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-lamp-socket-v2-wyze-labs-inc-2469837.png?v=1753277754",
+    "price_range": "$16.98 – $56.96",
+    "description": "Make your exterior lighting even smarter. With our latest lamp socket, you can now power Wyze Cam v3/v3 Pro/v4, Cam OG, Pan v3, Pan v4 and Duo Cam Pan without the need for a power outlet. ",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-lamp-socket-v2"
+  },
+  {
+    "product_id": "wyze-wyze-accessory-light-bulb",
+    "name": "Wyze Accessory Light Bulb",
+    "brand": "Wyze",
+    "category": "Lighting",
+    "type": "Smart Bulb",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "none",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "wyze",
+    "matter": false,
+    "image_url": "https://www.wyze.com/cdn/shop/files/wyze-accessory-bulb-wyze-labs-inc-981408.png?v=1762448388",
+    "price_range": "$16.98 – $36.99",
+    "description": "Got the Wyze Bulb Cam? Now get the light!  Wyze Accessory Bulb is the trusty sidekick to the latest camera tech found in our Wyze Bulb Cam. No over-the-top features, just solid, reliable brightness that works like a charm, every time.",
+    "model_number": "",
+    "features": [
+      "Bundles Bundles",
+      "Security Plans Cam Plus · Home Monitoring",
+      "Community Connect with Wyze fans across the globe. Join Us",
+      "Support Get help with your Wyze devices and orders. Connect With Us",
+      "Where's my Order? Check the status of your order View Now",
+      "United States /English",
+      "United States /Español",
+      "United States /Français"
+    ],
+    "notes": "Source: https://www.wyze.com/products/wyze-accessory-bulb"
+  }
+]

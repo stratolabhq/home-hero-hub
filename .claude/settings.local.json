@@ -26,7 +26,13 @@
       "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/products/all-products?page=1\")",
       "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-a19-starter-kit/046677562786\")",
       "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-bridge/046677458478\")",
-      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-a19-bulb-e26/046677562786\")"
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-a19-bulb-e26/046677562786\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" -w \"\\\\nHTTP Status: %{http_code}\\\\n\" \"https://www.kasasmart.com/us/products\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" \"https://www.kasasmart.com/us/products\")",
+      "Bash(curl -s -i -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" \"https://www.kasasmart.com/us/products\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" \"https://www.kasasmart.com/us/products/smart-plugs\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" \"https://www.kasasmart.com/us/products/smart-lighting\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/91.0.4472.124 Safari/537.36\" \"https://www.kasasmart.com/us/sitemap.xml\")"
     ]
   }
 }

@@ -1,0 +1,1815 @@
+[
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-plug-slim-energy-monitoring-kp125m",
+    "name": "Kasa Smart Wi-Fi Plug Slim with Energy Monitoring",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/b683f135-c4b9-40c0-bdb7-6378f2b4d1e9_KP125M_Setup+Images_2302_01.jpg?auto=compress",
+    "price_range": "",
+    "description": "Keep Track of Your Energy Use",
+    "model_number": "KP125M",
+    "features": [
+      "Matter Certified Integrate Matter-certified Kasa devices with other Matter end products into your preferred ecosystem.",
+      "Energy Monitoring Monitor connected device's real-time and historical power consumption.",
+      "Compact Design Mini-sized to avoid blocking adjacent sockets.",
+      "Voice Control Manage your smart plug with voice commands via Amazon Alexa, Apple Siri®, or Google Assistant.",
+      "Remote Control Instantly turn connected devices on/off from wherever you are through the Kasa Smart app.",
+      "Schedule Preset a schedule to automatically manage devices."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-plug-slim-energy-monitoring-kp125m"
+  },
+  {
+    "product_id": "kasa-smart-plugs-smart-wifi-outdoor-plug-ep40a",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zi7_L93JpQ5PTOsq_EP40A_US_1.0_ProductImage.jpg?auto=format%2Ccompress&rect=0%2C0%2C1000%2C1000&w=520&h=520",
+    "price_range": "",
+    "description": "Enjoy safe outdoor activities with your Kasa Smart Wi-Fi Outdoor Plug.",
+    "model_number": "EP40A",
+    "features": [
+      "Long Wi-fi Range With dual antennas for long range Wi-Fi, the Kasa Smart Outdoor Plug has a reach of up to 300ft in open areas.¹",
+      "Apple Homekit Supported The smart plug supports control via the Apple Home app and Siri on your iPhone, iPad, Apple Watch, HomePod, and Mac.",
+      "Ip64 Weatherproof The IP64 rating and weather-resistant cover ensure protection against dust intrusion and splashing water.²",
+      "Voice Control Use simple voice commands with Siri, Alexa, or Google Assistant to free your hands up.",
+      "Remote Control Easily control your plugs from anywhere using the Kasa app or Apple Home app.",
+      "Heavy-duty Power With loads up to 15A/1875W, EP40A is capable of supplying power to heavy-duty appliances.",
+      "Double The Outlets Access and use two outdoor devices from anywhere, together or individually—all with one smart plug.",
+      "Etl Certified This socket is ETL Certified. ETL certified to provide peace of mind that quality and safety are standards we strive for."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/smart-wifi-outdoor-plug-ep40a"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-plug-slim-energy-monitoring-ep25",
+    "name": "Kasa Smart Wi-Fi Plug Slim with Energy Monitoring",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/2564bf38-6632-4b2e-9cf1-fbe38bb5db12_EP25.png?auto=compress",
+    "price_range": "",
+    "description": "Turn your smart plug on/off and set schedules or scenes from anywhere with your phone using the Kasa Smart app.",
+    "model_number": "EP25",
+    "features": [
+      "Control From Anywhere Turn your smart plug on/off and set schedules or scenes from anywhere with your phone using the Kasa Smart app.",
+      "Set Schedules And Timer Automatically turn your connected lamps, small appliances, holiday decorations, and other electrical devices on or off to match your daily routine.",
+      "Energy Monitoring Monitor connected device's real-time and historical power consumption with the Kasa Smart app.",
+      "Compact Design A smaller size allows you to stack two plugs on the same outlet.",
+      "Voice Control Use simple voice commands to control your smart plug with any Alexa, Google Assistant, or Samsung SmartThings enabled devices.",
+      "Multiple Safety Guarantees UL certified for safety use. 2-year warranty. V-0 rating PC flame retardant shell and nickel-plated phosphor bronze contacts make it durable and trustworthy.",
+      "Away Mode Set your smart plug to turn on and off at random intervals to give the appearance you're home even while you're away.",
+      "Grouping Use group control to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your phone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-plug-slim-energy-monitoring-ep25"
+  },
+  {
+    "product_id": "kasa-smart-plugs-product-kp405",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug-In Dimmer",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zi7_193JpQ5PTOss_KP405_US_1.20_SetupImages_00.jpg?auto=format%2Ccompress&rect=0%2C0%2C1000%2C1000&w=520&h=520",
+    "price_range": "",
+    "description": "Outdoor Smart Dimmer Plug, IP64 for Outdoor String Lights, Works with Alexa, Google Assistant & SmartThings, Long Wi-Fi Range with 2.4GHz Wi-Fi, No Hub Required, ETL Certified",
+    "model_number": "KP405",
+    "features": [
+      "Weather-resistant The IP64 rating and weather-resistant cover* ensure protection against dust intrusion and splashes of water. *Cover the socket with the weatherproof cover when not in use.",
+      "Voice Control Use simple voice commands with Alexa or Google Assistant to control your connected devices.",
+      "Set Schedules Switch your outdoor lighting on and off automatically to save energy and effort.",
+      "Full-range Brightness Adjust the brightness of connected lights outdoors to set the perfect ambiance for any activity.",
+      "Control From Anywhere Turn your connected device on and off from anywhere using the Kasa Smart app.",
+      "No Hub Required Works with a secured 2.4 GHz wireless network without needing a hub or a separate device."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/product-kp405"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-plug-mini-ep10",
+    "name": "Kasa Smart Wi-Fi Plug Mini",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/d052445b-7e05-4b2b-883c-8482675b7f31_EP10_US_1.0_1pack_1.jpg?auto=compress",
+    "price_range": "",
+    "description": "Kasa Smart Plug Ultra Mini 15A, Smart Home Wi-Fi Outlet Works with Alexa, Google Home & IFTTT, No Hub Required, UL Certified, 2.4G WiFi Only",
+    "model_number": "EP10",
+    "features": [
+      "Voice Control: Enjoy the hands free convenience of controlling any home electronic appliances with Google Assistant or Alexa.",
+      "Auto-off Timer Set a timer to turn on or off your connected device automatically as needed.",
+      "Smart Schedules: Creat an automated schedule for your to turn your connected electrical devices on or off.",
+      "Remoto Control: Turn electronics on and off from anywhere with your smartphone using the Kasa app.",
+      "Grouping: Combine your smart plug with other Kasa Smart devices for seamless control with a single tap on your phone.",
+      "Compact Design: The compact design of the Kasa Smart Wi-Fi Plug Mini IS smaller than others and allows them to be stacked in the same outlet."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-plug-mini-ep10"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-plug-slim-energy-monitoring-kp125",
+    "name": "Kasa Smart Wi-Fi Plug Slim with Energy Monitoring",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/7271fc92-8354-40c1-9a6f-589317071429_KP125.png?auto=compress",
+    "price_range": "",
+    "description": "Turn your smart plug on/off and set schedules or scenes from anywhere with your phone using the Kasa Smart app.",
+    "model_number": "KP125",
+    "features": [
+      "Control From Anywhere Turn your smart plug on/off and set schedules or scenes from anywhere with your phone using the Kasa Smart app.",
+      "Set Schedules And Timer Automatically turn your connected lamps, small appliances, holiday decorations, and other electrical devices on or off to match your daily routine.",
+      "Energy Monitoring Monitor connected device's real-time and historical power consumption with the Kasa Smart app.",
+      "Compact Design A smaller size allows you to stack two plugs on the same outlet.",
+      "Voice Control Use simple voice commands to control your smart plug with any Alexa, Google Assistant, or Samsung SmartThings enabled devices.",
+      "Multiple Safety Guarantees UL certified for safety use. 2-year warranty. V-0 rating PC flame retardant shell and nickel-plated phosphor bronze contacts make it durable and trustworthy.",
+      "Away Mode Set your smart plug to turn on and off at random intervals to give the appearance you're home even while you're away.",
+      "Grouping Use group control to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your phone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-plug-slim-energy-monitoring-kp125"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wi-fi-outdoor-plug",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zi8AvN3JpQ5PTOs__EP40_US_1.0-Productimage.jpg?auto=format%2Ccompress&rect=0%2C0%2C2000%2C2000&w=520&h=520",
+    "price_range": "",
+    "description": "Enjoy safe outdoor activities with your Kasa Smart Wi-Fi Outdoor Plug.",
+    "model_number": "EP40",
+    "features": [
+      "Long Wi-fi Range With a built-in power amplifier for long range Wi-Fi, the Kasa Smart Outdoor Plug has a reach of up to 300ft in open areas.",
+      "Weatherproof The IP64 rating and weather-resistant cover ensure protection against dust intrusion and splashes of water.",
+      "Double The Outlets Access and use two outdoor devices from anywhere, together or individually—all with one smart plug.",
+      "Etl Certified This socket is ETL Certified. ETL certified to provide peace of mind that quality and safety are standards we strive for.",
+      "Voice Control Use simple voice commands with Alexa or Google Assistant to enjoy your hands free.",
+      "Remote Control Turn on/ off your devices from anywhere via Kasa Smart app.",
+      "No Hub Required The outdoor smart plug works with a secured 2.4 GHz wireless network without needing a separate hub.",
+      "Easy Setup Setup easily in less than 5 minutes following the setup instructions on the Kasa Smart app."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wi-fi-outdoor-plug"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wifi-mini-plug-hs103",
+    "name": "Kasa Smart Wi-Fi Plug Mini",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/e17c9424-0bc8-4a10-a156-3767915dc55f_HS105.png?auto=compress",
+    "price_range": "",
+    "description": "The easiest way you can start controlling lamps, fans, and other lite-duty appliances around your home.",
+    "model_number": "HS103",
+    "features": [
+      "Lite-duty Plug A lighter version of Kasa Smart's mini plug that can power any lite-duty device under 15 AMPs.",
+      "Control From Anywhere Turn your smart plug on and off, set schedules or scenes from anywhere with your smartphone using the Kasa Smart app.",
+      "No Hub Required The Smart Plug works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Voice Control Use simple voice commands with your smart plug and any Alexa, Google Assistant.",
+      "Compact Design The compact design of the Kasa Smart Wi-Fi Plug is smaller than other smart plugs and allows them to be stacked in the same outlet.",
+      "Grouping Use Grouping to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Set Schedules Schedule any device connected to the Kasa Smart Wi-Fi Plug Mini to automatically switch on or off if you’re home or away."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-mini-plug-hs103"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-outdoor-plug-kp401",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zi8E793JpQ5PTOtS_21_KP401_01_1500x1500.png?auto=format%2Ccompress&rect=0%2C0%2C1500%2C1500&w=520&h=520",
+    "price_range": "",
+    "description": "Outdoor Smart Plug, IP64 for Outdoor String Lights, Works with Alexa, Google Assistant & SmartThings, Long Wi-Fi Range with 2.4GHz Wi-Fi, No Hub Required, ETL Certified",
+    "model_number": "KP401",
+    "features": [
+      "Weather-resistant The IP64 rating and weather-resistant cover* ensure protection against dust intrusion and splashes of water. *Cover the socket with the weatherproof cover when not in use.",
+      "Voice Control Use simple voice commands with Alexa or Google Assistant to control your connected devices.",
+      "Set Schedules Switch your outdoor lighting on and off automatically to save energy and effort.",
+      "Control From Anywhere Turn your connected device on and off from anywhere using the Kasa Smart app.",
+      "No Hub Required Works with a secured 2.4 GHz wireless network without needing a hub or a separate device."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-outdoor-plug-kp401"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wi-fi-power-strip-hs300",
+    "name": "Kasa Smart Wi-Fi Power Strip, 6-Outlets",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Power Strip",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/4ffb8e9d-0728-49c3-ab62-46d69317c377_kasasmart_HS300V2_product-image_01.png?auto=compress",
+    "price_range": "",
+    "description": "The Kasa Smart Wi-Fi Power Strip is a smarter way to control multiple devices from anywhere.",
+    "model_number": "HS300",
+    "features": [
+      "6 Smart Outlets Independently control 6 smart outlets and charge 3 devices with built-in USB ports.",
+      "Surge Protection ETL certified surge protection shields sensitive electronics and appliances from sudden power surges that can occur during weather storms and cause irreparable damage.",
+      "Energy Monitoring Monitor how much energy devices connected to the power strip consume. Check on each one from your Kasa Smart app and turn off ones that are using too much.",
+      "Voice Control Control your smart power strip using simple voice commands with Alexa and Google Assistant.",
+      "Grouping Use Grouping to combine all six of your smart plugs on the power strip with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Control From Anywhere Control connected devices from anywhere with the Kasa Smart app. Power up your office remotely and even your holiday lights from the app."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wi-fi-power-strip-hs300"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wi-fi-power-strip-kp303",
+    "name": "Kasa Smart Wi-Fi Power Strip, 3-Outlets",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Power Strip",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/9f880cc19580fe350c8623e1a9e82efe246e8996_kp303.png?auto=compress",
+    "price_range": "",
+    "description": "The Kasa Smart Wi-Fi Power Strip equips you with 3 individual control smart outlets and 2 always-on USB ports with ETL certified surge protection.",
+    "model_number": "KP303",
+    "features": [
+      "Multi-socket Independently control 3 smart outlets and charge 2 devices with built-in USB ports.",
+      "Surge Protection ETL certified surge protection shields sensitive electronics and appliances from sudden power surges that can occur during thunderstorms.",
+      "Voice Control Compatible with Alexa and Google Assistant. Free up your hands by using voice commands to control plugged in devices.",
+      "Grouping Use Grouping to combine all 3 of your smart plugs on the power strip with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Control From Anywhere The free Kasa Smart app allows you to remotely control connected devices through your mobile devices."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wi-fi-power-strip-kp303"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wifi-outdoor-plug-kp400",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zi8DDt3JpQ5PTOtK_KP400_ProductImage.jpg?auto=format%2Ccompress&rect=0%2C0%2C2000%2C2000&w=520&h=520",
+    "price_range": "",
+    "description": "Extend your Smart Home to the outdoors with the Kasa Smart Outdoor Plug.",
+    "model_number": "KP400",
+    "features": [
+      "Fireproof The plug's shell is made of UL94-V0 PC—a material ideal for fire prevention.",
+      "Easy Setup Plug in the weather-resistant plug, follow the setup instructions on the Kasa Smart app, name your plug, and you’re good to go!",
+      "Etl Certified ETL certified to provide peace of mind that quality and safety are standards we strive for.",
+      "Individual Control Control 2 outdoor devices from anywhere together or individually, with one smart plug. Ideal for landscape lighting, swimming pool pumps, holiday lights, or other appliances.",
+      "Device Grouping Group your Kasa Smart light bulbs, plugs and switches for seamless control. Ideal for controlling all your devices simultaneously with a single tap."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-outdoor-plug-kp400"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wifi-power-outlet-kp200",
+    "name": "Kasa Smart Wi-Fi Power Outlet, 2-Sockets",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/15cba8915fc348458a64ae483f0852868a2df6f6_kp200-product-image.png?auto=compress",
+    "price_range": "",
+    "description": "Everything you enjoy about smart plugs, now in a discreet in-wall outlet.",
+    "model_number": "KP200",
+    "features": [
+      "Smart In-wall Outlets Kasa Smart’s in-wall outlet lets you control 2 plugged in devices from anywhere at the same time or individually. All the features and benefits of a Kasa Smart plug multiplied.",
+      "Control From Anywhere Turn your in-wall outlet on or off, set schedules or scenes from anywhere with your smartphone using the Kasa Smart app.",
+      "Voice Control Use simple voice commands with Alexa or Google Assistant to control your smart plug.",
+      "Away Mode Set your outlet to turn connected devices on and off randomly throughout the day to make it appear you’re home even while you’re away.",
+      "Grouping Use Grouping to combine your smart outlet with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Schedules Use your Kasa Smart app to individually schedule each device connected to the Kasa Smart Wi-Fi Power Outlet to automatically switch on or off at set times.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation.* *Any modification may void warranty."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-power-outlet-kp200"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-plug-slim-energy-monitoring-kp115",
+    "name": "Kasa Smart Wi-Fi Plug Slim with Energy Monitoring",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/f0a6fad8-3e3b-4616-8812-92f367903725_KP115-setup+image-01.jpg?auto=compress",
+    "price_range": "",
+    "description": "Monitor energy consumption of connected devices from anywhere with the energy monitoring smart plug.",
+    "model_number": "KP115",
+    "features": [
+      "Control From Anywhere Turn your smart plug on/off and set schedules or scenes from anywhere with your phone using the Kasa Smart app.",
+      "Set Schedules And Timer Automatically turn your connected lamps, small appliances, holiday decorations, and other electrical devices on or off to match your daily routine.",
+      "Energy Monitoring Monitor connected device's real-time and historical power consumption with the Kasa Smart app.",
+      "Compact Design A smaller size allows you to stack two plugs on the same outlet.",
+      "Voice Control Use simple voice commands to control your smart plug with any Alexa, Google Assistant, or Samsung SmartThings enabled devices.",
+      "Multiple Safety Guarantees UL certified for safety use. 2-year warranty. V-0 rating PC flame retardant shell and nickel-plated phosphor bronze contacts make it durable and trustworthy.",
+      "Away Mode Set your smart plug to turn on and off at random intervals to give the appearance you're home even while you're away.",
+      "Grouping Use group control to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your phone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-plug-slim-energy-monitoring-kp115"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wifi-plug-mini",
+    "name": "Kasa Smart Wi-Fi Plug Mini",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/3eae05a479087a41deb98e98a4721d08dae3904c_hs105us-product-image.png?auto=compress",
+    "price_range": "",
+    "description": "Control a lamp or appliance from anywhere with Kasa Smart’s mini plug.",
+    "model_number": "HS105",
+    "features": [
+      "Control From Anywhere Turn your smart plug on and off, set schedules or scenes from anywhere with your smartphone using the Kasa Smart app.",
+      "No Hub Required The Smart Plug works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Voice Control Use simple voice commands with your smart plug and Alexa or Google Assistant.",
+      "Compact Design The compact design of the Kasa Smart Wi-Fi Plug Mini is smaller than other smart plugs and allows them to be stacked in the same outlet.",
+      "Grouping Use Grouping to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Set Schedules Schedule any device connected to the Kasa Smart Wi-Fi Plug Mini to automatically switch on or off if you’re home or away."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-plug-mini"
+  },
+  {
+    "product_id": "kasa-smart-plugs-kasa-smart-wifi-plug-mini-hs103",
+    "name": "Kasa Smart Wi-Fi Plug Mini",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/e17c9424-0bc8-4a10-a156-3767915dc55f_HS105.png?auto=compress",
+    "price_range": "",
+    "description": "The easiest way you can start controlling lamps, fans, and other appliances around your home.",
+    "model_number": "HS103",
+    "features": [
+      "Control From Anywhere Turn your smart plug on and off, set schedules or scenes from anywhere with your smartphone using the Kasa Smart app.",
+      "No Hub Required The Smart Plug works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Voice Control Use simple voice commands to control your smart plug with Alexa and Google Assistant.",
+      "Compact Design The compact design of the Kasa Smart Wi-Fi Plug allows two to be stacked in the same outlet.",
+      "Grouping Use Grouping to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Set Schedules Schedule any device connected to the Kasa Smart Wi-Fi Plug to automatically switch on or off if you’re home or away."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-plug-mini-hs103"
+  },
+  {
+    "product_id": "kasa-smart-plugs-smart-wifi-outdoor-plug-ep40m",
+    "name": "Kasa Smart Wi-Fi Outdoor Plug",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Outdoor Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/2dba97f2-47bd-4680-831f-f67e8752e701_EP40M_US_1.0_1.jpg?auto=compress",
+    "price_range": "",
+    "description": "The Smartest Way to Power Your Outdoors",
+    "model_number": "EP40M",
+    "features": [
+      "Two Individual Outlets Set customized schedules for each outlet of your dual smart plug to meet the needs of different devices.",
+      "Voice Control With convenient voice commands, power your outdoor lights on or off and adjust usage schedules even when your hands are full.",
+      "Ip64 Weatherproof With an outdoor temperature resistance of -4°F to 122°F (-20°C to 50°C), EP40M can withstand any weather from rain and snow to heat and dust.¹",
+      "Custom Schedules Set it and forget it with smart plug scheduling—set custom times for lights to power on or off automatically or set a countdown timer.",
+      "Strong Wi-fi Connections EP40M's dual antennas provide a strong and reliable Wi-Fi connection, even at distances of up to 300 ft.²",
+      "Heavy Duty Power Supply Power everything from smart home devices to heavy-duty appliances with a 15A/1875W load capacity (resistive load).",
+      "Trusted & Reliable Backed by a 2-year warranty, ETL certification, fire/heat resistant construction, and trusted by over 10 million users, EP40M is the safe, reliable smart plug you can count on."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/smart-wifi-outdoor-plug-ep40m"
+  },
+  {
+    "product_id": "kasa-smart-plugs-hs103p3",
+    "name": "Kasa Smart Wi-Fi Plug Mini",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Plug",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/4ae5c183-bd6c-4ab2-bcd1-3a3c501e3f81_HS103P3+Image_Final_01.png?auto=format",
+    "price_range": "",
+    "description": "The easiest way you can start controlling lamps, fans, and other lite-duty appliances around your home.",
+    "model_number": "HS103P3",
+    "features": [
+      "Lite-duty Plug A lighter version of Kasa Smart's mini plug that can power any lite-duty device under 15 AMPs.",
+      "Control From Anywhere Turn your smart plug on and off, set schedules or scenes from anywhere with your smartphone using the Kasa Smart app.",
+      "No Hub Required The Smart Plug works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Voice Control Use simple voice commands with your smart plug and any Alexa, Google Assistant.",
+      "Compact Design The compact design of the Kasa Smart Wi-Fi Plug is smaller than other smart plugs and allows them to be stacked in the same outlet.",
+      "Grouping Use Grouping to combine your smart plug with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Set Schedules Schedule any device connected to the Kasa Smart Wi-Fi Plug Mini to automatically switch on or off if you’re home or away."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-plugs/hs103p3"
+  },
+  {
+    "product_id": "kasa-smart-lighting-kasa-smart-light-bulb-multicolor-kl135",
+    "name": "Kasa Smart Wi-Fi Bulb Multicolor, 1000lumens",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Smart Bulb (Color)",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/b292bb22-60bb-4602-b90f-e5c4ab779f73_KL135_US_1.0_Overview.png?auto=compress",
+    "price_range": "",
+    "description": "Experience endless lighting possibilities with the multicolor light bulb. Choose from a wide array of colors, or dim to any brightness you desire for the perfect atmosphere.",
+    "model_number": "KL135",
+    "features": [
+      "Multicolor Experience endless lighting possibilities with the multicolor light bulb. Choose from a wide array of colors, or dim to any brightness you desire for the perfect atmosphere.",
+      "Auto White Automatically adjust the color temperature of your Kasa Smart light bulb to match natural light patterns from dawn to dusk.",
+      "Dimmable Adjust the brightness from 1% to 100% conveniently with the Kasa Smart app.",
+      "Grouping Combine your light bulb with other Kasa Smart devices with the Grouping feature and control them all with a single tap of your phone .",
+      "Voice Control Use simple voice commands to change the color and brightness of your light bulb with any Amazon Alexa or Google Assistant device.",
+      "High Cri Rating High CRI Rating provides more attractive and brighter colors to help you see the true color spectrum throughout your home.",
+      "Cec Title 20 Kasa Smart’s multicolor light bulb is certified to drive down energy consumption without losing quality.",
+      "Energy Saving Kasa Smart Bulb‘s standby power is more than 60% less than other smart bulbs, saving you money and energy."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/kasa-smart-light-bulb-multicolor-kl135"
+  },
+  {
+    "product_id": "kasa-smart-lighting-product-kl400l5",
+    "name": "Kasa Smart Light Strip, Multicolor",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Light Strip",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/9e7a94a0-1d87-46b6-94a2-97d782592383_KL125_US_1.0_1040px.png?auto=compress",
+    "price_range": "",
+    "description": "Control smart light strips using the leading voice assistants such as Alexa, Google Assistant and SmartThings.",
+    "model_number": "KL400L5",
+    "features": [
+      "Works With Voice Assistants Control smart light strips using the leading voice assistants such as Alexa, Google Assistant and SmartThings.",
+      "Compatible With Android, Ios The free Kasa Smart app lets you run smart light strips from any Android or iOS devices.",
+      "Lighting Effects Choose from a wide array of colors, even dim to any brightness you desire for the perfect atmosphere.",
+      "Set Schedules Run your light strip automatically to fit any event with Kasa Smart app.",
+      "Flexible And Easy Install The flexibility to bend and cut allows you to stick it or place it in the exact spot you desire.",
+      "Group And Scenes Combine your strip with other Kasa devices for seamless control with a single tap.",
+      "Multicolor Offer endless lighting possibilities with 16 million colors and dimming capabilities."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/product-kl400l5"
+  },
+  {
+    "product_id": "kasa-smart-lighting-kasa-smart-light-strip-multicolor",
+    "name": "Kasa Smart Light Strip, Multicolor",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Light Strip",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/eb87a925-d62d-456d-b1ba-d15b2f72df4d_KL400L10_%28US%29+1.0_1040px.png?auto=compress",
+    "price_range": "",
+    "description": "16.4ft WiFi LED Light Strip, RGB, High Brightness with 16 Million Colors, Cuttable & Flexible ,Works with Alexa, Google Home, SmartThings, Grouping, Up to 25,000 Hours",
+    "model_number": "KL400L10",
+    "features": [
+      "Works With Voice Assistants Control smart light strips using the leading voice assistants, such as Alexa, Google Assistant and SmartThings.",
+      "Compatible With Android, Ios Kasa Smart App lets you run smart light strips from any Android or iOS devices.",
+      "Multicolor Promise vibrant lighting possibilities with 16 million colors and dimming capabilities.",
+      "Lighting Effects Choose from a wide array of colors, even dim to any brightness you want for the perfect vibe.",
+      "Set Schedules Run your light strip automatically to fit any frequent event with Kasa Smart App.",
+      "Flexible & Easy To Install The flexibility to bend and cut allows you to stick it or place it anywhere you desire."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/kasa-smart-light-strip-multicolor"
+  },
+  {
+    "product_id": "kasa-smart-lighting-kasa-smart-light-bulb-multicolor-kl125",
+    "name": "Kasa Smart Light Bulb, Multicolor",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Smart Bulb (Color)",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/581ce2e6-b1d2-4ca2-82a0-50ec0c02e5f4_KL125%28US%291.0_Product+image.png?auto=compress",
+    "price_range": "",
+    "description": "Create the perfect ambiance with your Kasa Smart multicolor light bulb.",
+    "model_number": "KL125",
+    "features": [
+      "Multicolor Experience endless lighting possibilities with the multicolor light bulb. Choose from a wide array of colors, even dim to any brightness you desire for the perfect atmosphere.",
+      "Grouping Group your smart lights for seamless control of brightness, colors, and more. Also, support switches your lights and other devices on or off altogether.",
+      "Control From Anywhere Control your smart light bulb from anywhere conveniently on your smartphone using the Kasa Smart app (iOS, Android).",
+      "Voice Control Use simple voice commands to change the color and brightness of your light bulb with any Amazon Alexa or Google Assistant device.",
+      "No Hub Required Connect your multicolor bulb to your home’s secure WiFi network. No need for a hub or extra equipment.",
+      "Auto White Automatically adjust the color temperature of your multicolor bulb to match natural light patterns from dawn to dusk.",
+      "Schedules Schedule your multicolor bulb to turn on to a certain shade of blue or have them dim at the same time every day.",
+      "High Cri Rating High CRI Rating provides more attractive and brighter colors to help you see the true color spectrum throughout your home."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/kasa-smart-light-bulb-multicolor-kl125"
+  },
+  {
+    "product_id": "kasa-smart-lighting-kasa-smart-light-bulb-dimmable-kl110",
+    "name": "Kasa Smart Light Bulb, Dimmable",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Smart Bulb (Dimmable)",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/4f491c8d-6d0e-4eb7-a219-e569436c8816_KL110%28US%292.0-Product+image-for+list+page.png?auto=compress",
+    "price_range": "",
+    "description": "Set the right mood and ambiance for any occasion with Kasa Smart's dimmable LED light bulb",
+    "model_number": "KL110",
+    "features": [
+      "Dimmable With a dimming range from 1% up to 100%, the smart light bulb helps you set the right brightness for any mood or activity.",
+      "Grouping Use Grouping to combine your dimmable light bulb with other Kasa Smart devices and easily control them all with one single tap on your smartphone.",
+      "Control From Anywhere Control your smart light bulb from anywhere with your phone using the Kasa Smart app (iOS, Android).",
+      "Voice Control Use simple voice commands to control the smart light bulb with Alexa or Google Assistant.",
+      "No Hub Required Connect your the smart light bulb directly to your home’s secure Wi-Fi network. No need for a hub or extra equipment.",
+      "High Cri Rating High CRI Rating provides more attractive and brighter colors to help you see the true color spectrum throughout your home.",
+      "Cec Title 20 Kasa Smart’s multicolor light bulb is certified to drive down energy consumption without losing quality.",
+      "Energy Saving Kasa Smart Bulb's super low standby power is less than 0.2 watts, saving you both energy and money."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/kasa-smart-light-bulb-dimmable-kl110"
+  },
+  {
+    "product_id": "kasa-smart-lighting-kasa-smart-light-bulb-multicolor-kl130",
+    "name": "Kasa Smart Light Bulb, Multicolor",
+    "brand": "TP-Link Kasa",
+    "category": "Lighting",
+    "type": "Smart Bulb (Color)",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/cd082775-80ad-4949-9a8c-42c7e3d301b6_KL130%28US%292.0_Product+image.png?auto=compress",
+    "price_range": "",
+    "description": "Create the perfect ambiance with your Kasa Smart multicolor light bulb.",
+    "model_number": "KL130",
+    "features": [
+      "Multicolor Experience endless lighting possibilities with the multicolor light bulb. Choose from a wide array of colors, or dim to any brightness you desire for the perfect atmosphere.",
+      "Auto White Automatically adjust the color temperature of your Kasa Smart light bulb to match natural light patterns from dawn to dusk.",
+      "Dimmable Adjust the brightness from 1% to 100% conveniently with the Kasa Smart app.",
+      "Grouping Combine your light bulb with other Kasa Smart devices with the Grouping feature and control them all with a single tap of your phone .",
+      "Control From Anywhere Control your smart light bulb from anywhere conveniently on your phone using the Kasa Smart app (iOS, Android).",
+      "Voice Control Use simple voice commands to change the color and brightness of your light bulb with any Amazon Alexa or Google Assistant device.",
+      "No Hub Required Connect your Kasa Smart light bulb to your home’s secure WiFi network. No need for a hub or extra equipment.",
+      "Cec Title 20 Kasa Smart’s multicolor light bulb is certified to drive down energy consumption without losing quality."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-lighting/kasa-smart-light-bulb-multicolor-kl130"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-ceiling-fan-control-and-dimmer-switch-ks240",
+    "name": "Smart Ceiling Fan Control & Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/cbc6bd0d-5cff-4c73-a9b5-0a49a0f473bc_1.jpg?auto=compress",
+    "price_range": "",
+    "description": "smart fan control and dimmer switch, Apple Home supported",
+    "model_number": "KS240",
+    "features": [
+      "2-in-1 Intuitive Design 2 independent touch bars make controlling light and fan in one panel intuitive and easy.",
+      "4-speed Fan Control Choose from four fan speeds to achieve the utmost comfort levels.",
+      "1-100% Dimming Control Control the brightness of your lights to set the ideal ambiance for different activities.",
+      "Voice Control Manage your connected fan and light with voice commands via Amazon Alexa, Apple Siri®, or Google Assistant.",
+      "Remote Control Manage fan and lighting levels from wherever you are through the Kasa Smart app.",
+      "Schedule Schedule your lights and fans to turn on/off at your preferred brightness and speed.",
+      "Sleep Mode Automate the fan to drop down to low speed after a set time.",
+      "Fade On/off Adjust the light with smooth lighting transitions to prevent eye irritation."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-ceiling-fan-control-and-dimmer-switch-ks240"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wifi-light-switch-dimmer-ks225",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/e335a1e6-6963-4dd7-9503-02967b4d5847_KS225_Setup-Images_2303_01.jpg?auto=compress",
+    "price_range": "",
+    "description": "Smart WiFi Light Swicth, Dimmer, Matter-Certified",
+    "model_number": "KS225",
+    "features": [
+      "Matter-certified Integrate Matter-certified Kasa devices with other certified products into any Matter-certified ecosystem.",
+      "Brightness Control Control the brightness of your lights to set the ideal ambiance for different activities.",
+      "Fade On/off Slowly increase brightness or dim to off when turning lights on/off.",
+      "Voice Control Manage your smart switch with voice commands via Amazon Alexa, Apple Siri®, or Google Assistant.",
+      "Remote Control Instantly turn connected devices on/off from wherever you are through the Kasa Smart app.",
+      "Schedule Preset a schedule to automatically manage devices."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wifi-light-switch-dimmer-ks225"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wifi-light-switch-ks205",
+    "name": "Smart Wi-Fi Light Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/d6ab2548-9573-406f-bc75-52f6d2ca2aab_KS205_01.png?auto=compress",
+    "price_range": "",
+    "description": "Smart WiFi Light Swicth, Matter-Certified",
+    "model_number": "KS205",
+    "features": [
+      "Matter-certified Integrate Matter-certified Kasa devices with other certified products into any Matter-certified ecosystem.",
+      "Voice Control Manage your smart switch with voice commands via Amazon Alexa, Apple Siri®, or Google Assistant.",
+      "Remote Control Instantly turn connected devices on/off from wherever you are through the Kasa Smart app.",
+      "Schedule Preset a schedule to automatically manage devices.",
+      "Auto-off Timer Automatically turns off a connected device after the device is left on for a set time."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wifi-light-switch-ks205"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wifi-light-switch-dimmer-ks220",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/8ae45ab7-ff3d-4a26-a675-d7aa783a7857_HS220%28US%291.png?auto=compress",
+    "price_range": "",
+    "description": "Control the brightness of your lights to set the perfect ambiance for any activity.",
+    "model_number": "KS220",
+    "features": [
+      "Brightness Control Control the brightness of your lights to set the perfect ambiance for any activity.",
+      "Fade On/off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "Voice Control Hands-free control with Siri®, Alexa or Google Assistant.",
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Set Schedules Schedule your Kasa Smart Wi-Fi Light Switch, Dimmer to turn on to a specific brightness everyday or set them to turn off at the same time every night.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wifi-light-switch-dimmer-ks220"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wifi-light-switch-ks200",
+    "name": "Smart Wi-Fi Light Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/4998fae2-35ca-48df-8873-0c75862a18b1_HS200%28US%292.png?auto=compress",
+    "price_range": "",
+    "description": "Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+    "model_number": "KS200",
+    "features": [
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Voice Control With any Alexa or Google Assistant you can control any fixture connected to your Kasa Smart light switch with simple voice commands.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Away Mode Set your smart light switch to turn connected fixtures on and off at random intervals to give the appearance you're home even while you're away.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch connects to your home's secure Wi-Fi network. No need for a hub or extra equipment."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wifi-light-switch-ks200"
+  },
+  {
+    "product_id": "kasa-smart-switches-smart-wifi-dimmer-switch-es20m",
+    "name": "Smart Wi-Fi Dimmer Switch, Motion-Activated",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/f7443949-b58f-455b-99dd-0c3300ba2098_Kasa+ES20M_US_1.0.png?auto=compress",
+    "price_range": "",
+    "description": "Motion and ambient lighting detection ensure your lights only turn on at night.",
+    "model_number": "ES20M",
+    "features": [
+      "Advanced Sensing Motion and ambient lighting detection ensure your lights only turn on at night.",
+      "Smart Control Set different light triggers and brightness levels based on your routine for effortless control.",
+      "Customized Dimming Experience a full range of brightness before fading them off for bedtime.",
+      "Energy Saving Turn off the light automatically after you leave the room for a set time.",
+      "Scheduling Set lights to automatically turn on and off throughout the day or night whether you’re home or away.",
+      "Hands-free Voice Control Set lighting levels using the leading voice assistants such as Amazon Alexa and Google Assistant.",
+      "Works With Smartthings Control and manage your Kasa devices with SmartThings.",
+      "Upgrade Your Light Switch Designed to easily replace traditional light switches (single-pole only)."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/smart-wifi-dimmer-switch-es20m"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wifi-light-switch-motion-activated-ks200m",
+    "name": "Smart Wi-Fi Light Switch, Motion-Activated",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/d3fa2e21-f852-438c-a94b-8aabbd53f536_Overview.png?auto=compress",
+    "price_range": "",
+    "description": "Motion and ambient lighting detection ensure your lights only turn on at night.",
+    "model_number": "KS200M",
+    "features": [
+      "Advanced Sensing Motion and ambient lighting detection ensure your lights only turn on at night.",
+      "Smart Control Set different light triggers and brightness levels based on your routine for effortless control.",
+      "Scheduling Set lights to automatically turn on and off throughout the day or night whether you’re home or away.",
+      "Hands-free Voice Control Set lighting levels using the leading voice assistants such as Amazon Alexa and Google Assistant.",
+      "Works With Smartthings Control and manage your Kasa devices with SmartThings.",
+      "Upgrade Your Light Switch Designed to easily replace traditional light switches (single-pole only).",
+      "Guide Installation Kasa Smart app provides step-by-step instructions for wiring your new Smart Light Switch."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wifi-light-switch-motion-activated-ks200m"
+  },
+  {
+    "product_id": "kasa-smart-switches-productks230-kit",
+    "name": "Kasa Smart Wi-Fi Dimmer Switch 3-Way",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/0935fee1-64e3-4bd8-a56f-dcee0a34d695_KS230+KIT_US_1.0_Overview.png?auto=compress",
+    "price_range": "",
+    "description": "Easily connect directly to your secured home Wi-Fi network.",
+    "model_number": "KS230 Kit",
+    "features": [
+      "No Hub Required Easily connect directly to your secured home Wi-Fi network.",
+      "Three-way Control Manually control your lights from two separate locations.",
+      "Anywhere And Anytime Set up your dimmer and control it from anywhere with the free Kasa Smart app.",
+      "Scheduling Set your dimmer to turn on and off automatically while you’re home or away.",
+      "Hands - Free Voice Control Set lighting levels using the leading voice assistants such as Amazon Alexa and Google Assistant.",
+      "Works With Smartthings Control and manage your Kasa devices with SmartThings.",
+      "Full - Range Brightness Adjust the brightness to set the perfect ambiance for any activity.",
+      "Fade On/off Turn the lights on and off gradually, reduce the strain on your eyes."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/productks230-kit"
+  },
+  {
+    "product_id": "kasa-smart-switches-smart-wifi-dimmer-switch-ks220m",
+    "name": "Smart Wi-Fi Dimmer Switch, Motion-Activated",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/f7443949-b58f-455b-99dd-0c3300ba2098_Kasa+ES20M_US_1.0.png?auto=compress",
+    "price_range": "",
+    "description": "Motion and ambient lighting detection ensure your lights only turn on at night.",
+    "model_number": "KS220M",
+    "features": [
+      "Advanced Sensing Motion and ambient lighting detection ensure your lights only turn on at night.",
+      "Smart Control Set different light triggers and brightness levels based on your routine for effortless control.",
+      "Customized Dimming Experience a full range of brightness before fading them off for bedtime.",
+      "Energy Saving Turn off the light automatically after you leave the room for a set time.",
+      "Scheduling Set lights to automatically turn on and off throughout the day or night whether you’re home or away.",
+      "Hands-free Voice Control Set lighting levels using the leading voice assistants such as Amazon Alexa and Google Assistant.",
+      "Works With Smartthings Control and manage your Kasa devices with SmartThings.",
+      "Upgrade Your Light Switch Designed to easily replace traditional light switches (single-pole only)."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/smart-wifi-dimmer-switch-ks220m"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs200",
+    "name": "Smart Wi-Fi Light Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/deebba66f6c970eedf5ef9a324278eb04869cea2_hs200-light-switch-product-image.png?auto=compress",
+    "price_range": "",
+    "description": "Turn traditional light switches into something smarter with the Kasa Smart Wi-Fi Light Switch.",
+    "model_number": "HS200",
+    "features": [
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch.",
+      "Voice Control With any Alexa or Google Assistant you can control any fixture connected to your Kasa Smart light switch with simple voice commands.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch connects to your home's secure Wi-Fi network. No need for a hub or extra equipment.",
+      "Away Mode Set your smart light switch to turn connected fixtures on and off at random intervals to give the appearance you're home even while you're away.",
+      "Led Indicator With an illuminating LED indicator, you'll always be able to find your smart light switch even when it's dark.",
+      "Set Schedules Use your Kasa Smart app to schedule lights, ceiling fans and other fixtures to switch on or off at set times each day."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs200"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-dimmer-hs220",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/100707bd692f3a342e26fed2465fc8a9382d739a_hs220-light-switch-dimmer-product-image.png?auto=compress",
+    "price_range": "",
+    "description": "Dim lighting in any room whenever​ you want from your smartphone or favorite voice assistant with the Kasa Smart Wi-Fi Light Switch, Dimmer.",
+    "model_number": "HS220",
+    "features": [
+      "Customize Your Lighting Control your room's brightness and set the ambiance for any mood or activity using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided install of your dimmer light switch.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Voice Control Use simple voice commands and dim your lights using the Kasa Smart dimmer light switch with any Alexa or Google Assistant.",
+      "Gentle Off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "No Hub Required Kasa Smart's dimmer light switch works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Control From Anywhere Check in on your lights, schedule them to dim when you want even turn them on before you get home conveniently from your smartphone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-dimmer-hs220"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-3-way-kit-hs210",
+    "name": "Smart Wi-Fi Light Switch, 3-Way",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "3-Way Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/9a38b779-e7f2-4836-979c-539fad03d8e5_HS210_Product+image_520px.jpg?auto=compress",
+    "price_range": "",
+    "description": "Replace traditional 3-way light switches found in hallways, living rooms or stairways with the Kasa Smart Wi-Fi Light Switch, 3-Way Kit.",
+    "model_number": "HS210",
+    "features": [
+      "Smarter 3-way Switch Replace traditional 3-way switches commonly found in living rooms, stairways, and hallways with something smarter from Kasa Smart.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your 3-way light switch.",
+      "Voice Control With any Alexa or Google Assistant you can use simple voice commands to control your hallway or living room lights that are connected to Kasa Smart's 3-way switch.",
+      "Grouping Use Grouping to combine your smart 3-way light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Control From Anywhere Use the Kasa Smart app to remotely turn your lights on and off, set schedules and times all from your smartphone.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch, 3-Way works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Away Mode Set your smart light switch to turn connected lighting on and off at random intervals to give the appearance you're home even while you're away."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-3-way-kit-hs210"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs220p3",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/ZkxoWCol0Zci9T9k_HS220P3_US_3.0_A_package.jpg?auto=format%2Ccompress&rect=0%2C0%2C2500%2C2500&w=520&h=520",
+    "price_range": "",
+    "description": "Dim lighting in any room whenever​ you want from your smartphone or favorite voice assistant with the Kasa Smart Wi-Fi Light Switch, Dimmer.",
+    "model_number": "HS220P3",
+    "features": [
+      "Customize Your Lighting Control your room's brightness and set the ambiance for any mood or activity using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided install of your dimmer light switch.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Voice Control Use simple voice commands and dim your lights using the Kasa Smart dimmer light switch with any Alexa or Google Assistant.",
+      "Gentle Off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "No Hub Required Kasa Smart's dimmer light switch works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Control From Anywhere Check in on your lights, schedule them to dim when you want even turn them on before you get home conveniently from your smartphone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs220p3"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs200-2",
+    "name": "Smart Wi-Fi Light Switch, 2-gang",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/ZmK2u5m069VX1iZC_HS200-2_Productimage.jpg?auto=format%2Ccompress&rect=0%2C0%2C2000%2C2000&w=520&h=520",
+    "price_range": "",
+    "description": "Turn traditional light switches into something smarter with the Kasa Smart Wi-Fi Light Switch.",
+    "model_number": "HS200-2",
+    "features": [
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch.",
+      "Voice Control With any Alexa or Google Assistant you can control any fixture connected to your Kasa Smart light switch with simple voice commands.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch connects to your home's secure Wi-Fi network. No need for a hub or extra equipment.",
+      "Away Mode Set your smart light switch to turn connected fixtures on and off at random intervals to give the appearance you're home even while you're away.",
+      "Led Indicator With an illuminating LED indicator, you'll always be able to find your smart light switch even when it's dark.",
+      "Set Schedules Use your Kasa Smart app to schedule lights, ceiling fans and other fixtures to switch on or off at set times each day."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs200-2"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs220-bl",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/ZuVKzbVsGrYSvXe5_HS220-BL_US_4.6_Gallery-Images_08.jpg?auto=format",
+    "price_range": "",
+    "description": "Dim lighting in any room whenever​ you want from your smartphone or favorite voice assistant with the Kasa Smart Wi-Fi Light Switch, Dimmer.",
+    "model_number": "HS220-BL",
+    "features": [
+      "Customize Your Lighting Control your room's brightness and set the ambiance for any mood or activity using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided install of your dimmer light switch.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Voice Control Use simple voice commands and dim your lights using the Kasa Smart dimmer light switch with any Alexa or Google Assistant.",
+      "Gentle Off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "No Hub Required Kasa Smart's dimmer light switch works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Control From Anywhere Check in on your lights, schedule them to dim when you want even turn them on before you get home conveniently from your smartphone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs220-bl"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs220-2",
+    "name": "Smart Wi-Fi Dimmer Switch, 2-gang",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/ZmK7tJm069VX1ia4_HS220-2_Productimage.jpg?auto=format%2Ccompress&rect=0%2C0%2C2000%2C2000&w=520&h=520",
+    "price_range": "",
+    "description": "Dim lighting in any room whenever​ you want from your smartphone or favorite voice assistant with the Kasa Smart Wi-Fi Light Switch, Dimmer.",
+    "model_number": "HS220-2",
+    "features": [
+      "Customize Your Lighting Control your room's brightness and set the ambiance for any mood or activity using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided install of your dimmer light switch.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Voice Control Use simple voice commands and dim your lights using the Kasa Smart dimmer light switch with any Alexa or Google Assistant.",
+      "Gentle Off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "No Hub Required Kasa Smart's dimmer light switch works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Control From Anywhere Check in on your lights, schedule them to dim when you want even turn them on before you get home conveniently from your smartphone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs220-2"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs220-la",
+    "name": "Smart Wi-Fi Dimmer Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Switches",
+    "type": "Smart Dimmer Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/Zkv1qCol0Zci9TTe_23_HS220_01_1500x1500.jpg?auto=format%2Ccompress&rect=0%2C0%2C2000%2C2000&w=520&h=520",
+    "price_range": "",
+    "description": "Dim lighting in any room whenever​ you want from your smartphone or favorite voice assistant with the Kasa Smart Wi-Fi Light Switch, Dimmer.",
+    "model_number": "HS220-LA",
+    "features": [
+      "Customize Your Lighting Control your room's brightness and set the ambiance for any mood or activity using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided install of your dimmer light switch.",
+      "Grouping Use Grouping to combine your light switch with other Kasa Smart devices for seamless control with one single tap on your smartphone.",
+      "Voice Control Use simple voice commands and dim your lights using the Kasa Smart dimmer light switch with any Alexa or Google Assistant.",
+      "Gentle Off Fade bedroom lights as your child falls asleep or give yourself time to exit a room without bumping into things.",
+      "No Hub Required Kasa Smart's dimmer light switch works with a secured 2.4GHz wireless network without the need for a separate hub.",
+      "Control From Anywhere Check in on your lights, schedule them to dim when you want even turn them on before you get home conveniently from your smartphone."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs220-la"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs200-bl",
+    "name": "Smart Wi-Fi Light Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/37ebbc80-fd4f-40f8-a78f-52e5e657ddb4_1_Product+Image.jpg?auto=compress",
+    "price_range": "",
+    "description": "Turn traditional light switches into something smarter with the Kasa Smart Wi-Fi Light Switch.",
+    "model_number": "HS200-BL",
+    "features": [
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch.",
+      "Voice Control With any Alexa or Google Assistant you can control any fixture connected to your Kasa Smart light switch with simple voice commands.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch connects to your home's secure Wi-Fi network. No need for a hub or extra equipment.",
+      "Away Mode Set your smart light switch to turn connected fixtures on and off at random intervals to give the appearance you're home even while you're away.",
+      "Led Indicator With an illuminating LED indicator, you'll always be able to find your smart light switch even when it's dark.",
+      "Set Schedules Use your Kasa Smart app to schedule lights, ceiling fans and other fixtures to switch on or off at set times each day."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs200-bl"
+  },
+  {
+    "product_id": "kasa-smart-switches-kasa-smart-wi-fi-light-switch-hs200-la",
+    "name": "Smart Wi-Fi Light Switch",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Smart Switch",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/2b4cf93b-6b43-4f31-a242-e5c57fba0581_1_Product+Image.jpg?auto=compress",
+    "price_range": "",
+    "description": "Turn traditional light switches into something smarter with the Kasa Smart Wi-Fi Light Switch.",
+    "model_number": "HS200-LA",
+    "features": [
+      "Control From Anywhere Control anything connected to your smart light switch, like lights, ceiling fans or other fixtures, from anywhere using the Kasa Smart app.",
+      "Easy Install No need to understand complex wiring, just follow the step-by-step wiring process in the Kasa Smart app for a guided installation of your smart light switch.",
+      "Voice Control With any Alexa or Google Assistant you can control any fixture connected to your Kasa Smart light switch with simple voice commands.",
+      "No Hub Required The Kasa Smart Wi-Fi Light Switch connects to your home's secure Wi-Fi network. No need for a hub or extra equipment.",
+      "Away Mode Set your smart light switch to turn connected fixtures on and off at random intervals to give the appearance you're home even while you're away.",
+      "Led Indicator With an illuminating LED indicator, you'll always be able to find your smart light switch even when it's dark.",
+      "Set Schedules Use your Kasa Smart app to schedule lights, ceiling fans and other fixtures to switch on or off at set times each day."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/smart-switches/kasa-smart-wi-fi-light-switch-hs200-la"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-pan-tilt-ec71",
+    "name": "Kasa Spot Pan Tilt, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Security",
+    "type": "Pan/Tilt Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/2183246a-9b7a-420e-ab33-d548ce7320b3_EC71_Setup+Images.png?auto=compress",
+    "price_range": "",
+    "description": "Get the full picture of any space in your apartment, dorm, or home with the Kasa Spot Pan Tilt. See everything around you with a 360° rotational view.",
+    "model_number": "EC71",
+    "features": [
+      "Crystal Clear Video Sharp and clear 1080p Full HD video and night vision up to 30 ft make sure you never miss a thing.",
+      "Pan And Tilt With 360° rotational and 113° vertical views, the pan tilt camera is perfect for wide-open living spaces.",
+      "Motion Tracking When motion is detected, the Kasa Spot Pan Tilt will continue tracking the activity until it has stopped even if is out of the camera's standard view.",
+      "Patrol Mode Program your Pan Tilt camera to keep an eye on each region at intervals of your choosing.",
+      "Remote Live View Keep an eye on what’s important to you in real time from anywhere with the Kasa Smart app. Even stream live video to any Alexa or Google Assistant supported display.",
+      "Two-way Audio Use crisp two-way audio to communicate with nosy roommates, family, or even mischievous pets.",
+      "Instant Activity Alerts No need to check your Kasa Spot Pan Tilt throughout the day. Get automatic alerts when it detects motion or sound."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-pan-tilt-ec71"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-cam-product-kc420ws",
+    "name": "Kasa Cam Outdoor 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/0c80ab65-14c4-4d19-b697-b775eab41d55_Kasa+KC420WS_US_1.0.png?auto=compress",
+    "price_range": "",
+    "description": "Sharp and clear 4 MP high-resolution video delivers more delicate details",
+    "model_number": "KC420WS",
+    "features": [
+      "2k Hd Video Sharp and clear 4 MP high-resolution video delivers more delicate details",
+      "Full-time Color Enhance your security view with vivid colors even at night with the integrated spotlights.",
+      "Starlight Night Vision The highly-sensitive starlight sensor captures higher-quality images even in low-light conditions.",
+      "Live View From Anywhere See, hear, and talk like you’re there via your phone or any supported display.",
+      "Secure Storage Options Save footage 24/7 on a microSD card or subscribe to a Kasa Care plan for cloud storage.",
+      "All-weather All-star IP65 certified weatherproofing ensures your camera stays protected against rain and dust.",
+      "Instant Notifications With motion and sound detection, the Kasa Smart app alerts you of activity that matters and sends notifications straight to your smartphone",
+      "See Who’s There Know what’s happening as soon as the camera detects people passing by."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-cam-product-kc420ws"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-smart-doorbell-kd110",
+    "name": "Kasa Smart Doorbell",
+    "brand": "TP-Link Kasa",
+    "category": "Security",
+    "type": "Video Doorbell",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/8e717cb3-039c-41ea-b669-60ed7206e5d8_KD110_US_1.0_Set+up+Images_final_01.jpg?auto=compress",
+    "price_range": "",
+    "description": "Sharp and clear 3 MP high resolution offers greater detail and colors, even when you zoom in.",
+    "model_number": "KD110",
+    "features": [
+      "3 Mp Hd Video Sharp and clear 3 MP high resolution offers greater detail and colors, even when you zoom in.",
+      "Live View With Two-way Talk Watch live video and carry on a conversation from anywhere with your phone or other supported device.",
+      "Notifications That Matter Get instant push notifications when someone is detected in your custom activity zones or when the doorbell button is pressed.",
+      "All-weather All-star IP64 certified weatherproofing ensures your doorbell stays protected against rain and dust.",
+      "Local And Cloud Storage Save your footage continuously on a microSD card or subscribe to a Kasa Care Plan to store video clips to the cloud."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-smart-doorbell-kd110"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-pan-tilt-24-7-recording",
+    "name": "Kasa Spot Pan Tilt, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Security",
+    "type": "Pan/Tilt Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/b5b99032-87d4-44da-88eb-3bca3b758f5f_KC410S1.0-Kasa+smart-Hero+Image-English-final-01.png?auto=compress",
+    "price_range": "",
+    "description": "Get the full picture of any space in your apartment, dorm or home with the Kasa Spot Pan Tilt.",
+    "model_number": "KC410S",
+    "features": [
+      "2k Hd Video Sharp and clear 4 MP high resolution offers greater detail and colors, even when you zoom in.",
+      "Starlight Night Vision Capture colorful videos even in low-light environments with a highly sensitive starlight sensor",
+      "Motion Tracking When motion activity is detected, track and follow the subject to keep it within view",
+      "Patrol Mode Set multiple distinct viewpoints and program your camera to keep an eye on each region at selected intervals",
+      "Secure Local And Cloud Storage Save footage continuously on a microSD card (up to 256 GB) or subscribe to a Kasa Care plan for 30-day",
+      "Up, Down, All-around Get the full picture of any space in your apartment, dorm or home with Kasa Spot Pan Tilt. With a 360°horizontal view and 113°vertical view, the Pan Tilt has everything covered.",
+      "Activity Zones Control what alerts you receive by creating up to 16 custom activity zones, at no charge, around areas that are important to you.Live View.",
+      "Two-way Talk Watch live video and carry on a conversation from anywhere with your phone or other supported device."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-pan-tilt-24-7-recording"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-kc400",
+    "name": "Kasa Spot, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/bef04835-be1c-457f-902f-db991a834308_EC60-Setup+image-01.png?auto=compress",
+    "price_range": "",
+    "description": "Keep an eye on your things with Kasa Spot, the 2K HD indoor security camera.",
+    "model_number": "KC400",
+    "features": [
+      "Crystal Clear 2k Hd Capture more delicate details and vivid colors than 1080p with sharp and crisp 2K HD.",
+      "Person Detection Distinguish a person from other objects with cutting-edge AI algorithms.",
+      "Night Vision Even in the dark, the Kasa Spot has Night Vision up to 30 feet. Never miss a thing at night and still get the same high-quality video you’re used to.",
+      "Two-way Audio Use crisp two-way audio to communicate with nosy roommates, family, or even mischievous pets.",
+      "Remote Live View Keep an eye on what’s important to you real-time from anywhere with the Kasa Smart app. Even stream live video to Alexa or Google Assistant supported display.",
+      "24/7 Secure Local Storage Save your footage on a microSD card up to 256 GB and play back with your Kasa Smart app."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-kc400"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-pan-tilt-ec70",
+    "name": "Kasa Spot Pan Tilt, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Security",
+    "type": "Pan/Tilt Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/085d4412-49fa-4f82-9b03-7241037cc72e_EC70_Setup+Images.png?auto=compress",
+    "price_range": "",
+    "description": "Get the full picture of any space in your apartment, dorm, or home with the Kasa Spot Pan Tilt. See everything around you with a 360° rotational view.",
+    "model_number": "EC70",
+    "features": [
+      "Crystal Clear Video Sharp and clear 1080p Full HD video and night vision up to 30 ft make sure you never miss a thing.",
+      "Pan And Tilt With 360° rotational and 113° vertical views, the pan tilt camera is perfect for wide-open living spaces.",
+      "Motion Tracking When motion is detected, the Kasa Spot Pan Tilt will continue tracking the activity until it has stopped even if is out of the camera's standard view.",
+      "Patrol Mode Program your Pan Tilt camera to keep an eye on each region at intervals of your choosing.",
+      "Remote Live View Keep an eye on what’s important to you in real time from anywhere with the Kasa Smart app. Even stream live video to any Alexa or Google Assistant supported display.",
+      "Two-way Audio Use crisp two-way audio to communicate with nosy roommates, family, or even mischievous pets.",
+      "Instant Activity Alerts No need to check your Kasa Spot Pan Tilt throughout the day. Get automatic alerts when it detects motion or sound."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-pan-tilt-ec70"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-ec60",
+    "name": "Kasa Spot, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/68473017-749f-45e7-9bc8-bfe8ca472b6a_01.png?auto=compress",
+    "price_range": "",
+    "description": "Keep an eye on your things with Kasa Spot, the 1080p full HD indoor security camera.",
+    "model_number": "EC60",
+    "features": [
+      "Crystal Clear Video Sharp and clear 1080p Full HD provides high-quality video right in the palm of your hand.",
+      "Instant Activity Alerts No need to check your Kasa Spot throughout the day. Get automatic alerts when your Spot detects motion or sound.",
+      "Night Vision Even in the dark, the Kasa Spot has Night Vision up to 30 feet. Never miss a thing at night and still get the same high-quality video you’re used to.",
+      "Two-way Audio Use crisp two-way audio to communicate with nosy roommates, family, or even mischievous pets.",
+      "Protect Every Pixel All you video streams are protected with industry-standard 128-bit AES encryption with SSL/TLS right from the camera."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-ec60"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-spot-pan-tilt-kc411s",
+    "name": "Kasa Spot Pan Tilt, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Security",
+    "type": "Pan/Tilt Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": true,
+    "image_url": "https://images.prismic.io/kasasmart/b5b99032-87d4-44da-88eb-3bca3b758f5f_KC410S1.0-Kasa+smart-Hero+Image-English-final-01.png?auto=compress",
+    "price_range": "",
+    "description": "Get the full picture of any space in your apartment, dorm or home with the Kasa Spot Pan Tilt.",
+    "model_number": "KC411S",
+    "features": [
+      "2k Hd Video Sharp and clear 4 MP high resolution offers greater detail and colors, even when you zoom in.",
+      "Starlight Night Vision Capture colorful videos even in low-light environments with a highly sensitive starlight sensor",
+      "Motion Tracking When motion activity is detected, track and follow the subject to keep it within view",
+      "Patrol Mode Set multiple distinct viewpoints and program your camera to keep an eye on each region at selected intervals",
+      "Secure Local And Cloud Storage Save footage continuously on a microSD card (up to 256 GB) or subscribe to a Kasa Care plan for 30-day",
+      "Up, Down, All-around Get the full picture of any space in your apartment, dorm or home with Kasa Spot Pan Tilt. With a 360°horizontal view and 113°vertical view, the Pan Tilt has everything covered.",
+      "Activity Zones Control what alerts you receive by creating up to 16 custom activity zones, at no charge, around areas that are important to you.Live View.",
+      "Two-way Talk Watch live video and carry on a conversation from anywhere with your phone or other supported device."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-spot-pan-tilt-kc411s"
+  },
+  {
+    "product_id": "kasa-security-cameras-kasa-cam-spot-kc401",
+    "name": "Kasa Spot, 24/7 Recording",
+    "brand": "TP-Link Kasa",
+    "category": "Outlets & Plugs",
+    "type": "Security Camera",
+    "protocols": [
+      "WiFi"
+    ],
+    "ecosystems": {
+      "alexa": "full",
+      "google_home": "full",
+      "apple_homekit": "none",
+      "smartthings": "full",
+      "home_assistant": "full"
+    },
+    "requires_hub": false,
+    "hub_name": "",
+    "home_assistant": "tplink",
+    "matter": false,
+    "image_url": "https://images.prismic.io/kasasmart/f42bbe42-83cf-42fa-b7a3-a7f07187421a_KC400_Product01.jpg?auto=compress",
+    "price_range": "",
+    "description": "Keep an eye on your things with Kasa Spot, the 2K HD indoor security camera.",
+    "model_number": "KC401",
+    "features": [
+      "Crystal Clear 2k Hd Capture more delicate details and vivid colors than 1080p with sharp and crisp 2K HD.",
+      "Person Detection Distinguish a person from other objects with cutting-edge AI algorithms.",
+      "Night Vision Even in the dark, the Kasa Spot has Night Vision up to 30 feet. Never miss a thing at night and still get the same high-quality video you’re used to.",
+      "Two-way Audio Use crisp two-way audio to communicate with nosy roommates, family, or even mischievous pets.",
+      "Remote Live View Keep an eye on what’s important to you real-time from anywhere with the Kasa Smart app. Even stream live video to Alexa or Google Assistant supported display.",
+      "24/7 Secure Local Storage Save your footage on a microSD card up to 256 GB and play back with your Kasa Smart app."
+    ],
+    "notes": "Source: https://www.kasasmart.com/us/products/security-cameras/kasa-cam-spot-kc401"
+  }
+]
