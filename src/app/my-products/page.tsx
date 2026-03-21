@@ -7,6 +7,8 @@ import { StatsCard } from '@/components/ui/StatsCard';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import { generateAmazonLink } from '@/lib/amazon-affiliate';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -359,22 +361,32 @@ export default function MyProducts() {
                             )}
                           </div>
 
-                          <div className="ml-4 flex gap-2">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => startEdit(userProduct)}
+                          <div className="ml-4 flex flex-col items-end gap-2">
+                            <div className="flex gap-2">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => startEdit(userProduct)}
+                              >
+                                Edit
+                              </Button>
+                              <Button
+                                variant="danger"
+                                size="sm"
+                                onClick={() => handleDelete(userProduct.id)}
+                                loading={deleting === userProduct.id}
+                              >
+                                Remove
+                              </Button>
+                            </div>
+                            <a
+                              href={generateAmazonLink(userProduct.products.name, userProduct.products.brand)}
+                              target="_blank"
+                              rel="noopener noreferrer nofollow"
+                              className="text-xs text-[#FF9900] hover:text-[#e68a00] font-medium whitespace-nowrap"
                             >
-                              Edit
-                            </Button>
-                            <Button
-                              variant="danger"
-                              size="sm"
-                              onClick={() => handleDelete(userProduct.id)}
-                              loading={deleting === userProduct.id}
-                            >
-                              Remove
-                            </Button>
+                              Buy replacement →
+                            </a>
                           </div>
                         </div>
                       )}
@@ -385,6 +397,9 @@ export default function MyProducts() {
             ))}
           </div>
         )}
+        <div className="mt-6">
+          <AffiliateDisclosure />
+        </div>
       </div>
     </div>
   );

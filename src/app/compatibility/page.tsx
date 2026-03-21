@@ -5,6 +5,8 @@ import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import { generateAmazonLink } from '@/lib/amazon-affiliate';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -699,9 +701,9 @@ export default function CompatibilityChecker() {
                         )}
                       </div>
 
-                      {/* Check My Home button */}
-                      {user && (
-                        <div className="flex-shrink-0">
+                      {/* Actions */}
+                      <div className="flex-shrink-0 flex flex-col items-end gap-2">
+                        {user && (
                           <Button
                             onClick={() => checkAgainstHome(product)}
                             disabled={loadingInventory && homeCheckDevice?.id !== product.id}
@@ -710,8 +712,16 @@ export default function CompatibilityChecker() {
                           >
                             {homeCheckDevice?.id === product.id ? '✓ My Home' : 'Check My Home'}
                           </Button>
-                        </div>
-                      )}
+                        )}
+                        <a
+                          href={generateAmazonLink(product.name, product.brand)}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-xs text-[#FF9900] hover:text-[#e68a00] font-medium whitespace-nowrap"
+                        >
+                          Buy on Amazon →
+                        </a>
+                      </div>
                     </div>
                   </div>
                 );
@@ -719,6 +729,10 @@ export default function CompatibilityChecker() {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="mt-4 px-1">
+        <AffiliateDisclosure />
       </div>
 
       {/* ── Floating Compare Bar ─────────────────────────────────────────── */}
