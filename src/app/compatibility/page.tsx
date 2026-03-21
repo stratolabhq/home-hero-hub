@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
-import { generateAmazonLink } from '@/lib/amazon-affiliate';
+import { generateAmazonLink, trackAmazonClick } from '@/lib/amazon-affiliate';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -717,6 +717,7 @@ export default function CompatibilityChecker() {
                           href={generateAmazonLink(product.name, product.brand)}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
+                          onClick={() => trackAmazonClick(supabase, product.id, product.name, product.brand)}
                           className="text-xs text-[#FF9900] hover:text-[#e68a00] font-medium whitespace-nowrap"
                         >
                           Buy on Amazon →

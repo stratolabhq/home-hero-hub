@@ -18,6 +18,8 @@ interface AnalyticsData {
   topCategories: { category: string; count: number }[];
   signupGraph: { date: string; count: number }[];
   requestStatusBreakdown: Record<string, number>;
+  totalAmazonClicks: number;
+  topAmazonProducts: { product_name: string; brand: string; clicks: number }[];
 }
 
 function MiniBar({ value, max, color = '#2e6f40' }: { value: number; max: number; color?: string }) {
@@ -93,11 +95,12 @@ export default function AdminAnalyticsPage() {
         </div>
 
         {/* Top Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <StatsCard label="Total Users"         value={data.totalUsers}        valueColor="#2e6f40" />
-          <StatsCard label="Total Devices"       value={data.totalDevices}      valueColor="#3d8b54" />
-          <StatsCard label="Inventory Entries"   value={data.totalUserProducts} valueColor="#6366f1" />
-          <StatsCard label="Total Requests"      value={totalRequests}          valueColor="#f59e0b" />
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+          <StatsCard label="Total Users"         value={data.totalUsers}            valueColor="#2e6f40" />
+          <StatsCard label="Total Devices"       value={data.totalDevices}          valueColor="#3d8b54" />
+          <StatsCard label="Inventory Entries"   value={data.totalUserProducts}     valueColor="#6366f1" />
+          <StatsCard label="Total Requests"      value={totalRequests}              valueColor="#f59e0b" />
+          <StatsCard label="Amazon Clicks (30d)" value={data.totalAmazonClicks}     valueColor="#FF9900" />
         </div>
 
         {/* User Sign-up Graph */}
@@ -187,6 +190,30 @@ export default function AdminAnalyticsPage() {
             )}
           </div>
 
+        </div>
+
+        {/* Amazon Top Clicked Products */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+          <h2 className="font-semibold text-gray-900 mb-1">Top Amazon Clicks (Last 30 Days)</h2>
+          <p className="text-xs text-gray-400 mb-5">Products users clicked "Buy on Amazon" most often</p>
+          {data.topAmazonProducts.length === 0 ? (
+            <p className="text-sm text-gray-500">No clicks recorded yet.</p>
+          ) : (
+            <div className="space-y-3">
+              {data.topAmazonProducts.map((item, i) => (
+                <div key={i}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <div className="min-w-0">
+                      <span className="font-medium text-gray-900 truncate block">{item.product_name}</span>
+                      <span className="text-xs text-gray-400">{item.brand}</span>
+                    </div>
+                    <span className="text-xs text-gray-500 ml-2 flex-shrink-0">{item.clicks} clicks</span>
+                  </div>
+                  <MiniBar value={item.clicks} max={data.topAmazonProducts[0].clicks} color="#FF9900" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

@@ -25,11 +25,13 @@ export async function GET(req: NextRequest) {
     userProductsRes,
     requestsRes,
     usersRes,
+    clicksRes,
   ] = await Promise.all([
     admin.from('products').select('id, name, brand, category'),
     admin.from('user_products').select('product_id'),
     admin.from('device_requests').select('brand, category, status, created_at, votes'),
     admin.auth.admin.listUsers({ perPage: 1000 }),
+    admin.from('amazon_clicks').select('product_id, product_name, brand, clicked_at').gte('clicked_at', thirtyDaysAgo),
   ]);
 
   // Most popular devices (most added to inventories)
@@ -86,6 +88,21 @@ export async function GET(req: NextRequest) {
     statusMap[r.status] = (statusMap[r.status] ?? 0) + 1;
   }
 
+  // Amazon click stats
+  const clicks = clicksRes.data ?? [];
+  const totalAmazonClicks = clicks.length;
+  const amazonClicksByProduct: Record<string, { product_name: string; brand: string; clicks: number }> = {};
+  for (const c of clicks) {
+    const key = c.product_id ?? c.product_name;
+    if (!amazonClicksByProduct[key]) {
+      amazonClicksByProduct[key] = { product_name: c.product_name, brand: c.brand, clicks: 0 };
+    }
+    amazonClicksByProduct[key].clicks++;
+  }
+  const topAmazonProducts = Object.values(amazonClicksByProduct)
+    .sort((a, b) => b.clicks - a.clicks)
+    .slice(0, 10);
+
   return NextResponse.json({
     totalDevices: devicesRes.data?.length ?? 0,
     totalUsers: ('total' in (usersRes.data ?? {}) ? (usersRes.data as { total: number }).total : usersRes.data?.users.length) ?? 0,
@@ -95,5 +112,7 @@ export async function GET(req: NextRequest) {
     topCategories,
     signupGraph,
     requestStatusBreakdown: statusMap,
+    totalAmazonClicks,
+    topAmazonProducts,
   });
 }

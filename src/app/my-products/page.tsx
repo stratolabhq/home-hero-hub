@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
-import { generateAmazonLink } from '@/lib/amazon-affiliate';
+import { generateAmazonLink, trackAmazonClick } from '@/lib/amazon-affiliate';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -383,6 +383,7 @@ export default function MyProducts() {
                               href={generateAmazonLink(userProduct.products.name, userProduct.products.brand)}
                               target="_blank"
                               rel="noopener noreferrer nofollow"
+                              onClick={() => trackAmazonClick(supabase, userProduct.products.id, userProduct.products.name, userProduct.products.brand)}
                               className="text-xs text-[#FF9900] hover:text-[#e68a00] font-medium whitespace-nowrap"
                             >
                               Buy replacement →
