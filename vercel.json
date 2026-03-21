@@ -3,6 +3,10 @@
     {
       "path": "/api/cron/import",
       "schedule": "0 2 * * 0"
+    },
+    {
+      "path": "/api/cron/bestsellers",
+      "schedule": "0 3 * * *"
     }
   ]
 }

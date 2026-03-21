@@ -21,6 +21,7 @@ interface Product {
   image_url: string | null;
   requires_hub: string;
   hub_name: string | null;
+  is_popular: boolean | null;
 }
 
 const EMPTY_FORM = {
@@ -49,6 +50,7 @@ export default function AdminDevicesPage() {
   const [saving, setSaving] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [popularFilter, setPopularFilter] = useState<'all' | 'popular' | 'obscure'>('all');
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -70,6 +72,8 @@ export default function AdminDevicesPage() {
   const filtered = useMemo(() => {
     let list = products;
     if (categoryFilter !== 'all') list = list.filter(p => p.category === categoryFilter);
+    if (popularFilter === 'popular') list = list.filter(p => p.is_popular === true);
+    if (popularFilter === 'obscure') list = list.filter(p => !p.is_popular);
     const q = search.toLowerCase().trim();
     if (q) list = list.filter(p =>
       p.name.toLowerCase().includes(q) ||
@@ -77,7 +81,18 @@ export default function AdminDevicesPage() {
       p.category.toLowerCase().includes(q)
     );
     return list;
-  }, [products, search, categoryFilter]);
+  }, [products, search, categoryFilter, popularFilter]);
+
+  const togglePopular = async (product: Product) => {
+    const newVal = !product.is_popular;
+    const { error: err } = await supabase
+      .from('products')
+      .update({ is_popular: newVal })
+      .eq('id', product.id);
+    if (!err) {
+      setProducts(prev => prev.map(p => p.id === product.id ? { ...p, is_popular: newVal } : p));
+    }
+  };
 
   const openEdit = (product: Product) => {
     setEditingProduct(product);
@@ -356,6 +371,18 @@ export default function AdminDevicesPage() {
               ))}
             </select>
           </div>
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium text-gray-700">Curation:</label>
+            <select
+              value={popularFilter}
+              onChange={e => setPopularFilter(e.target.value as 'all' | 'popular' | 'obscure')}
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#2e6f40]"
+            >
+              <option value="all">All devices</option>
+              <option value="popular">Popular only ({products.filter(p => p.is_popular).length})</option>
+              <option value="obscure">Obscure only ({products.filter(p => !p.is_popular).length})</option>
+            </select>
+          </div>
           <span className="text-sm text-gray-500 ml-auto">{filtered.length} results</span>
         </div>
 
@@ -375,6 +402,7 @@ export default function AdminDevicesPage() {
                     <th className="px-4 py-3 text-left font-semibold text-[#1f4d2b] text-xs uppercase tracking-wide">Category</th>
                     <th className="px-4 py-3 text-left font-semibold text-[#1f4d2b] text-xs uppercase tracking-wide">Protocols</th>
                     <th className="px-4 py-3 text-left font-semibold text-[#1f4d2b] text-xs uppercase tracking-wide">Hub</th>
+                    <th className="px-4 py-3 text-left font-semibold text-[#1f4d2b] text-xs uppercase tracking-wide">Popular</th>
                     <th className="px-4 py-3 text-left font-semibold text-[#1f4d2b] text-xs uppercase tracking-wide">Actions</th>
                   </tr>
                 </thead>
@@ -406,6 +434,15 @@ export default function AdminDevicesPage() {
                         {product.requires_hub === 'true' ? product.hub_name ?? 'Yes'
                           : product.requires_hub === 'thread_border_router' ? 'Thread BR'
                           : '—'}
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          onClick={() => togglePopular(product)}
+                          title={product.is_popular ? 'Mark as obscure' : 'Mark as popular'}
+                          className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out ${product.is_popular ? 'bg-[#2e6f40]' : 'bg-gray-200'}`}
+                        >
+                          <span className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow transition duration-200 ease-in-out ${product.is_popular ? 'translate-x-4' : 'translate-x-0'}`} />
+                        </button>
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">

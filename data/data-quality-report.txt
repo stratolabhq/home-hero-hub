@@ -1,0 +1,268 @@
+================================================================================
+HOME HERO HUB — DATA QUALITY REPORT
+Generated: 2026-03-20
+================================================================================
+
+SUMMARY
+-------
+Total products in database:  11,006
+Total unique brands:          73 (in sampled data)
+Duplicate name+brand groups:  60
+Duplicate rows (excess):      482
+Matter products (no image):   10,609
+
+================================================================================
+1. PHILIPS / PHILIPS HUE — BRAND ANALYSIS
+================================================================================
+
+Brand variations found:
+  "Philips Hue"                    239 products  (our scraper — correct)
+  "Philips"                          1 product   (likely a Matter import entry)
+  "MMD HONG KONG HOLDING LIMITED"   ~26 products (Philips TV brand via Matter)
+
+Issues:
+  - "Philips" (1 entry) vs "Philips Hue" (239) — inconsistent branding.
+    The lone "Philips" entry is likely a Matter cert entry that should be
+    attributed differently or filtered out.
+
+  - "MMD HONG KONG HOLDING LIMITED" is the legal entity behind Philips TVs
+    (TP Vision). These are Matter-certified Philips-branded TVs, not smart home
+    devices in the traditional sense. Their product names include:
+      * "Philips AMBILIGHT TV" (13 duplicates — 13 different SKUs with same name)
+      * "Philips SMART TV" (4 duplicates)
+      * "Philips 48OLED809" (4 duplicates)
+
+  - The "Philips AMBILIGHT TV" entries with 13 records are all distinct Matter
+    cert IDs (philips-ambilight-tv-43 through philips-ambilight-tv-47, etc.)
+    representing different hardware revisions of the same product — these are
+    real, valid entries in the CSA registry.
+
+Recommendation:
+  - Keep "Philips Hue" as-is (correct brand name for the smart lighting line).
+  - Consider normalizing "MMD HONG KONG HOLDING LIMITED" → "Philips" for display.
+  - Consider filtering TVs/media devices out of consumer smart home results.
+
+
+================================================================================
+2. DUPLICATE PRODUCTS — TOP 50
+================================================================================
+
+Total duplicate groups: 60
+Total excess rows:      482
+
+Top duplicates (name + brand):
+
+  COUNT  PRODUCT NAME                                        BRAND
+  -----  --------------------------------------------------  --------------------------------
+     91  On Off Light                                        Quectel Wireless Solutions
+     73  Extended Color Light                                Quectel Wireless Solutions
+     32  UA-SmartSwitch                                      Uascent Technology Company Limited
+     27  ElitePRO/X8/X7 Smart Thermostat                    Resideo Technologies, Inc.
+     24  Midea window Air Conditioner                        Midea Group
+     24  Top discharge window type air conditioner           Midea Group
+     13  Philips AMBILIGHT TV                                MMD HONG KONG HOLDING LIMITED
+     13  WiZ LED luminaire – Full color                      Signify
+     11  Zemismart Smart Curtain                             Zemismart Technology Limited
+      9  On/Off Output                                       Leedarson IoT Technology Inc.
+      9  Aqara Hub                                           Lumi United Technology Co., Ltd.
+      8  Smart Bulb                                          Leedarson IoT Technology Inc.
+      7  TCL Window AC                                       Shenzhen TCL New Technology
+      7  Wi-Fi plug                                          Tuya Global Inc.
+      6  Smart Wi-Fi Dimmer Switch                           TP-Link Kasa  ← KASA DUPLICATE
+      5  Darwin                                              Apple Inc.    ← NOT A DEVICE
+      5  Kasa Smart Wi-Fi Outdoor Plug                       TP-Link Kasa  ← KASA DUPLICATE
+      5  Kasa Smart Wi-Fi Plug Mini                          TP-Link Kasa  ← KASA DUPLICATE
+      5  Smart Wi-Fi Light Switch                            TP-Link Kasa  ← KASA DUPLICATE
+      4  Philips SMART TV                                    MMD HONG KONG HOLDING LIMITED
+      4  Philips 48OLED809                                   MMD HONG KONG HOLDING LIMITED
+      4  Hisense Smart TV                                    Hisense Group Co. Ltd.
+      4  Wi-Fi Window Covering Motor                         Ningbo Dooya
+      4  Kasa Smart Wi-Fi Plug Slim with Energy Monitoring   TP-Link Kasa  ← KASA DUPLICATE
+      4  Kasa Spot Pan Tilt, 24/7 Recording                  TP-Link Kasa  ← KASA DUPLICATE
+      4  Wi-Fi Plug On/Off                                   Espressif Systems
+      4  Wi-Fi Curtain                                       Ningbo Dooya
+      3  watchOS                                             Apple Inc.    ← NOT A DEVICE
+      3  iPadOS                                              Apple Inc.    ← NOT A DEVICE
+      3  tvOS                                                Apple Inc.    ← NOT A DEVICE
+      3  iOS                                                 Apple Inc.    ← NOT A DEVICE
+      3  xCREAS smart air purifier                           Qierling Beijing
+      3  Robotic Vacuum Cleaner                              Beijing Roborock
+      3  Kasa Spot, 24/7 Recording                           TP-Link Kasa  ← KASA DUPLICATE
+      3  Govee COB Strip Light 2                             Shenzhen Qianyan Technology
+      3  Smart Wall Switch                                   Shenzhen Sonoff Technologies
+      3  Apple's Platforms                                   Apple Inc.    ← NOT A DEVICE
+      2  Ring Video Doorbell Pro 2                           Ring
+      2  Wyze Cam v3                                         Wyze          ← WYZE DUPLICATE
+      2  Wemo WiFi Smart Plug                                Belkin
+      2  Yale Assure Lock 2                                  Yale
+      2  Level Lock+ (Matter)                                Level
+      2  DIRIGERA                                            IKEA of Sweden
+      2  WiZ LED strip – Full color                          Signify
+      2  Qorvo QPG6105 DK Extended Color Light               Qorvo
+      2  Qorvo QPG6105 DK Color Dimmer Switch                Qorvo
+      2  Smart Wi-Fi Dimmer Switch, Motion-Activated         TP-Link Kasa  ← KASA DUPLICATE
+      2  Govee COB Strip Light 2 Pro                         Shenzhen Qianyan Technology
+      2  Govee Outdoor Filament String Lights                Shenzhen Qianyan Technology
+      2  HomePod software                                    Apple Inc.    ← NOT A DEVICE
+
+Root causes:
+  A) CSA-IoT registry duplicates (same product, multiple cert IDs per SKU/firmware):
+     Quectel (91+73), Uascent (32), Resideo (27), Midea (24), Zemismart (11),
+     Leedarson (9+8), Signify WiZ (13), Tuya (7), Roborock (3), Govee (3)
+
+  B) Cross-scraper duplicates (same physical product in both Kasa scraper + Matter import):
+     TP-Link Kasa: 6+5+5+5+4+4+3+2 affected groups
+     Wyze: "Wyze Cam v3" (2)
+     These products appear once with product_id "kasa-xxx" and again as "matter-xxx"
+
+  C) Non-consumer software/platform entries from CSA-IoT:
+     Apple Inc.: iOS, tvOS, watchOS, iPadOS, Darwin, HomePod software,
+                 Apple's Platforms — these are OS/platform certifications, not devices
+
+
+================================================================================
+3. AQARA SENSOR DATA QUALITY
+================================================================================
+
+Aqara products in database: 6 (manually curated, not scraped)
+  - These appear to be from the compatibility data import, NOT from a live scraper.
+  - No model_number column exists in the schema (packed into notes).
+
+Sample data:
+  NAME                              CATEGORY   HAS_IMAGE  NOTES QUALITY
+  --------------------------------  ---------  ---------  ---------------
+  Aqara Hub M3                      hubs       YES        Good — protocol details
+  Aqara Dimmer Switch H2            switches   NO         Good — wiring info
+  Aqara Motion and Light Sensor P2  sensors    YES        Good — battery life noted
+  Aqara Light Switch H2             switches   YES        Good — neutral/no-neutral
+  Aqara Door and Window Sensor P2   sensors    YES        Good — Matter certified note
+  Aqara Smart Lock U50              security   YES        Good — unlock methods
+
+Observations:
+  - Category values use lowercase slugs ("sensors", "hubs") inconsistently
+    with Matter products which use Title Case ("Sensors", "Hubs & Controllers").
+  - 1 of 6 products missing image (Dimmer Switch H2).
+  - Notes are descriptive and human-readable — highest quality in the DB.
+  - Aqara also appears in Matter data as "Lumi United Technology Co., Ltd."
+    brand with "Aqara Hub" appearing 9 times — cross-scraper duplicate.
+
+
+================================================================================
+4. MATTER PRODUCT DATA COMPLETENESS
+================================================================================
+
+Total Matter products:             10,609
+Has notes (description/cert):      10,609  (100%)
+Has image_url (non-empty):              0  (  0%)  ← CRITICAL ISSUE
+Has price_range (non-empty):            0  (  0%)  ← Expected — CSA doesn't list prices
+home_assistant field populated:    11,006  (100%)
+
+Schema mismatch discovered:
+  The scraper was designed with these fields: model_number, description, matter (bool)
+  The actual Supabase products table has:     notes (merged field), no matter column,
+                                              no model_number column, no description column
+
+  Impact: The scraper's toRow() function merged model_number + description into notes,
+  which worked correctly. However, there is no dedicated matter boolean column,
+  so filtering "WHERE matter = true" is NOT possible in Supabase.
+  Currently identified via product_id LIKE 'matter-%' pattern.
+
+Image quality:
+  The CSA-IoT WordPress REST API returned featured_media data, but 10,609 of
+  10,609 Matter products have empty image_url. The API's _embed=wp:featuredmedia
+  parameter returned null/empty source_url for virtually all products — the CSA
+  registry does not store product images in WordPress featured media.
+
+HTML entities in names:
+  Many product names contain raw HTML entities that were not decoded:
+    "WiZ LED luminaire &#8211; Full color"  → should be "WiZ LED luminaire – Full color"
+    "WiZ LED strip &#8211; Full color"      → should be "WiZ LED strip – Full color"
+    Brand names also affected:
+    "Accurate Lock &amp; Hardware"          → should be "Accurate Lock & Hardware"
+    "Albrecht Jung GmbH &amp; Co. KG"      → should be "Albrecht Jung GmbH & Co. KG"
+
+Matter sample showing data structure:
+  product_id:  matter-csa22845mat40106-00 (cert-based IDs where available)
+  name:        "WiZ LED lamp – Tunable white"
+  brand:       "Signify"
+  type:        "Smart Bulb (Color)"
+  notes:       "About: [description] | Device Type: [type] | Source: [url]"
+  image_url:   "" (empty for all Matter products)
+
+
+================================================================================
+5. ADDITIONAL ISSUES FOUND
+================================================================================
+
+5a. Non-smart-home devices in Matter import
+    The CSA-IoT "Matter" category includes platform/SDK certifications:
+    - Apple iOS, tvOS, watchOS, iPadOS, HomePod software, Darwin (~17 entries)
+    - "Apple's Platforms" (3 entries)
+    - These have type "Matter Device" and are not purchasable products.
+    Recommended action: Filter out entries where type = 'Matter Device' AND
+    brand = 'Apple Inc.' OR where name contains 'OS' / 'software' / 'Platform'.
+
+5b. Reference design entries (chip vendor testing modules)
+    - Quectel "On Off Light" ×91 — reference firmware on a chip module
+    - Quectel "Extended Color Light" ×73 — same issue
+    - Qorvo "QPG6105 DK" entries — development kit certifications
+    These are legitimate CSA entries but represent chip vendor test/reference
+    hardware, not consumer products users can buy.
+
+5c. TP-Link Kasa cross-scraper overlap
+    Kasa products exist twice in the DB:
+      1. product_id "kasa-smart-plugs-kp125m" (from kasa-scraper, our data)
+      2. product_id "matter-kasa-smart-plug-slim-energy-monitoring-kp125m" (from Matter import)
+    The Kasa scraper entries are richer (have type, category, features).
+    The Matter entries are redundant. Affected: ~10 Kasa products.
+
+5d. Wyze cross-scraper overlap
+    "Wyze Cam v3" appears twice: once from wyze-scraper, once from Matter import.
+
+5e. HTML entity encoding not decoded in scraper
+    The matter-scraper.ts stripHtml() function removes tags but does NOT decode
+    HTML entities. Affects names and notes across ~200+ products.
+
+
+================================================================================
+6. RECOMMENDATIONS
+================================================================================
+
+PRIORITY 1 — Fix HTML entity decoding in matter-scraper.ts
+  Add entity decoding to stripHtml(): replace &amp; → &, &#8211; → –, etc.
+  This affects product names displayed to users.
+
+PRIORITY 2 — Filter non-consumer entries before import
+  In matter-scraper.ts, before saving, filter out:
+    - Products where brand is a chip vendor (Quectel, Espressif, Qorvo, Beken, etc.)
+      and name is a generic type ("On Off Light", "Extended Color Light", etc.)
+    - Apple platform/OS entries (iOS, tvOS, watchOS, Darwin, etc.)
+    - Any product with type "Software Component" (from CSA product_type taxonomy)
+
+PRIORITY 3 — Deduplicate cross-scraper entries
+  After all scrapers run, run a deduplication pass:
+    - If a product exists as "kasa-xxx" AND "matter-xxx", keep "kasa-xxx" (richer data)
+    - If a product exists as "wyze-xxx" AND "matter-xxx", keep "wyze-xxx"
+    - Similar for Philips Hue (philips-hue-xxx vs matter-xxx)
+
+PRIORITY 4 — Normalize category casing
+  Aqara and other manually-imported products use lowercase category slugs
+  ("sensors", "hubs") while scrapers use Title Case ("Sensors", "Hubs & Controllers").
+  Standardize to Title Case across all records.
+
+PRIORITY 5 — Add matter boolean column to schema
+  The products table lacks a `matter` boolean column. Currently Matter products
+  are identified by product_id prefix 'matter-%', which is fragile.
+  Consider: ALTER TABLE products ADD COLUMN matter boolean DEFAULT false;
+  Then update existing: UPDATE products SET matter = true WHERE product_id LIKE 'matter-%';
+  Also update Kasa and other scrapers to set matter = true on Matter-capable devices.
+
+PRIORITY 6 — Images for Matter products
+  The CSA-IoT REST API has no product images. Options:
+    - Accept no images for Matter entries (cert database, not product catalog)
+    - Attempt image lookup by brand+name via a secondary source
+    - Show a generic Matter logo as fallback image
+
+================================================================================
+END OF REPORT
+================================================================================

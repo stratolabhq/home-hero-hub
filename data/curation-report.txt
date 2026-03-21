@@ -1,0 +1,66 @@
+============================================================
+  HOME HERO HUB — Product Curation Report
+  Generated: 2026-03-21T11:48:27.539Z
+============================================================
+
+── SUMMARY ─────────────────────────────────────────────────
+
+  Total products:    2,240
+  Popular products:  850 (37.9%)
+  Obscure products:  1,390 (62.1%)
+
+── BY CATEGORY ─────────────────────────────────────────────
+
+  Category                         Total  Popular  Obscure
+  ---------------------------------------------------------
+  Lighting                          1143      332      811
+  Outlets & Plugs                    255      176       79
+  Hubs & Controllers                 139       98       41
+  Climate Control                     84       74       10
+  Appliances                          79       64       15
+  Security                           128       43       85
+  Switches                            61       18       43
+  Cleaning                            12       12        0
+  Sensors                             80       12       68
+  Climate                              7        7        0
+  plugs                                5        5        0
+  Power                                3        3        0
+  displays                             2        2        0
+  speakers                             2        2        0
+  garage                               1        1        0
+  controllers                          1        1        0
+  Other                              238        0      238
+
+── TOP 20 POPULAR BRANDS ────────────────────────────────────
+
+   1. Philips Hue                    239 products
+   2. iRobot Corporation             54 products
+   3. TP-Link Kasa                   52 products
+   4. TP-Link Systems Inc.           41 products
+   5. IKEA of Sweden                 27 products
+   6. Nanoleaf                       19 products
+   7. Leviton Manufacturing Company  18 products
+   8. Wyze                           17 products
+   9. Jasco Products Company LLC     15 products
+  10. Shelly Europe Ltd.             15 products
+  11. Eve Systems                    13 products
+  12. Midea Group                    12 products
+  13. Shenzhen Qianyan Technology Ltd. 10 products
+  14. Tuya Global Inc.               9 products
+  15. Ledvance GmbH                  8 products
+  16. Schneider Electric             7 products
+  17. Aqara                          6 products
+  18. Hama GmbH & Co. KG             6 products
+  19. eufy                           5 products
+  20. Longan Link Tech Co.,LTD       5 products
+
+── IMPACT SUMMARY ───────────────────────────────────────────
+
+  Before curation: 2,240 devices shown in search
+  After curation:  850 devices shown by default
+  Reduction:       1,390 obscure devices hidden (62.1% filtered)
+
+  Popular = shown by default in search and compatibility checker
+  Obscure = still in database, admin can toggle, not shown by default
+
+============================================================

@@ -37,6 +37,8 @@ interface Product {
   notes?: string;
   price_range?: string | null;
   created_at?: string;
+  is_bestseller?: boolean;
+  bestseller_rank?: number | null;
 }
 
 interface InventoryItem {
@@ -70,6 +72,7 @@ interface Filters {
   priceBuckets: PriceBucket[];
   homeAssistant: boolean;
   myEcosystem: boolean;
+  popularOnly: boolean;
   sort: SortKey;
 }
 
@@ -81,6 +84,7 @@ const DEFAULT_FILTERS: Filters = {
   priceBuckets: [],
   homeAssistant: false,
   myEcosystem: false,
+  popularOnly: true,
   sort: 'alpha',
 };
 
@@ -141,6 +145,7 @@ function countActiveFilters(f: Filters): number {
   n += f.priceBuckets.length;
   if (f.homeAssistant) n++;
   if (f.myEcosystem) n++;
+  if (!f.popularOnly) n++;
   if (f.sort !== 'alpha') n++;
   return n;
 }
@@ -177,13 +182,21 @@ export default function CompatibilityChecker() {
   }, [filters]);
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(filters.popularOnly);
     supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fetchProducts = async () => {
+  useEffect(() => {
+    fetchProducts(filters.popularOnly);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters.popularOnly]);
+
+  const fetchProducts = async (popularOnly = true) => {
     setLoading(true);
-    const { data, error } = await supabase.from('products').select('*').order('name');
+    let query = supabase.from('products').select('*').order('name');
+    if (popularOnly) query = query.eq('is_popular', true);
+    const { data, error } = await query;
     if (!error) setProducts(data || []);
     setLoading(false);
   };
@@ -484,6 +497,26 @@ export default function CompatibilityChecker() {
                   </div>
                 </div>
 
+                {/* Toggle: Popular Only */}
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <div
+                    onClick={() => patch({ popularOnly: !filters.popularOnly })}
+                    className={`relative w-9 h-5 rounded-full transition-colors flex-shrink-0 ${
+                      filters.popularOnly ? 'bg-[#2e6f40]' : 'bg-gray-300'
+                    }`}
+                  >
+                    <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${
+                      filters.popularOnly ? 'translate-x-4' : 'translate-x-0.5'
+                    }`} />
+                  </div>
+                  <div>
+                    <span className="text-sm text-gray-700">Popular devices only</span>
+                    <span className="block text-xs text-gray-400">
+                      {filters.popularOnly ? `~${products.length} consumer brands` : 'Showing all devices including obscure'}
+                    </span>
+                  </div>
+                </label>
+
                 {/* Toggle: Home Assistant */}
                 <label className="flex items-center gap-3 cursor-pointer">
                   <div
@@ -534,7 +567,7 @@ export default function CompatibilityChecker() {
             {/* Result count bar */}
             <div className="px-5 pb-4 flex items-center justify-between text-sm text-gray-500">
               <span>
-                Showing <span className="font-semibold text-gray-800">{filteredProducts.length}</span> of {products.length} devices
+                Showing <span className="font-semibold text-gray-800">{filteredProducts.length}</span> of {products.length} {filters.popularOnly ? 'popular' : 'total'} devices
               </span>
               {selectedIds.size > 0 && (
                 <button
@@ -666,6 +699,11 @@ export default function CompatibilityChecker() {
                           )}
                           {score > 0 && (
                             <Badge variant="emerald">✓ Matches your home</Badge>
+                          )}
+                          {product.is_bestseller && product.bestseller_rank && (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">
+                              ★ Best Seller #{product.bestseller_rank}
+                            </span>
                           )}
                         </div>
 

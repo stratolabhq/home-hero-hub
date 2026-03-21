@@ -37,6 +37,7 @@ export default function AddProduct() {
   const [purchaseDate, setPurchaseDate] = useState('');
   const [notes, setNotes] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [showAllDevices, setShowAllDevices] = useState(false);
 
   useEffect(() => {
     if (searchTerm.trim().length < 2) {
@@ -46,23 +47,27 @@ export default function AddProduct() {
 
     const controller = new AbortController();
     const timeout = setTimeout(() => {
-      searchProducts(searchTerm.trim());
+      searchProducts(searchTerm.trim(), showAllDevices);
     }, 300);
 
     return () => {
       clearTimeout(timeout);
       controller.abort();
     };
-  }, [searchTerm]);
+  }, [searchTerm, showAllDevices]);
 
-  const searchProducts = async (term: string) => {
+  const searchProducts = async (term: string, showAll = false) => {
     setLoading(true);
-    const { data, error } = await supabase
+    let query = supabase
       .from('products')
       .select('*')
-      .or(`name.ilike.%${term}%,brand.ilike.%${term}%,notes.ilike.%${term}%`)
-      .order('name')
-      .limit(100);
+      .or(`name.ilike.%${term}%,brand.ilike.%${term}%,notes.ilike.%${term}%`);
+
+    if (!showAll) {
+      query = query.eq('is_popular', true);
+    }
+
+    const { data, error } = await query.order('name').limit(100);
 
     if (error) {
       console.error('Error searching products:', error);
@@ -176,6 +181,18 @@ export default function AddProduct() {
 }}
                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
+              <div className="mt-2 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowAllDevices(v => !v)}
+                  className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${showAllDevices ? 'bg-[#2e6f40]' : 'bg-gray-200'}`}
+                >
+                  <span className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${showAllDevices ? 'translate-x-4' : 'translate-x-0'}`} />
+                </button>
+                <span className="text-xs text-gray-500">
+                  {showAllDevices ? 'All devices (including obscure)' : 'Popular devices only'}
+                </span>
+              </div>
             </div>
 
             {selectedProduct && (
@@ -206,7 +223,9 @@ export default function AddProduct() {
               {loading ? (
                 <div className="p-8 text-center text-gray-500">Searching...</div>
               ) : searchTerm.trim().length < 2 ? (
-                <div className="p-8 text-center text-gray-500">Type at least 2 characters to search 10,000+ devices</div>
+                <div className="p-8 text-center text-gray-500">
+                  Type at least 2 characters to search {showAllDevices ? '10,000+' : '~1,000 popular'} devices
+                </div>
               ) : filteredProducts.length === 0 ? (
                 <div className="p-8 text-center text-gray-500">No devices found</div>
               ) : (

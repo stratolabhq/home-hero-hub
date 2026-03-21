@@ -1,0 +1,91 @@
+================================================================================
+HOME HERO HUB — MATTER DATA CLEANUP SUMMARY
+Date: 2026-03-20
+================================================================================
+
+DELETIONS
+---------
+Apple OS/platform entries deleted:    68
+Quectel reference designs deleted:    1176
+Other non-consumer entries deleted:   402
+Within-Matter duplicates removed:     7120
+─────────────────────────────────────────
+TOTAL DELETED:                         8766
+
+FIXES APPLIED
+-------------
+HTML entities decoded:                150 records
+Category casing normalized:           37 records
+
+DATABASE STATE AFTER CLEANUP
+-----------------------------
+Total products remaining:             2240
+Matter products remaining:            1843
+Products with images:                 397
+Products without images:              1843
+Unique brands:                        234
+
+PRODUCTS BY CATEGORY
+--------------------
+  Lighting                     675
+  Hubs & Controllers           139
+  Climate Control              84
+  Appliances                   79
+  Cleaning                     12
+  Climate                      7
+  displays                     2
+  controllers                  1
+  garage                       1
+
+TOP 20 BRANDS
+-------------
+  Ledvance GmbH                                 111
+  iRobot Corporation                            54
+  AiDot Inc.                                    42
+  Feit Electric Company, Inc.                   42
+  Lumi United Technology Co., Ltd.              33
+  Jasco Products Company LLC                    32
+  IKEA of Sweden                                29
+  Nanoleaf                                      19
+  Amazon Lab126                                 18
+  Leviton Manufacturing Company                 18
+  NXP Semiconductors Netherlands B.V.           18
+  LG Electronics                                17
+  Eve Systems                                   16
+  Anker Innovations Technology Co., Ltd         15
+  Hama GmbH & Co. KG                            15
+  Mediola Connected Living AG                   15
+  HooRii Technology Co., Ltd.                   14
+  Longan Link Tech Co.,LTD                      14
+  Assa Abloy AB Sweden                          12
+  Guangdong A-OK Technology Grand Development Co., Ltd. 12
+
+WHAT WAS DELETED AND WHY
+-------------------------
+1. Apple Inc. (68 entries)
+   - iOS, tvOS, watchOS, iPadOS, macOS, Darwin, HomePod software
+   - "Apple's Platforms", "Apple Proprietary Platforms"
+   - These are Apple OS/platform Matter certifications, not physical devices
+
+2. Quectel Wireless Solutions (1176 entries)
+   - On Off Light (×N), Extended Color Light (×N), Smart Window Covering (×N)
+   - On/Off Plug-in Unit (×N), On/Off Light Switch (×N)
+   - Quectel is a chip/module vendor; these entries are reference firmware
+     running on their communication modules, not consumer products
+
+3. Other non-consumer (402 entries)
+   - Nordic Semiconductor: nRF Connect SDK, SDK test entries
+   - Chip vendor SDKs and development kits
+
+4. Within-Matter duplicates (7120 entries)
+   - Same product name+brand with multiple CSA cert IDs (firmware revisions)
+   - Kept one representative entry per unique name+brand combination
+
+NOTES
+-----
+- No cross-scraper duplicates found (Kasa/Wyze/Philips Hue Matter entries
+  use different brand names in CSA registry vs our scrapers, so no overlap)
+- All Matter products still have empty image_url (CSA-IoT has no images)
+- products table has no 'matter' boolean column; Matter products identified
+  by product_id LIKE 'matter-%'
+================================================================================

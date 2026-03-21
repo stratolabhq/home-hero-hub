@@ -50,7 +50,13 @@
       "Bash(curl -s \"https://csa-iot.org/wp-json/wp/v2/product_category?per_page=1\")",
       "Bash(curl -s -I \"https://csa-iot.org/wp-json/wp/v2/product_company\")",
       "Bash(curl -s -I \"https://csa-iot.org/wp-json/wp/v2/product_device_type\")",
-      "Bash(curl -s -I \"https://csa-iot.org/wp-json/wp/v2/product_category\")"
+      "Bash(curl -s -I \"https://csa-iot.org/wp-json/wp/v2/product_category\")",
+      "Bash(supabase --version)",
+      "Bash(npx next:*)",
+      "Bash(grep -E \"^[├└] [○ƒ] /$|Route \\\\\\(app\\\\\\)|Error\")",
+      "Bash(grep -E \" / $| /\\\\b\")",
+      "Bash(grep -r \"AMAZON_PA\\\\|PA_API\" /home/stratolabhq/projects/home-hero-hub --include=*.ts --include=*.tsx --include=*.env*)",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }
