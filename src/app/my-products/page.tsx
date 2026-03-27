@@ -21,6 +21,7 @@ interface UserProduct {
   custom_name: string;
   purchase_date: string;
   notes: string;
+  quantity: number;
   created_at: string;
   products: {
     id: string;
@@ -336,6 +337,12 @@ export default function MyProducts() {
                             {userProduct.purchase_date && (
                               <p className="text-sm text-gray-600 mb-2">
                                 📅 Purchased: {new Date(userProduct.purchase_date).toLocaleDateString()}
+                              </p>
+                            )}
+
+                            {userProduct.quantity > 1 && (
+                              <p className="text-sm text-gray-600 mb-2">
+                                📦 Qty: {userProduct.quantity}
                               </p>
                             )}
 

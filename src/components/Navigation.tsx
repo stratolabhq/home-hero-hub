@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { User, LogOut, Settings, Package } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -16,6 +17,8 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
@@ -30,6 +33,22 @@ export default function Navigation() {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const isAdmin = user?.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+
+  function getInitials(email: string): string {
+    return email.split('@')[0].substring(0, 2).toUpperCase();
+  }
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     router.push('/');
@@ -40,6 +59,7 @@ export default function Navigation() {
     { name: 'Home', path: '/', icon: '🏠' },
     { name: 'Dashboard', path: '/dashboard', icon: '📊', requiresAuth: true },
     { name: 'Compatibility', path: '/compatibility', icon: '🔍' },
+    { name: 'Controllers', path: '/controllers', icon: '📡' },
     { name: 'Add Product', path: '/add-product', icon: '➕', requiresAuth: true },
     { name: 'My Products', path: '/my-products', icon: '📦', requiresAuth: true },
     { name: 'Getting Started', path: '/getting-started', icon: '📚' },
@@ -93,25 +113,63 @@ export default function Navigation() {
             {loading ? (
               <div className="text-sm text-gray-500">Loading...</div>
             ) : user ? (
-              <>
-                <span className="text-sm text-gray-600 flex items-center gap-2">
-                  {user.email}
-                  {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
-                    <Link
-                      href="/admin"
-                      className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none hover:bg-[#3d8b54] transition-colors"
-                    >
-                      Admin
-                    </Link>
-                  )}
-                </span>
+              <div className="relative" ref={dropdownRef}>
                 <button
-                  onClick={handleLogout}
-                  className="px-4 py-2 text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40] rounded-lg font-medium text-sm transition-colors"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center p-1 rounded-full hover:bg-[#f0f9f2] transition-colors"
+                  aria-label="User menu"
                 >
-                  Logout
+                  <div className="relative">
+                    <div className="w-10 h-10 bg-[#2e6f40] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">
+                        {getInitials(user.email)}
+                      </span>
+                    </div>
+                    {isAdmin && (
+                      <div
+                        className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 border-2 border-white rounded-full"
+                        title="Admin"
+                      />
+                    )}
+                  </div>
                 </button>
-              </>
+
+                {showDropdown && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="px-4 py-3 border-b border-gray-100">
+                      <p className="text-sm font-semibold text-gray-900 truncate">{user.email}</p>
+                      <p className="text-xs text-gray-500 mt-1">{isAdmin ? 'Administrator' : 'User'}</p>
+                    </div>
+                    <div className="py-2">
+                      <Link
+                        href="/my-products"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                        onClick={() => setShowDropdown(false)}
+                      >
+                        <Package className="w-4 h-4" />
+                        My Products
+                      </Link>
+                      {isAdmin && (
+                        <Link
+                          href="/admin"
+                          className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                          onClick={() => setShowDropdown(false)}
+                        >
+                          <Settings className="w-4 h-4" />
+                          Admin Dashboard
+                        </Link>
+                      )}
+                      <button
+                        onClick={() => { setShowDropdown(false); handleLogout(); }}
+                        className="w-full flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                      >
+                        <LogOut className="w-4 h-4" />
+                        Sign Out
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             ) : (
               <>
                 <Link
@@ -173,26 +231,36 @@ export default function Navigation() {
 
             {user ? (
               <div className="pt-4 border-t border-[#d1ecd7]">
-                <div className="px-3 py-2 text-sm text-gray-600 flex items-center gap-2">
-                  {user.email}
-                  {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
-                    <Link
-                      href="/admin"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-[#2e6f40] text-white tracking-wide uppercase leading-none hover:bg-[#3d8b54] transition-colors"
-                    >
-                      Admin
-                    </Link>
-                  )}
+                <div className="px-3 py-2 flex items-center gap-3">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#2e6f40] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">{getInitials(user.email)}</span>
+                    </div>
+                    {isAdmin && (
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 border-2 border-white rounded-full" title="Admin" />
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-gray-900 truncate">{user.email}</p>
+                    <p className="text-xs text-gray-500">{isAdmin ? 'Administrator' : 'User'}</p>
+                  </div>
                 </div>
+                {isAdmin && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg"
+                  >
+                    <Settings className="w-4 h-4" />
+                    Admin Dashboard
+                  </Link>
+                )}
                 <button
-                  onClick={() => {
-                    handleLogout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg font-medium"
+                  onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+                  className="w-full flex items-center gap-3 px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg font-medium"
                 >
-                  Logout
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
                 </button>
               </div>
             ) : (

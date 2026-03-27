@@ -441,6 +441,77 @@ export default async function Home() {
         </section>
       )}
 
+      {/* ── Protocol Controllers ─────────────────────────────────────── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded-full text-sm font-semibold mb-3">
+              📡 Advanced Setup
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Protocol Controllers & Coordinators
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Essential hardware for Zigbee, Z-Wave, Matter, and Thread networks.
+              Required for Home Assistant users building a local smart home.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="group bg-white rounded-xl border-2 border-amber-100 p-6 hover:border-amber-300 transition-colors">
+              <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
+                📡
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Zigbee Coordinators</h3>
+              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                USB sticks and Ethernet gateways for Zigbee device networks.
+                Works with Home Assistant via ZHA or Zigbee2MQTT.
+              </p>
+              <Link href="/controllers?protocol=Zigbee" className="text-[#2e6f40] font-semibold text-sm group-hover:text-[#1f4d2b] transition-colors">
+                Browse Zigbee Controllers →
+              </Link>
+            </div>
+
+            <div className="group bg-white rounded-xl border-2 border-blue-100 p-6 hover:border-blue-300 transition-colors">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
+                🔊
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Z-Wave Controllers</h3>
+              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                USB sticks for Z-Wave 700/800 series networks. Secure,
+                interference-free mesh networking on 900 MHz.
+              </p>
+              <Link href="/controllers?protocol=Z-Wave" className="text-[#2e6f40] font-semibold text-sm group-hover:text-[#1f4d2b] transition-colors">
+                Browse Z-Wave Controllers →
+              </Link>
+            </div>
+
+            <div className="group bg-white rounded-xl border-2 border-purple-100 p-6 hover:border-purple-300 transition-colors">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
+                🧵
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Matter & Thread</h3>
+              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                Border routers for Matter and Thread networks. Built into
+                HomePod mini, Echo 4th gen, and Nest Hub 2nd gen.
+              </p>
+              <Link href="/controllers?protocol=Thread" className="text-[#2e6f40] font-semibold text-sm group-hover:text-[#1f4d2b] transition-colors">
+                Browse Matter/Thread →
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/controllers"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-sm"
+            >
+              View All Controllers & Coordinators
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Features ─────────────────────────────────────────────────── */}
       <section id="features" className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
@@ -608,6 +679,7 @@ export default async function Home() {
               <h4 className="font-bold mb-4 text-[#6fbf7d]">Product</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li><a href="/compatibility" className="hover:text-[#6fbf7d] transition">Compatibility</a></li>
+                <li><a href="/controllers" className="hover:text-[#6fbf7d] transition">Controllers</a></li>
                 <li><a href="/bestsellers" className="hover:text-[#6fbf7d] transition">Best Sellers</a></li>
                 <li><a href="/tools/yaml-generator" className="hover:text-[#6fbf7d] transition">YAML Generator</a></li>
                 <li><a href="/dashboard" className="hover:text-[#6fbf7d] transition">Dashboard</a></li>

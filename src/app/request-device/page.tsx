@@ -13,6 +13,7 @@ export default function RequestDevice() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     device_name: '',
     brand: '',
@@ -39,26 +40,36 @@ export default function RequestDevice() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
 
     try {
       const { data: { user } } = await supabase.auth.getUser();
 
-      // Insert into device_requests table
-      const { error } = await supabase
+      const { error: insertError } = await supabase
         .from('device_requests')
         .insert([{
           ...formData,
-          user_id: user?.id,
+          user_id: user?.id || null,
           status: 'pending',
           votes: 1
         }]);
 
-      if (error) throw error;
+      if (insertError) {
+        console.error('Supabase error:', insertError);
+        if (insertError.code === '42501' || insertError.message?.toLowerCase().includes('policy')) {
+          setError('Permission denied. Please try again or sign in.');
+        } else if (insertError.message?.toLowerCase().includes('column')) {
+          setError(`Database schema error: ${insertError.message}`);
+        } else {
+          setError(insertError.message || 'Failed to submit request.');
+        }
+        return;
+      }
 
       setSubmitted(true);
-    } catch (error) {
-      console.error('Error submitting request:', error);
-      alert('Failed to submit request. Please try again.');
+    } catch (err: any) {
+      console.error('Error submitting request:', err);
+      setError(err.message || 'Failed to submit request. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -130,6 +141,14 @@ export default function RequestDevice() {
 
         {/* Form */}
         <div className="bg-white rounded-xl shadow-lg p-8">
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 flex items-start gap-3">
+              <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-red-700 text-sm">{error}</p>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Device Name */}
             <div>

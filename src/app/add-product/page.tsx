@@ -36,6 +36,7 @@ export default function AddProduct() {
   const [customName, setCustomName] = useState('');
   const [purchaseDate, setPurchaseDate] = useState('');
   const [notes, setNotes] = useState('');
+  const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const [showAllDevices, setShowAllDevices] = useState(false);
 
@@ -105,6 +106,7 @@ export default function AddProduct() {
         custom_name: customName || null,
         purchase_date: purchaseDate || null,
         notes: notes || null,
+        quantity: quantity || 1,
       });
 
     setSubmitting(false);
@@ -124,6 +126,7 @@ export default function AddProduct() {
       setCustomName('');
       setPurchaseDate('');
       setNotes('');
+      setQuantity(1);
       setSearchTerm('');
       setTimeout(() => setShowSuccess(false), 3000);
     }
@@ -300,6 +303,19 @@ export default function AddProduct() {
                   type="date"
                   value={purchaseDate}
                   onChange={(e) => setPurchaseDate(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Quantity
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
