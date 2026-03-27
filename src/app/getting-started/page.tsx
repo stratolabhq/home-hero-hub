@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function GettingStarted() {
   const [activeTab, setActiveTab] = useState<'basics' | 'ecosystems' | 'devices' | 'setup'>('basics');
@@ -38,6 +39,12 @@ export default function GettingStarted() {
               {tab.label}
             </button>
           ))}
+          <Link
+            href="/getting-started/device-types"
+            className="px-6 py-3 rounded-lg font-semibold bg-[#f0f9f2] text-[#2e6f40] border border-[#d1ecd7] hover:bg-[#d1ecd7] shadow transition-all"
+          >
+            🖼️ Visual Device Guide
+          </Link>
         </div>
 
         {/* Content Sections */}
