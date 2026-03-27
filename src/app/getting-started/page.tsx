@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { CheckCircle } from 'lucide-react';
 
 export default function GettingStarted() {
   const [activeTab, setActiveTab] = useState<'basics' | 'ecosystems' | 'devices' | 'setup'>('basics');
@@ -693,6 +694,154 @@ export default function GettingStarted() {
                     <p className="font-bold text-gray-900 mb-1">❌ Buying the cheapest option</p>
                     <p className="text-sm text-gray-600">Quality matters - stick with reputable brands</p>
                   </div>
+                </div>
+              </div>
+
+              {/* Recommended First Devices */}
+              <div className="bg-[#f0f9f2] border-2 border-[#d1ecd7] rounded-xl p-6 mt-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">🛒 Your First 3 Devices</h3>
+                <p className="text-gray-600 mb-6 text-sm">Start here — all three are easy to set up and work with every major ecosystem.</p>
+                <div className="grid md:grid-cols-3 gap-5">
+
+                  {/* Smart Bulb */}
+                  <div className="bg-white rounded-xl border-2 border-[#2e6f40] overflow-hidden">
+                    <div className="h-2 bg-[#2e6f40]" />
+                    <div className="p-5">
+                      <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl mb-4">💡</div>
+                      <div className="inline-block bg-[#2e6f40] text-white px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
+                        BEST FIRST DEVICE
+                      </div>
+                      <h4 className="font-bold text-lg text-gray-900 mb-2">Smart Bulb</h4>
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Screw into any lamp or fixture. No wiring, no hub required (WiFi models).
+                        Immediate wow-factor.
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-1.5 mb-5">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          5-minute setup
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          $10 – $25 each
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          WiFi — no hub needed
+                        </li>
+                      </ul>
+                      <a
+                        href="/compatibility?category=lighting"
+                        className="block w-full text-center bg-[#2e6f40] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#3d8b54] transition-colors"
+                      >
+                        Browse Smart Bulbs
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Smart Plug */}
+                  <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden">
+                    <div className="h-2 bg-blue-500" />
+                    <div className="p-5">
+                      <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-3xl mb-4">🔌</div>
+                      <div className="inline-block bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
+                        PLUG &amp; PLAY
+                      </div>
+                      <h4 className="font-bold text-lg text-gray-900 mb-2">Smart Plug</h4>
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Makes any device smart. Turn lamps, fans, and coffee makers on/off remotely.
+                        No installation.
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-1.5 mb-5">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          Zero installation
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          $8 – $20 each
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          WiFi — no hub needed
+                        </li>
+                      </ul>
+                      <a
+                        href="/compatibility?category=outlets-plugs"
+                        className="block w-full text-center border-2 border-[#2e6f40] text-[#2e6f40] py-2.5 rounded-lg font-semibold text-sm hover:bg-[#f0f9f2] transition-colors"
+                      >
+                        Browse Smart Plugs
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Smart Speaker */}
+                  <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden">
+                    <div className="h-2 bg-purple-500" />
+                    <div className="p-5">
+                      <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-3xl mb-4">🔊</div>
+                      <div className="inline-block bg-purple-100 text-purple-700 px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
+                        VOICE CONTROL
+                      </div>
+                      <h4 className="font-bold text-lg text-gray-900 mb-2">Smart Speaker</h4>
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        The central brain of your smart home. Control everything hands-free with
+                        Echo Dot or Google Nest Mini.
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-1.5 mb-5">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          Voice commands
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          $30 – $50
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#2e6f40] flex-shrink-0" />
+                          Controls your other devices
+                        </li>
+                      </ul>
+                      <a
+                        href="/compatibility?search=echo+dot"
+                        className="block w-full text-center border-2 border-[#2e6f40] text-[#2e6f40] py-2.5 rounded-lg font-semibold text-sm hover:bg-[#f0f9f2] transition-colors"
+                      >
+                        Browse Smart Speakers
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* What to Look For on the Box */}
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mt-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">🏷️ What to Look for on the Box</h3>
+                <p className="text-sm text-gray-600 mb-6">
+                  Compatibility badges tell you exactly which ecosystems a device works with.
+                  Look for these on the front or back of any smart home product.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                  {[
+                    { label: 'Works with Alexa',        bg: 'bg-[#00A8E1]', text: 'text-white',     sub: 'Echo & Fire TV' },
+                    { label: 'Works with Google Home',  bg: 'bg-white',     text: 'text-gray-800',  sub: 'Nest & Android', border: 'border-2 border-gray-200' },
+                    { label: 'Works with Apple HomeKit',bg: 'bg-black',     text: 'text-white',     sub: 'iPhone & Siri' },
+                    { label: 'Matter Certified',        bg: 'bg-[#5C2D91]', text: 'text-white',     sub: 'Universal standard' },
+                  ].map(badge => (
+                    <div
+                      key={badge.label}
+                      className={`${badge.bg} ${badge.border ?? ''} rounded-xl p-4 text-center shadow-sm`}
+                    >
+                      <p className={`text-xs font-bold leading-tight mb-1 ${badge.text}`}>{badge.label}</p>
+                      <p className={`text-xs opacity-75 ${badge.text}`}>{badge.sub}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-white rounded-xl border border-blue-200 p-4">
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <strong>💡 Tip:</strong> If you see a <strong>Matter</strong> badge, the device works with
+                    ALL major ecosystems simultaneously — Alexa, Google Home, HomeKit, and SmartThings.
+                    Matter is the best choice for future-proofing your smart home.
+                  </p>
                 </div>
               </div>
 

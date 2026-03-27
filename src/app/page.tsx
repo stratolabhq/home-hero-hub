@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 import { Home as HomeIcon, CheckCircle, XCircle, Zap } from 'lucide-react';
 import { generateAmazonLink } from '@/lib/amazon-affiliate';
+import DeviceCategoryShowcase from '@/components/DeviceCategoryShowcase';
 
 interface BestsellerRow {
   id: string;
@@ -258,6 +259,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <DeviceCategoryShowcase />
 
       {/* ── Popular Ecosystems ────────────────────────────────────────── */}
       <section className="py-16 bg-white">
