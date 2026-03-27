@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
@@ -79,7 +79,7 @@ function getConnectionFilters(controllers: Controller[]): string[] {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function ControllersPage() {
+function ControllersContent() {
   const searchParams = useSearchParams();
   const [controllers, setControllers] = useState<Controller[]>([]);
   const [loading, setLoading] = useState(true);
@@ -719,5 +719,13 @@ export default function ControllersPage() {
       </section>
 
     </div>
+  );
+}
+
+export default function ControllersPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center"><p className="text-gray-500">Loading controllers…</p></div>}>
+      <ControllersContent />
+    </Suspense>
   );
 }
