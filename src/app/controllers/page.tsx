@@ -109,7 +109,7 @@ export default function ControllersPage() {
       if (error) {
         setError(error.message);
       } else {
-        setControllers((data as Controller[]) || []);
+        setControllers((data as unknown as Controller[]) || []);
       }
       setLoading(false);
     }
