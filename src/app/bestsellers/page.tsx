@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
+import { Star, StarHalf } from 'lucide-react';
 import { generateAmazonLink } from '@/lib/amazon-affiliate';
 
 interface BestsellerRow {
@@ -38,9 +39,9 @@ function StarRating({ rating }: { rating: number }) {
   const empty = 5 - full - (half ? 1 : 0);
   return (
     <div className="flex items-center gap-0.5">
-      {Array.from({ length: full  }).map((_, i) => <span key={`f${i}`} className="text-yellow-400 text-sm">★</span>)}
-      {half                                      &&  <span className="text-yellow-400 text-sm">½</span>}
-      {Array.from({ length: empty }).map((_, i) => <span key={`e${i}`} className="text-gray-300 text-sm">★</span>)}
+      {Array.from({ length: full  }).map((_, i) => <Star key={`f${i}`} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
+      {half                                      &&  <StarHalf className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />}
+      {Array.from({ length: empty }).map((_, i) => <Star key={`e${i}`} className="w-3.5 h-3.5 fill-gray-200 text-gray-200" />)}
     </div>
   );
 }
@@ -155,7 +156,7 @@ export default async function BestsellersPage({
             {products.map(product => {
               const amazonUrl = generateAmazonLink(product.name, product.brand);
               return (
-                <div key={product.id} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div key={product.id} className="bg-white rounded-xl border border-gray-100 card-lift shadow-[var(--shadow-sm)] flex flex-col">
                   {/* Image */}
                   <div className="relative aspect-square bg-gray-50 rounded-t-xl overflow-hidden">
                     {product.image_url ? (

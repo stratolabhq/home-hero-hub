@@ -2,7 +2,30 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle } from 'lucide-react';
+import {
+  CheckCircle, AlertTriangle, Lightbulb, Star, DollarSign, Home, Globe,
+  Smartphone, Settings, Images, Lock, Thermometer, Bot, Tv, Zap, Blinds,
+  Radio, Sun, Footprints, Wallet, XCircle, ShoppingCart, PlugZap, Volume2,
+  Tag, Rocket,
+} from 'lucide-react';
+
+function Stars({ n }: { n: number }) {
+  return (
+    <span className="inline-flex justify-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className={`w-3.5 h-3.5 ${i < n ? 'fill-yellow-400 text-yellow-400' : 'fill-gray-200 text-gray-200'}`} />
+      ))}
+    </span>
+  );
+}
+
+function Money({ n }: { n: number }) {
+  return (
+    <span className="inline-flex justify-center text-[#2e6f40]">
+      {Array.from({ length: n }).map((_, i) => <DollarSign key={i} className="w-3.5 h-3.5" />)}
+    </span>
+  );
+}
 
 export default function GettingStarted() {
   const [activeTab, setActiveTab] = useState<'basics' | 'ecosystems' | 'devices' | 'setup'>('basics');
@@ -23,28 +46,28 @@ export default function GettingStarted() {
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {[
-            { id: 'basics', label: '🏠 Smart Home Basics', icon: '🏠' },
-            { id: 'ecosystems', label: '🌐 Ecosystems Explained', icon: '🌐' },
-            { id: 'devices', label: '📱 Device Categories', icon: '📱' },
-            { id: 'setup', label: '⚙️ Getting Started', icon: '⚙️' }
+            { id: 'basics', label: 'Smart Home Basics', Icon: Home },
+            { id: 'ecosystems', label: 'Ecosystems Explained', Icon: Globe },
+            { id: 'devices', label: 'Device Categories', Icon: Smartphone },
+            { id: 'setup', label: 'Getting Started', Icon: Settings }
           ].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                 activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-lg scale-105'
+                  ? 'bg-[#2e6f40] text-white shadow-lg scale-105'
                   : 'bg-white text-gray-700 hover:bg-gray-50 shadow'
               }`}
             >
-              {tab.label}
+              <tab.Icon className="w-4 h-4" /> {tab.label}
             </button>
           ))}
           <Link
             href="/getting-started/device-types"
-            className="px-6 py-3 rounded-lg font-semibold bg-[#f0f9f2] text-[#2e6f40] border border-[#d1ecd7] hover:bg-[#d1ecd7] shadow transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold bg-[#f0f9f2] text-[#2e6f40] border border-[#d1ecd7] hover:bg-[#d1ecd7] shadow transition-all"
           >
-            🖼️ Visual Device Guide
+            <Images className="w-4 h-4" /> Visual Device Guide
           </Link>
         </div>
 
@@ -62,7 +85,7 @@ export default function GettingStarted() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
-                  <h3 className="text-xl font-bold text-blue-900 mb-3">✅ Benefits</h3>
+                  <h3 className="flex items-center gap-2 text-xl font-bold text-blue-900 mb-3"><CheckCircle className="w-5 h-5" /> Benefits</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>Convenience:</strong> Control everything from your phone</li>
                     <li>• <strong>Energy Savings:</strong> Reduce waste with automation</li>
@@ -73,7 +96,7 @@ export default function GettingStarted() {
                 </div>
 
                 <div className="bg-amber-50 rounded-lg p-6 border-2 border-amber-200">
-                  <h3 className="text-xl font-bold text-amber-900 mb-3">⚠️ Considerations</h3>
+                  <h3 className="flex items-center gap-2 text-xl font-bold text-amber-900 mb-3"><AlertTriangle className="w-5 h-5" /> Considerations</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>Compatibility:</strong> Not all devices work together</li>
                     <li>• <strong>Internet Dependency:</strong> Requires stable WiFi</li>
@@ -144,7 +167,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-blue-100 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> Alexa has the largest smart home library. If device compatibility is your priority, Alexa is the safest bet.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> Alexa has the largest smart home library. If device compatibility is your priority, Alexa is the safest bet.
                   </p>
                 </div>
               </div>
@@ -182,7 +205,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-red-100 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> Google Assistant understands context better than competitors. Ask follow-up questions without repeating yourself.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> Google Assistant understands context better than competitors. Ask follow-up questions without repeating yourself.
                   </p>
                 </div>
               </div>
@@ -220,7 +243,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-gray-200 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> HomeKit requires device certification, so selection is smaller but quality is consistently high.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> HomeKit requires device certification, so selection is smaller but quality is consistently high.
                   </p>
                 </div>
               </div>
@@ -258,7 +281,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-cyan-100 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> SmartThings Hub supports Zigbee, Z-Wave, and WiFi - the most protocol flexibility.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> SmartThings Hub supports Zigbee, Z-Wave, and WiFi - the most protocol flexibility.
                   </p>
                 </div>
               </div>
@@ -296,7 +319,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-purple-100 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> Matter is the future. Devices work with Alexa, Google, HomeKit, and SmartThings simultaneously.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> Matter is the future. Devices work with Alexa, Google, HomeKit, and SmartThings simultaneously.
                   </p>
                 </div>
               </div>
@@ -334,7 +357,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="mt-4 bg-teal-100 rounded-lg p-4">
                   <p className="text-sm text-gray-800">
-                    <strong>💡 Pro Tip:</strong> Home Assistant works with everything, but requires technical setup. Perfect for users who want complete control.
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip:</strong> Home Assistant works with everything, but requires technical setup. Perfect for users who want complete control.
                   </p>
                 </div>
               </div>
@@ -355,44 +378,44 @@ export default function GettingStarted() {
                   <tbody>
                     <tr>
                       <td className="border p-3 font-semibold">Alexa</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐</td>
-                      <td className="border p-3 text-center">💰</td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={3} /></td>
+                      <td className="border p-3 text-center"><Money n={1} /></td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border p-3 font-semibold">Google Home</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐</td>
-                      <td className="border p-3 text-center">💰💰</td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={2} /></td>
+                      <td className="border p-3 text-center"><Money n={2} /></td>
                     </tr>
                     <tr>
                       <td className="border p-3 font-semibold">Apple HomeKit</td>
-                      <td className="border p-3 text-center">⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">💰💰💰</td>
+                      <td className="border p-3 text-center"><Stars n={3} /></td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Money n={3} /></td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border p-3 font-semibold">SmartThings</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐</td>
-                      <td className="border p-3 text-center">💰💰</td>
+                      <td className="border p-3 text-center"><Stars n={4} /></td>
+                      <td className="border p-3 text-center"><Stars n={3} /></td>
+                      <td className="border p-3 text-center"><Stars n={3} /></td>
+                      <td className="border p-3 text-center"><Money n={2} /></td>
                     </tr>
                     <tr>
                       <td className="border p-3 font-semibold">Matter</td>
-                      <td className="border p-3 text-center">⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">💰💰</td>
+                      <td className="border p-3 text-center"><Stars n={3} /></td>
+                      <td className="border p-3 text-center"><Stars n={4} /></td>
+                      <td className="border p-3 text-center"><Stars n={4} /></td>
+                      <td className="border p-3 text-center"><Money n={2} /></td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border p-3 font-semibold">Home Assistant</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐</td>
-                      <td className="border p-3 text-center">⭐⭐⭐⭐⭐</td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
+                      <td className="border p-3 text-center"><Stars n={2} /></td>
+                      <td className="border p-3 text-center"><Stars n={5} /></td>
                       <td className="border p-3 text-center">Free</td>
                     </tr>
                   </tbody>
@@ -414,7 +437,7 @@ export default function GettingStarted() {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Lighting */}
                 <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">💡</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-yellow-600"><Lightbulb className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Lighting</h3>
                   <p className="text-gray-700 mb-3">Control brightness, color, and schedules for ambiance and energy savings.</p>
                   <div className="text-sm text-gray-600">
@@ -425,7 +448,7 @@ export default function GettingStarted() {
 
                 {/* Security */}
                 <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">🔒</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-red-600"><Lock className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Security</h3>
                   <p className="text-gray-700 mb-3">Smart locks, cameras, doorbells, and sensors protect your home.</p>
                   <div className="text-sm text-gray-600">
@@ -436,7 +459,7 @@ export default function GettingStarted() {
 
                 {/* Climate Control */}
                 <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">🌡️</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-blue-600"><Thermometer className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Climate Control</h3>
                   <p className="text-gray-700 mb-3">Thermostats, fans, humidifiers, and air purifiers for comfort and efficiency.</p>
                   <div className="text-sm text-gray-600">
@@ -447,7 +470,7 @@ export default function GettingStarted() {
 
                 {/* Cleaning */}
                 <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">🤖</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-purple-600"><Bot className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Cleaning</h3>
                   <p className="text-gray-700 mb-3">Robot vacuums and mops automate floor cleaning with scheduling and mapping.</p>
                   <div className="text-sm text-gray-600">
@@ -458,7 +481,7 @@ export default function GettingStarted() {
 
                 {/* Entertainment */}
                 <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">📺</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-[#2e6f40]"><Tv className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Entertainment</h3>
                   <p className="text-gray-700 mb-3">Smart TVs, speakers, and streaming devices for unified media control.</p>
                   <div className="text-sm text-gray-600">
@@ -469,7 +492,7 @@ export default function GettingStarted() {
 
                 {/* Power & Energy */}
                 <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">⚡</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-orange-600"><Zap className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Power & Energy</h3>
                   <p className="text-gray-700 mb-3">Smart plugs, switches, and energy monitors track and control power usage.</p>
                   <div className="text-sm text-gray-600">
@@ -480,7 +503,7 @@ export default function GettingStarted() {
 
                 {/* Window Treatments */}
                 <div className="bg-cyan-50 border-2 border-cyan-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">🪟</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-cyan-600"><Blinds className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Window Treatments</h3>
                   <p className="text-gray-700 mb-3">Motorized blinds and curtains for privacy, light control, and energy efficiency.</p>
                   <div className="text-sm text-gray-600">
@@ -491,7 +514,7 @@ export default function GettingStarted() {
 
                 {/* Sensors */}
                 <div className="bg-pink-50 border-2 border-pink-200 rounded-lg p-6">
-                  <div className="text-4xl mb-3">📡</div>
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-3 text-pink-600"><Radio className="w-6 h-6" /></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Sensors</h3>
                   <p className="text-gray-700 mb-3">Motion, door/window, leak, and temperature sensors trigger automations.</p>
                   <div className="text-sm text-gray-600">
@@ -506,7 +529,7 @@ export default function GettingStarted() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Example: How Devices Work Together</h3>
                 <div className="space-y-4 text-gray-700">
                   <div className="bg-white rounded-lg p-4 border border-indigo-200">
-                    <p className="font-bold text-indigo-900 mb-2">☀️ "Good Morning" Routine</p>
+                    <p className="flex items-center gap-2 font-bold text-indigo-900 mb-2"><Sun className="w-4 h-4" /> &quot;Good Morning&quot; Routine</p>
                     <ol className="list-decimal list-inside space-y-1 text-sm">
                       <li>Motion sensor detects you wake up at 7 AM</li>
                       <li>Smart blinds open automatically</li>
@@ -517,7 +540,7 @@ export default function GettingStarted() {
                     </ol>
                   </div>
                   <div className="bg-white rounded-lg p-4 border border-indigo-200">
-                    <p className="font-bold text-indigo-900 mb-2">🏃 "Leaving Home" Automation</p>
+                    <p className="flex items-center gap-2 font-bold text-indigo-900 mb-2"><Footprints className="w-4 h-4" /> &quot;Leaving Home&quot; Automation</p>
                     <ol className="list-decimal list-inside space-y-1 text-sm">
                       <li>Phone GPS detects you left home</li>
                       <li>Smart lock automatically locks doors</li>
@@ -632,7 +655,7 @@ export default function GettingStarted() {
 
               {/* Budget Planning */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-6 mt-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">💰 Budget Planning</h3>
+                <h3 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-4"><Wallet className="w-6 h-6 text-[#2e6f40]" /> Budget Planning</h3>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <h4 className="font-bold text-green-900 mb-2">Starter ($200-500)</h4>
@@ -668,30 +691,30 @@ export default function GettingStarted() {
 
               {/* Common Mistakes */}
               <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                <h3 className="text-2xl font-bold text-red-900 mb-4">⚠️ Common Mistakes to Avoid</h3>
+                <h3 className="flex items-center gap-2 text-2xl font-bold text-red-900 mb-4"><AlertTriangle className="w-6 h-6" /> Common Mistakes to Avoid</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ Buying incompatible devices</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> Buying incompatible devices</p>
                     <p className="text-sm text-gray-600">Always check compatibility with your ecosystem first</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ Weak WiFi coverage</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> Weak WiFi coverage</p>
                     <p className="text-sm text-gray-600">Upgrade router or add mesh WiFi before adding devices</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ Mixing too many ecosystems</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> Mixing too many ecosystems</p>
                     <p className="text-sm text-gray-600">Stick to 1-2 ecosystems to avoid confusion</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ Ignoring 2.4GHz requirement</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> Ignoring 2.4GHz requirement</p>
                     <p className="text-sm text-gray-600">Most smart devices need 2.4GHz WiFi, not 5GHz</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ No backup access method</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> No backup access method</p>
                     <p className="text-sm text-gray-600">Always keep physical keys, light switches accessible</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">❌ Buying the cheapest option</p>
+                    <p className="flex items-center gap-1.5 font-bold text-gray-900 mb-1"><XCircle className="w-4 h-4 text-red-500 flex-shrink-0" /> Buying the cheapest option</p>
                     <p className="text-sm text-gray-600">Quality matters - stick with reputable brands</p>
                   </div>
                 </div>
@@ -699,7 +722,7 @@ export default function GettingStarted() {
 
               {/* Recommended First Devices */}
               <div className="bg-[#f0f9f2] border-2 border-[#d1ecd7] rounded-xl p-6 mt-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">🛒 Your First 3 Devices</h3>
+                <h3 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-2"><ShoppingCart className="w-6 h-6 text-[#2e6f40]" /> Your First 3 Devices</h3>
                 <p className="text-gray-600 mb-6 text-sm">Start here — all three are easy to set up and work with every major ecosystem.</p>
                 <div className="grid md:grid-cols-3 gap-5">
 
@@ -707,7 +730,7 @@ export default function GettingStarted() {
                   <div className="bg-white rounded-xl border-2 border-[#2e6f40] overflow-hidden">
                     <div className="h-2 bg-[#2e6f40]" />
                     <div className="p-5">
-                      <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl mb-4">💡</div>
+                      <div className="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-4"><Lightbulb className="w-7 h-7" /></div>
                       <div className="inline-block bg-[#2e6f40] text-white px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
                         BEST FIRST DEVICE
                       </div>
@@ -743,7 +766,7 @@ export default function GettingStarted() {
                   <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden">
                     <div className="h-2 bg-blue-500" />
                     <div className="p-5">
-                      <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-3xl mb-4">🔌</div>
+                      <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4"><PlugZap className="w-7 h-7" /></div>
                       <div className="inline-block bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
                         PLUG &amp; PLAY
                       </div>
@@ -779,7 +802,7 @@ export default function GettingStarted() {
                   <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden">
                     <div className="h-2 bg-purple-500" />
                     <div className="p-5">
-                      <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-3xl mb-4">🔊</div>
+                      <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4"><Volume2 className="w-7 h-7" /></div>
                       <div className="inline-block bg-purple-100 text-purple-700 px-2.5 py-0.5 rounded-full text-xs font-bold mb-3">
                         VOICE CONTROL
                       </div>
@@ -815,7 +838,7 @@ export default function GettingStarted() {
 
               {/* What to Look For on the Box */}
               <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mt-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">🏷️ What to Look for on the Box</h3>
+                <h3 className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-2"><Tag className="w-6 h-6 text-[#2e6f40]" /> What to Look for on the Box</h3>
                 <p className="text-sm text-gray-600 mb-6">
                   Compatibility badges tell you exactly which ecosystems a device works with.
                   Look for these on the front or back of any smart home product.
@@ -838,7 +861,7 @@ export default function GettingStarted() {
                 </div>
                 <div className="bg-white rounded-xl border border-blue-200 p-4">
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>💡 Tip:</strong> If you see a <strong>Matter</strong> badge, the device works with
+                    <strong className="inline-flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Tip:</strong> If you see a <strong>Matter</strong> badge, the device works with
                     ALL major ecosystems simultaneously — Alexa, Google Home, HomeKit, and SmartThings.
                     Matter is the best choice for future-proofing your smart home.
                   </p>
@@ -847,7 +870,7 @@ export default function GettingStarted() {
 
               {/* Next Steps */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">🚀 Ready to Get Started?</h3>
+                <h3 className="flex items-center justify-center gap-2 text-2xl font-bold text-gray-900 mb-4"><Rocket className="w-6 h-6 text-[#2e6f40]" /> Ready to Get Started?</h3>
                 <p className="text-gray-700 mb-6">
                   Use Home Hub to check device compatibility, track your purchases, and visualize your smart home ecosystem!
                 </p>

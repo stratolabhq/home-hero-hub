@@ -95,7 +95,11 @@ safe. Standard commit types: `feat` / `fix` / `refactor` / `style` / `docs` /
 ## 🗄️ Database Schema
 
 ### **products** Table
-Main product database with 10,800+ smart home devices
+Main product database. **2,276 total rows** (not 10,800 — see Decisions &
+Gotchas, 2026-07-19); **868 curated** (`is_popular = true`), the Phase 1
+beginner-facing set. Category values are inconsistent/scraped (`Climate` vs
+`Climate Control`, `plugs` vs `Outlets & Plugs`, casing varies) — Phase 2
+cleanup territory, not yet normalized.
 
 **Key Columns:**
 - `id` (UUID) - Primary key
@@ -194,6 +198,8 @@ home-hub/
 │   │   ├── supabase.ts · isAdmin.ts
 │   │   ├── feature-flags.ts            # ADVANCED_MODE flag helper
 │   │   ├── popular-filter.ts           # Single swap point for popularity signal
+│   │   ├── curated-counts.ts           # Live curated (is_popular) count queries
+│   │   ├── category-slugs.ts           # Category card metadata + slug→DB category map
 │   │   ├── controller-matcher.ts       # Compatibility algorithm
 │   │   ├── amazon-affiliate.ts
 │   │   └── scrapers/                   # philips-hue, wyze, kasa, matter, bestsellers
@@ -221,6 +227,36 @@ Home Assistant `#03A9F4` · SmartThings `#009FDA` · Hubitat `#6B4FA4`
 
 > Append-only log of non-obvious decisions and traps. Newest first. Each entry:
 > date — the thing — why it matters.
+
+- **2026-07-19 — "Curated" = `is_popular = true` for Phase 1; full catalog
+  cleanup deferred to Phase 2.** Live-queried ground truth: **2,276** total
+  `products` rows, **868** with `is_popular = true`. Neither the old "10,800"
+  copy nor a bare "868" was ever backed by a query — 10,800 was stale/wrong,
+  and 868 (while numerically correct) was a hardcoded string, not derived.
+  All beginner-facing counts (homepage hero stat, "How It Works" and CTA
+  copy, category cards) now come from `src/lib/curated-counts.ts`
+  (`getCuratedTotal` / `getCuratedCategoryCounts`), which both route through
+  `applyPopularFilter` so "curated" stays defined in exactly one place. The
+  raw ~2,276-row catalog is untouched in the DB and stays reachable via the
+  compatibility page's "see all devices" escape hatch — Phase 1 only changes
+  what's shown *by default*, never deletes or hard-filters data. Full
+  category-level taxonomy cleanup (duplicate/inconsistent category values —
+  see products table note above) is explicitly Phase 2, not done here.
+
+- **2026-07-19 — Homepage category cards now deep-link with real counts, and
+  `?category=` is finally read by the compatibility page.** Previously the
+  cards had no counts and their `/compatibility?category=X` links were dead —
+  the compat page only ever parsed `ecosystem`/`popular`, so every card landed
+  on the same unfiltered list regardless of category (the same class of bug as
+  the Doorbells/Security duplicate fixed in commit 5262c88). Card metadata +
+  the slug → `products.category` mapping now live together in
+  `src/lib/category-slugs.ts`, used by both `DeviceCategoryShowcase` (counts)
+  and `compatibility/page.tsx` (filtering), so a card's number always matches
+  what loading it returns. The "Smart Locks" card intentionally maps to a
+  `Locks` category that doesn't exist in the data (locks are
+  `category = 'Security'`, `type = 'smart_lock'` — no distinct category yet),
+  which makes it correctly hide itself via the zero-curated-count rule instead
+  of either showing "0 devices" or silently duplicating Security's count.
 
 - **2026-07-19 — Compatibility page has no chipset/protocol-version/connection-type
   filters.** Those live on the Controllers page (`/controllers`) only. The
@@ -293,6 +329,16 @@ Home Assistant `#03A9F4` · SmartThings `#009FDA` · Hubitat `#6B4FA4`
   so nothing applied is ever hidden. "Ecosystem" filter label renamed to
   "Platform" for terminology consistency. localStorage persistence and the
   Issue 2 starter-view/URL-param logic untouched.
+- **Honest, consistent device counts via curated set** — replaced every
+  hardcoded/ad-hoc device count on beginner-facing surfaces (homepage hero
+  stat, "How It Works"/CTA copy, category cards) with live queries through new
+  `src/lib/curated-counts.ts` helpers, built on the existing `is_popular`
+  signal (`applyPopularFilter`). Homepage category cards gained real curated
+  counts and their `?category=` links now actually filter (previously dead —
+  see Decisions & Gotchas). Zero-curated-count categories (e.g. "Locks," which
+  has no distinct DB category yet) hide their card instead of showing
+  "0 devices." Full ~2,276-row catalog untouched in the DB; still reachable
+  via the compatibility page's "see all devices" escape hatch.
 
 **Pre-migration / earlier (March 2026)**
 - Password visibility toggle; profile dropdown nav; user settings wizard +
@@ -309,7 +355,6 @@ Home Assistant `#03A9F4` · SmartThings `#009FDA` · Hubitat `#6B4FA4`
 Tracked as GitHub issues (labels: `phase-1`). Checklist "Issue N" labels are
 planning names and do NOT match GitHub issue numbers.
 
-- Device count consistency (868 vs 10,800 — pick one true number everywhere)
 - Dead/duplicate links + legal pages (Privacy, Terms, About, affiliate
   disclosure, fix Doorbells card duplicating Security filter)
 - Confirm My Products fits beginner flow (zero-device empty state)

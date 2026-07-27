@@ -3,7 +3,10 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { User, LogOut, Settings, Package, Home } from 'lucide-react';
+import {
+  LogOut, Settings, Package, Home, LayoutDashboard, Search,
+  RadioTower, PlusCircle, BookOpen, HandHelping,
+} from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { ADVANCED_MODE } from '@/lib/feature-flags';
 
@@ -57,14 +60,14 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { name: 'Home', path: '/', icon: '🏠' },
-    { name: 'Dashboard', path: '/dashboard', icon: '📊', requiresAuth: true },
-    { name: 'Compatibility', path: '/compatibility', icon: '🔍' },
-    { name: 'Controllers', path: '/controllers', icon: '📡', advancedOnly: true },
-    { name: 'Add Product', path: '/add-product', icon: '➕', requiresAuth: true },
-    { name: 'My Products', path: '/my-products', icon: '📦', requiresAuth: true },
-    { name: 'Getting Started', path: '/getting-started', icon: '📚' },
-    { name: 'Request Device', path: '/request-device', icon: '🙋' },
+    { name: 'Home', path: '/', Icon: Home },
+    { name: 'Dashboard', path: '/dashboard', Icon: LayoutDashboard, requiresAuth: true },
+    { name: 'Compatibility', path: '/compatibility', Icon: Search },
+    { name: 'Controllers', path: '/controllers', Icon: RadioTower, advancedOnly: true },
+    { name: 'Add Product', path: '/add-product', Icon: PlusCircle, requiresAuth: true },
+    { name: 'My Products', path: '/my-products', Icon: Package, requiresAuth: true },
+    { name: 'Getting Started', path: '/getting-started', Icon: BookOpen },
+    { name: 'Request Device', path: '/request-device', Icon: HandHelping },
   ];
 
   const visibleNavItems = navItems.filter(
@@ -104,7 +107,7 @@ export default function Navigation() {
                       : 'text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40]'
                   }`}
                 >
-                  <span>{item.icon}</span>
+                  <item.Icon className="w-4 h-4" />
                   <span>{item.name}</span>
                 </Link>
               ))}
@@ -235,7 +238,7 @@ export default function Navigation() {
                     : 'text-gray-700 hover:bg-[#f0f9f2] hover:text-[#2e6f40]'
                 }`}
               >
-                <span className="text-xl">{item.icon}</span>
+                <item.Icon className="w-5 h-5" />
                 <span>{item.name}</span>
               </Link>
             ))}

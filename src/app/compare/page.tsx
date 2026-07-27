@@ -3,6 +3,7 @@
 import { Suspense, useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
+import { Search, Check } from 'lucide-react';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -119,7 +120,9 @@ function ComparePage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
         <div className="bg-white rounded-lg shadow-sm p-12 text-center max-w-md">
-          <div className="text-5xl mb-4">🔍</div>
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+            <Search className="w-8 h-8 text-[#2e6f40]" />
+          </div>
           <h1 className="text-xl font-bold text-gray-900 mb-2">No devices to compare</h1>
           <p className="text-gray-600 mb-6">Select 2–3 devices from the compatibility checker to compare them.</p>
           <button
@@ -477,7 +480,7 @@ function ComparePage() {
               copied ? 'bg-green-50 border-green-300 text-green-700' : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
             }`}
           >
-            {copied ? '✓ Copied!' : 'Share Comparison'}
+            {copied ? <><Check className="w-4 h-4" /> Copied!</> : 'Share Comparison'}
           </button>
         </div>
       </div>

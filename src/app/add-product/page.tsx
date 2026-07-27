@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
+import { Lightbulb } from 'lucide-react';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -345,7 +346,7 @@ export default function AddProduct() {
             </form>
 
             <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2">💡 Pro Tip</h3>
+              <h3 className="flex items-center gap-1.5 font-semibold text-gray-900 mb-2"><Lightbulb className="w-4 h-4 text-[#2e6f40]" /> Pro Tip</h3>
               <p className="text-sm text-gray-600">
                 Add custom names to easily identify multiple devices of the same type. 
                 For example: "Kitchen Light", "Bedroom Light", instead of just "Philips Hue Bulb".

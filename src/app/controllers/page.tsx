@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
+import { Radio, RadioTower, Waypoints, Shuffle, Check, X, Rocket } from 'lucide-react';
 import { generateAmazonLink } from '@/lib/amazon-affiliate';
 import { ADVANCED_MODE } from '@/lib/feature-flags';
 
@@ -190,7 +191,7 @@ function ControllersContent() {
       <section className="bg-gradient-to-br from-[#f0f9f2] to-[#d1ecd7] py-14">
         <div className="max-w-4xl mx-auto text-center px-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[#a3d9b0] rounded-full text-sm font-medium text-[#1f4d2b] mb-6 shadow-sm">
-            📡 Zigbee · Z-Wave · Matter · Thread
+            <RadioTower className="w-4 h-4 text-[#2e6f40]" /> Zigbee · Z-Wave · Matter · Thread
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
             Protocol Controllers &{' '}
@@ -230,7 +231,7 @@ function ControllersContent() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
-              <div className="text-2xl mb-3">📡</div>
+              <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-3"><Radio className="w-5 h-5" /></div>
               <h3 className="font-semibold text-gray-900 mb-2">Zigbee Coordinator</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 A USB stick or gateway that acts as the central hub for your Zigbee network.
@@ -239,7 +240,7 @@ function ControllersContent() {
               </p>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-              <div className="text-2xl mb-3">🔊</div>
+              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-3"><RadioTower className="w-5 h-5" /></div>
               <h3 className="font-semibold text-gray-900 mb-2">Z-Wave Controller</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 A USB stick that manages your Z-Wave mesh network. Z-Wave uses a dedicated
@@ -248,7 +249,7 @@ function ControllersContent() {
               </p>
             </div>
             <div className="bg-purple-50 border border-purple-200 rounded-xl p-5">
-              <div className="text-2xl mb-3">🧵</div>
+              <div className="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-3"><Waypoints className="w-5 h-5" /></div>
               <h3 className="font-semibold text-gray-900 mb-2">Thread Border Router</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 A device that bridges Thread networks to your WiFi/Ethernet network. Required
@@ -476,7 +477,7 @@ function ControllersContent() {
                               <ul className="space-y-1">
                                 {controller.pros.map((p, i) => (
                                   <li key={i} className="flex items-start gap-1.5 text-xs text-gray-600">
-                                    <span className="text-[#2e6f40] mt-0.5">✓</span>
+                                    <Check className="w-3.5 h-3.5 text-[#2e6f40] mt-0.5 flex-shrink-0" />
                                     {p}
                                   </li>
                                 ))}
@@ -489,7 +490,7 @@ function ControllersContent() {
                               <ul className="space-y-1">
                                 {controller.cons.map((c, i) => (
                                   <li key={i} className="flex items-start gap-1.5 text-xs text-gray-600">
-                                    <span className="text-red-400 mt-0.5">✗</span>
+                                    <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
                                     {c}
                                   </li>
                                 ))}
@@ -558,9 +559,10 @@ function ControllersContent() {
               <h2 className="text-xl font-bold text-gray-900">Compare Controllers</h2>
               <button
                 onClick={() => setShowCompare(false)}
+                aria-label="Close comparison"
                 className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500"
               >
-                ✕
+                <X className="w-5 h-5" />
               </button>
             </div>
 
@@ -630,7 +632,7 @@ function ControllersContent() {
           <div className="grid md:grid-cols-2 gap-5">
             <div className="bg-white rounded-xl border border-amber-200 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">📡</span>
+                <span className="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center"><Radio className="w-5 h-5" /></span>
                 <h3 className="font-bold text-gray-900">Starting with Zigbee?</h3>
               </div>
               <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -646,7 +648,7 @@ function ControllersContent() {
 
             <div className="bg-white rounded-xl border border-blue-200 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl">🔊</span>
+                <span className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center"><RadioTower className="w-5 h-5" /></span>
                 <h3 className="font-bold text-gray-900">Starting with Z-Wave?</h3>
               </div>
               <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -662,7 +664,7 @@ function ControllersContent() {
 
             <div className="bg-white rounded-xl border border-purple-200 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">🧵</span>
+                <span className="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center"><Waypoints className="w-5 h-5" /></span>
                 <h3 className="font-bold text-gray-900">Want Thread/Matter?</h3>
               </div>
               <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -678,7 +680,7 @@ function ControllersContent() {
 
             <div className="bg-white rounded-xl border border-[#d1ecd7] p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 bg-[#f0f9f2] rounded-xl flex items-center justify-center text-xl">🔀</span>
+                <span className="w-10 h-10 bg-[#f0f9f2] text-[#2e6f40] rounded-xl flex items-center justify-center"><Shuffle className="w-5 h-5" /></span>
                 <h3 className="font-bold text-gray-900">Want Zigbee + Z-Wave?</h3>
               </div>
               <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -728,7 +730,9 @@ export default function ControllersPage() {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center max-w-md px-4">
-          <div className="text-6xl mb-6">🚀</div>
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+            <Rocket className="w-8 h-8 text-[#2e6f40]" />
+          </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Almost ready</h1>
           <p className="text-gray-600 mb-2 leading-relaxed">
             We&apos;re building tools for managing hubs and coordinators.

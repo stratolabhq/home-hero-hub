@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
+import { CheckCircle, Target, Clock } from 'lucide-react';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -86,7 +87,9 @@ export default function RequestDevice() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
         <div className="bg-white rounded-xl shadow-lg p-12 max-w-2xl text-center">
-          <div className="text-6xl mb-6">✅</div>
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+            <CheckCircle className="w-8 h-8 text-[#2e6f40]" />
+          </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Request Submitted!</h2>
           <p className="text-gray-600 mb-8">
             Thank you for helping us expand our database. We'll review your request and add the device if it meets our criteria. You'll be notified when it's added!
@@ -124,14 +127,14 @@ export default function RequestDevice() {
         {/* Info Cards */}
         <div className="grid md:grid-cols-2 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-3xl mb-2">🎯</div>
+            <div className="w-11 h-11 mb-2 rounded-xl bg-[#f0f9f2] text-[#2e6f40] flex items-center justify-center"><Target className="w-5 h-5" /></div>
             <h3 className="font-bold text-gray-900 mb-1">What We Need</h3>
             <p className="text-sm text-gray-600">
               Device name, brand, and category are required. Links and model numbers help us find accurate specs faster.
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-3xl mb-2">⏱️</div>
+            <div className="w-11 h-11 mb-2 rounded-xl bg-[#f0f9f2] text-[#2e6f40] flex items-center justify-center"><Clock className="w-5 h-5" /></div>
             <h3 className="font-bold text-gray-900 mb-1">Review Time</h3>
             <p className="text-sm text-gray-600">
               Most requests are reviewed within 48 hours. Popular devices are added first!

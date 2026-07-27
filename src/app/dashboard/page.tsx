@@ -9,6 +9,7 @@ import { StatsCard } from '@/components/ui/StatsCard';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { Home, MapPin, AlertTriangle, Lightbulb, Sparkles, PartyPopper } from 'lucide-react';
 import { ADVANCED_MODE } from '@/lib/feature-flags';
 
 const supabase = createClient(
@@ -251,7 +252,9 @@ export default function Dashboard() {
           </Card>
         ) : userProducts.length === 0 ? (
           <Card className="p-12 text-center">
-            <div className="text-6xl mb-4">🏠</div>
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+              <Home className="w-8 h-8 text-[#2e6f40]" />
+            </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">No devices yet</h3>
             <p className="text-gray-600 mb-6">
               Add some devices to see your smart home ecosystem visualization
@@ -352,7 +355,7 @@ export default function Dashboard() {
                         </h3>
                         <p className="text-sm text-gray-600 mb-2">{userProduct.products.brand}</p>
                         {userProduct.room && (
-                          <div className="text-xs text-gray-500 mb-3">📍 {userProduct.room}</div>
+                          <div className="flex items-center gap-1 text-xs text-gray-500 mb-3"><MapPin className="w-3 h-3" /> {userProduct.room}</div>
                         )}
                         <div className="flex flex-wrap gap-1 mb-3">
                           {userProduct.products.protocols.map(protocol => (
@@ -392,7 +395,7 @@ export default function Dashboard() {
             {/* Hub Requirements */}
             {Object.keys(hubRequirements).length > 0 && (
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-1">⚠️ Hub Requirements</h2>
+                <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-1"><AlertTriangle className="w-5 h-5 text-amber-500" /> Hub Requirements</h2>
                 <p className="text-sm text-gray-600 mb-4">
                   Some of your devices require a hub or bridge to function.
                 </p>
@@ -416,19 +419,19 @@ export default function Dashboard() {
 
             {/* Smart Home Insights */}
             <div className="bg-[#f0f9f2] border border-[#d1ecd7] rounded-xl p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-3">💡 Smart Home Insights</h2>
+              <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-3"><Lightbulb className="w-5 h-5 text-[#2e6f40]" /> Smart Home Insights</h2>
               <div className="space-y-2 text-sm text-gray-700">
                 {ecosystemStats.matter > 0 && (
-                  <p>✨ You have {ecosystemStats.matter} Matter devices — these work across all ecosystems!</p>
+                  <p className="flex items-start gap-2"><Sparkles className="w-4 h-4 text-[#2e6f40] mt-0.5 flex-shrink-0" /> You have {ecosystemStats.matter} Matter devices — these work across all ecosystems!</p>
                 )}
                 {ecosystemStats.home_assistant > 0 && (
-                  <p>🏠 {ecosystemStats.home_assistant} devices support Home Assistant for advanced automation</p>
+                  <p className="flex items-start gap-2"><Home className="w-4 h-4 text-[#2e6f40] mt-0.5 flex-shrink-0" /> {ecosystemStats.home_assistant} devices support Home Assistant for advanced automation</p>
                 )}
                 {Object.keys(protocolCounts).length > 3 && (
-                  <p>⚠️ You're using {Object.keys(protocolCounts).length} different protocols — consider consolidating for better reliability</p>
+                  <p className="flex items-start gap-2"><AlertTriangle className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" /> You&apos;re using {Object.keys(protocolCounts).length} different protocols — consider consolidating for better reliability</p>
                 )}
                 {userProducts.length >= 10 && (
-                  <p>🎉 Great progress! You have {userProducts.length} devices in your smart home</p>
+                  <p className="flex items-start gap-2"><PartyPopper className="w-4 h-4 text-[#2e6f40] mt-0.5 flex-shrink-0" /> Great progress! You have {userProducts.length} devices in your smart home</p>
                 )}
               </div>
             </div>

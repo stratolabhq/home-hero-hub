@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import { MapPin, Calendar, Package, MessageSquare, Info, AlertTriangle } from 'lucide-react';
 import { generateAmazonLink, trackAmazonClick } from '@/lib/amazon-affiliate';
 
 const supabase = createClient(
@@ -222,7 +223,9 @@ export default function MyProducts() {
           <Card className="p-8 text-center text-gray-500">Loading your products...</Card>
         ) : totalProducts === 0 ? (
           <Card className="p-12 text-center">
-            <div className="text-6xl mb-4">📦</div>
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+              <Package className="w-8 h-8 text-[#2e6f40]" />
+            </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">No products yet</h3>
             <p className="text-gray-600 mb-6">
               Start building your smart home inventory by adding your first device
@@ -338,8 +341,8 @@ export default function MyProducts() {
                               {userProduct.room && (
                                 <>
                                   <span>•</span>
-                                  <span className="px-2 py-0.5 bg-[#f0f9f2] border border-[#d1ecd7] rounded text-xs text-[#1f4d2b]">
-                                    📍 {userProduct.room}
+                                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#f0f9f2] border border-[#d1ecd7] rounded text-xs text-[#1f4d2b]">
+                                    <MapPin className="w-3 h-3" /> {userProduct.room}
                                   </span>
                                 </>
                               )}
@@ -363,34 +366,35 @@ export default function MyProducts() {
                             </div>
 
                             {userProduct.purchase_date && (
-                              <p className="text-sm text-gray-600 mb-2">
-                                📅 Purchased: {new Date(userProduct.purchase_date).toLocaleDateString()}
+                              <p className="flex items-center gap-1.5 text-sm text-gray-600 mb-2">
+                                <Calendar className="w-4 h-4 flex-shrink-0" /> Purchased: {new Date(userProduct.purchase_date).toLocaleDateString()}
                               </p>
                             )}
 
                             {userProduct.quantity > 1 && (
-                              <p className="text-sm text-gray-600 mb-2">
-                                📦 Qty: {userProduct.quantity}
+                              <p className="flex items-center gap-1.5 text-sm text-gray-600 mb-2">
+                                <Package className="w-4 h-4 flex-shrink-0" /> Qty: {userProduct.quantity}
                               </p>
                             )}
 
                             {userProduct.notes && (
-                              <p className="text-sm text-gray-600 bg-[#f0f9f2] border border-[#d1ecd7] p-3 rounded-lg mt-2">
-                                💬 {userProduct.notes}
+                              <p className="flex items-start gap-1.5 text-sm text-gray-600 bg-[#f0f9f2] border border-[#d1ecd7] p-3 rounded-lg mt-2">
+                                <MessageSquare className="w-4 h-4 mt-0.5 flex-shrink-0" /> {userProduct.notes}
                               </p>
                             )}
 
                             {userProduct.products.notes && (
-                              <p className="text-sm text-gray-500 mt-2">
-                                ℹ️ {userProduct.products.notes}
+                              <p className="flex items-start gap-1.5 text-sm text-gray-500 mt-2">
+                                <Info className="w-4 h-4 mt-0.5 flex-shrink-0" /> {userProduct.products.notes}
                               </p>
                             )}
 
                             {userProduct.products.requires_hub !== 'false' && (
-                              <p className="text-sm text-amber-600 mt-2">
+                              <p className="flex items-center gap-1.5 text-sm text-amber-600 mt-2">
+                                <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                                 {userProduct.products.requires_hub === 'thread_border_router'
-                                  ? '⚠️ Requires Thread Border Router'
-                                  : `⚠️ Hub required${userProduct.products.hub_name ? `: ${userProduct.products.hub_name}` : ''}`
+                                  ? 'Requires Thread Border Router'
+                                  : `Hub required${userProduct.products.hub_name ? `: ${userProduct.products.hub_name}` : ''}`
                                 }
                               </p>
                             )}

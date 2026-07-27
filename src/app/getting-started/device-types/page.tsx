@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Lightbulb, Cable } from 'lucide-react';
 import DeviceExampleImage from '@/components/DeviceExampleImage';
 
 const DEVICE_TYPES = [
@@ -122,7 +122,7 @@ export default function DeviceTypesPage() {
           {DEVICE_TYPES.map(device => (
             <div
               key={device.type}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl border border-gray-100 card-lift shadow-[var(--shadow-sm)] overflow-hidden"
             >
               {/* Image area */}
               <div className="h-48 w-full">
@@ -161,7 +161,7 @@ export default function DeviceTypesPage() {
 
                 {device.note && (
                   <div className="bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 mb-4">
-                    <p className="text-xs text-amber-800 leading-relaxed">💡 {device.note}</p>
+                    <p className="flex items-start gap-1.5 text-xs text-amber-800 leading-relaxed"><Lightbulb className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" /> {device.note}</p>
                   </div>
                 )}
 
@@ -178,8 +178,8 @@ export default function DeviceTypesPage() {
 
         {/* Protocol note */}
         <div className="mt-12 bg-white rounded-2xl border border-[#d1ecd7] p-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">
-            🔌 How Devices Connect
+          <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-3">
+            <Cable className="w-5 h-5 text-[#2e6f40]" /> How Devices Connect
           </h2>
           <p className="text-gray-600 mb-6">
             Every smart device communicates using one or more wireless protocols.

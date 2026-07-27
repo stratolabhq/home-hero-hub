@@ -5,9 +5,11 @@ import { createClient } from '@supabase/supabase-js';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { Check, X, AlertTriangle, Star } from 'lucide-react';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import { generateAmazonLink, trackAmazonClick } from '@/lib/amazon-affiliate';
 import { applyPopularFilter } from '@/lib/popular-filter';
+import { CATEGORY_SLUGS } from '@/lib/category-slugs';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -228,6 +230,7 @@ function CompatibilityContent() {
   useEffect(() => {
     const ecoParam = searchParams.get('ecosystem');
     const popularParam = searchParams.get('popular');
+    const categoryParam = searchParams.get('category');
 
     if (ecoParam) {
       const isHomeAssistant = ecoParam === 'home_assistant';
@@ -241,6 +244,16 @@ function CompatibilityContent() {
       });
       setStarterView(true);
       setStarterPlatform(PLATFORM_LABELS[ecoParam] ?? null);
+    } else if (categoryParam) {
+      // Homepage category card deep link — filters to the card's real
+      // products.category value(s) (see category-slugs.ts) so the count
+      // shown on the card matches what loads here. Not a "starter view":
+      // no ranking/cap, just a normal curated (popularOnly default) filter.
+      const match = CATEGORY_SLUGS.find(c => c.slug === categoryParam);
+      setFilters({
+        ...DEFAULT_FILTERS,
+        categories: match ? match.dbCategories : [],
+      });
     } else {
       setFilters(loadFilters());
     }
@@ -723,8 +736,8 @@ function CompatibilityContent() {
                 </h2>
                 <p className="text-sm text-gray-500 mt-0.5">{homeCheckDevice.brand}</p>
               </div>
-              <button onClick={() => setHomeCheckDevice(null)} className="text-gray-400 hover:text-gray-600 text-sm">
-                ✕ Close
+              <button onClick={() => setHomeCheckDevice(null)} className="inline-flex items-center gap-1 text-gray-400 hover:text-gray-600 text-sm">
+                <X className="w-4 h-4" /> Close
               </button>
             </div>
 
@@ -738,10 +751,12 @@ function CompatibilityContent() {
             ) : homeCheckResult ? (
               <div className="space-y-5">
                 <div className={`rounded-lg p-4 ${homeCheckResult.isCompatible ? 'bg-[#f0f9f2] border border-[#d1ecd7]' : 'bg-amber-50 border border-amber-200'}`}>
-                  <p className={`font-semibold text-sm ${homeCheckResult.isCompatible ? 'text-[#1f4d2b]' : 'text-amber-800'}`}>
-                    {homeCheckResult.isCompatible
-                      ? `✓ Compatible with your home — works with ${homeCheckResult.compatibleCount} of your ${homeCheckResult.total} device${homeCheckResult.total !== 1 ? 's' : ''}`
-                      : `⚠ No direct ecosystem overlap with your current devices`}
+                  <p className={`flex items-center gap-1.5 font-semibold text-sm ${homeCheckResult.isCompatible ? 'text-[#1f4d2b]' : 'text-amber-800'}`}>
+                    {homeCheckResult.isCompatible ? (
+                      <><Check className="w-4 h-4 flex-shrink-0" /> Compatible with your home — works with {homeCheckResult.compatibleCount} of your {homeCheckResult.total} device{homeCheckResult.total !== 1 ? 's' : ''}</>
+                    ) : (
+                      <><AlertTriangle className="w-4 h-4 flex-shrink-0" /> No direct ecosystem overlap with your current devices</>
+                    )}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -769,7 +784,7 @@ function CompatibilityContent() {
                 {homeCheckResult.hubWarning && (
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                     <p className="text-sm text-amber-800">
-                      <strong>⚠ Hub required:</strong> This device needs a <strong>{homeCheckResult.hubWarning}</strong> — we don't see one in your inventory.
+                      <strong className="inline-flex items-center gap-1"><AlertTriangle className="w-4 h-4" /> Hub required:</strong> This device needs a <strong>{homeCheckResult.hubWarning}</strong> — we don&apos;t see one in your inventory.
                     </p>
                   </div>
                 )}
@@ -839,11 +854,11 @@ function CompatibilityContent() {
                             <Badge variant="green">{product.price_range}</Badge>
                           )}
                           {score > 0 && (
-                            <Badge variant="emerald">✓ Matches your home</Badge>
+                            <Badge variant="emerald"><span className="inline-flex items-center gap-1"><Check className="w-3 h-3" /> Matches your home</span></Badge>
                           )}
                           {product.is_bestseller && product.bestseller_rank && (
                             <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">
-                              ★ Best Seller #{product.bestseller_rank}
+                              <Star className="w-3 h-3 fill-yellow-500 text-yellow-500" /> Best Seller #{product.bestseller_rank}
                             </span>
                           )}
                         </div>
@@ -872,10 +887,11 @@ function CompatibilityContent() {
                         )}
 
                         {product.requires_hub !== 'false' && product.requires_hub && (
-                          <p className="text-sm text-amber-600 mt-1">
+                          <p className="flex items-center gap-1.5 text-sm text-amber-600 mt-1">
+                            <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                             {product.requires_hub === 'thread_border_router'
-                              ? '⚠️ Requires Thread Border Router'
-                              : `⚠️ Hub required${product.hub_name ? `: ${product.hub_name}` : ''}`}
+                              ? 'Requires Thread Border Router'
+                              : `Hub required${product.hub_name ? `: ${product.hub_name}` : ''}`}
                           </p>
                         )}
                       </div>
@@ -889,7 +905,7 @@ function CompatibilityContent() {
                             variant={homeCheckDevice?.id === product.id ? 'secondary' : 'primary'}
                             size="sm"
                           >
-                            {homeCheckDevice?.id === product.id ? '✓ My Home' : 'Check My Home'}
+                            {homeCheckDevice?.id === product.id ? <span className="inline-flex items-center gap-1"><Check className="w-4 h-4" /> My Home</span> : 'Check My Home'}
                           </Button>
                         )}
                         <a

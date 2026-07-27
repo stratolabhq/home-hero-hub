@@ -7,6 +7,7 @@ import { ADVANCED_MODE } from '@/lib/feature-flags';
 import { CodeBlock } from '@/components/ui/CodeBlock';
 import { ChatMessage, ChatTypingIndicator } from '@/components/ui/ChatMessage';
 import { Button } from '@/components/ui/Button';
+import { Rocket, Zap, Home } from 'lucide-react';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -283,7 +284,9 @@ export default function YamlGeneratorPage() {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center max-w-md px-4">
-          <div className="text-6xl mb-6">🚀</div>
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+            <Rocket className="w-8 h-8 text-[#2e6f40]" />
+          </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Almost ready</h1>
           <p className="text-gray-600 mb-2 leading-relaxed">
             We&apos;re building a helper that writes your config automatically.
@@ -317,7 +320,7 @@ export default function YamlGeneratorPage() {
       <div className="bg-white border-b border-gray-200 px-4 md:px-8 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <span className="text-2xl">⚡</span>
+            <Zap className="w-6 h-6 text-[#2e6f40]" />
             HA YAML Generator
           </h1>
           <p className="text-sm text-gray-500 mt-0.5">Describe an automation in plain English → get valid Home Assistant YAML</p>
@@ -434,7 +437,9 @@ export default function YamlGeneratorPage() {
             {messages.length === 0 && !streamingText && (
               <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-8 pt-4">
-                  <div className="text-5xl mb-3">🏠</div>
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-[#f0f9f2] border border-[#d1ecd7] flex items-center justify-center">
+                    <Home className="w-8 h-8 text-[#2e6f40]" />
+                  </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">Home Assistant YAML Generator</h2>
                   <p className="text-gray-600">Describe any automation in plain English and get production-ready YAML instantly.</p>
                 </div>

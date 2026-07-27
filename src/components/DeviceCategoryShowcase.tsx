@@ -1,19 +1,27 @@
 'use client';
 
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import DeviceExampleImage from './DeviceExampleImage';
+import { CATEGORY_SLUGS } from '@/lib/category-slugs';
 
-const CATEGORIES = [
-  { type: 'smart-bulb',  title: 'Smart Lighting',   subtitle: 'Bulbs, strips, fixtures',  href: '/compatibility?category=lighting' },
-  { type: 'camera',      title: 'Security',          subtitle: 'Cameras, locks, sensors',  href: '/compatibility?category=security' },
-  { type: 'smart-plug',  title: 'Smart Plugs',       subtitle: 'Outlets & power strips',   href: '/compatibility?category=outlets-plugs' },
-  { type: 'thermostat',  title: 'Climate Control',   subtitle: 'Thermostats, HVAC',        href: '/compatibility?category=climate' },
-  { type: 'sensor',      title: 'Sensors',           subtitle: 'Motion, door, temp',       href: '/compatibility?category=sensors' },
-  { type: 'switch',      title: 'Smart Switches',    subtitle: 'Wall switches, dimmers',   href: '/compatibility?category=switches' },
-  { type: 'smart-lock',  title: 'Smart Locks',       subtitle: 'Deadbolts, keypads',       href: '/compatibility?category=locks' },
-];
+interface DeviceCategoryShowcaseProps {
+  /** Live curated (is_popular) counts keyed by products.category, from getCuratedCategoryCounts(). */
+  categoryCounts: Record<string, number>;
+}
 
-export default function DeviceCategoryShowcase() {
+export default function DeviceCategoryShowcase({ categoryCounts }: DeviceCategoryShowcaseProps) {
+  // Cards whose mapped category(ies) have zero curated products are hidden
+  // rather than shown as "0 devices" — e.g. 'locks' has no distinct DB
+  // category yet (locks live under Security), so it won't appear until
+  // Phase 2 taxonomy cleanup gives it one.
+  const cards = CATEGORY_SLUGS
+    .map(cat => ({
+      ...cat,
+      count: cat.dbCategories.reduce((sum, dbCat) => sum + (categoryCounts[dbCat] ?? 0), 0),
+    }))
+    .filter(cat => cat.count > 0);
+
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4">
@@ -27,13 +35,13 @@ export default function DeviceCategoryShowcase() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-10">
-          {CATEGORIES.map(cat => (
-            <Link key={cat.type} href={cat.href} className="group">
+          {cards.map(cat => (
+            <Link key={cat.slug} href={`/compatibility?category=${cat.slug}`} className="group">
               {/* Image card */}
-              <div className="relative aspect-square rounded-2xl overflow-hidden mb-2.5 shadow-sm group-hover:shadow-md transition-shadow">
+              <div className="card-lift relative aspect-square rounded-2xl overflow-hidden mb-2.5 shadow-[var(--shadow-sm)]">
                 {/* Device illustration fills the card */}
                 <DeviceExampleImage
-                  type={cat.type}
+                  type={cat.imageType}
                   alt={cat.title}
                   className="absolute inset-0"
                 />
@@ -56,8 +64,9 @@ export default function DeviceCategoryShowcase() {
               </div>
 
               {/* Browse link */}
-              <p className="text-center text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
-                Browse →
+              <p className="flex items-center justify-center gap-1 text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
+                {cat.count.toLocaleString()} devices
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </p>
             </Link>
           ))}
@@ -66,9 +75,10 @@ export default function DeviceCategoryShowcase() {
         <div className="text-center">
           <Link
             href="/compatibility"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-sm"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-[var(--shadow-green)]"
           >
             Browse All Devices
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
       </div>

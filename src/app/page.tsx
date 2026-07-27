@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 import { ADVANCED_MODE } from '@/lib/feature-flags';
-import { Home as HomeIcon, CheckCircle, XCircle, Zap } from 'lucide-react';
+import {
+  Home as HomeIcon, CheckCircle, XCircle, Zap, Leaf, Star,
+  Radio, RadioTower, Waypoints, Search, ArrowRight, ShieldCheck, Boxes,
+} from 'lucide-react';
 import { generateAmazonLink } from '@/lib/amazon-affiliate';
 import DeviceCategoryShowcase from '@/components/DeviceCategoryShowcase';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import { getCuratedTotal, getCuratedCategoryCounts } from '@/lib/curated-counts';
 
 interface BestsellerRow {
   id: string;
@@ -19,15 +23,20 @@ interface BestsellerRow {
   ecosystems: Record<string, string>;
 }
 
-async function getPageData(): Promise<{ popularCount: number; bestsellers: BestsellerRow[] }> {
+async function getPageData(): Promise<{
+  popularCount: number;
+  categoryCounts: Record<string, number>;
+  bestsellers: BestsellerRow[];
+}> {
   try {
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    const [countRes, bestsellersRes] = await Promise.all([
-      supabase.from('products').select('*', { count: 'exact', head: true }).eq('is_popular', true),
+    const [popularCount, categoryCounts, bestsellersRes] = await Promise.all([
+      getCuratedTotal(supabase),
+      getCuratedCategoryCounts(supabase),
       supabase
         .from('products')
         .select('id, name, brand, category, bestseller_rank, rating, review_count, price_range, image_url, ecosystems')
@@ -38,65 +47,75 @@ async function getPageData(): Promise<{ popularCount: number; bestsellers: Bests
     ]);
 
     return {
-      popularCount: countRes.count || 850,
-      bestsellers:  (bestsellersRes.data as BestsellerRow[]) || [],
+      popularCount,
+      categoryCounts,
+      bestsellers: (bestsellersRes.data as BestsellerRow[]) || [],
     };
   } catch {
-    return { popularCount: 850, bestsellers: [] };
+    return { popularCount: 0, categoryCounts: {}, bestsellers: [] };
   }
 }
 
 export default async function Home() {
-  const { popularCount, bestsellers } = await getPageData();
+  const { popularCount, categoryCounts, bestsellers } = await getPageData();
 
   return (
     <div className="min-h-screen bg-white">
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-[#f0f9f2] to-[#d1ecd7] py-20">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[#a3d9b0] rounded-full text-sm font-medium text-[#1f4d2b] mb-8 shadow-sm">
-            🌿 Smart Home, Naturally Connected
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0f9f2] via-[#e6f5ea] to-white py-24">
+        {/* layered background: dotted grid + soft radial glows */}
+        <div className="absolute inset-0 bg-hero-grid opacity-70" aria-hidden="true" />
+        <div
+          className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl opacity-30"
+          style={{ background: 'radial-gradient(circle, #6fbf7d, transparent 70%)' }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-32 -right-16 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-25"
+          style={{ background: 'radial-gradient(circle, #a3d9b0, transparent 70%)' }}
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-4xl mx-auto text-center px-4">
+          <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur border border-[#a3d9b0] rounded-full text-sm font-semibold text-[#1f4d2b] mb-8 shadow-sm">
+            <Leaf className="w-4 h-4 text-[#2e6f40]" />
+            Smart Home, Naturally Connected
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="animate-fade-up delay-1 text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-[1.08]">
             Build a smart home that{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #2e6f40, #3d8b54)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              just works
-            </span>
+            <span className="text-green-gradient">just works</span>
           </h1>
 
-          <p className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="animate-fade-up delay-2 text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
             Pick the platform you already use — we&apos;ll show you devices that
             work with it, no research required.
           </p>
 
           {/* Stats */}
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="animate-fade-up delay-3 mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
             {[
               { value: `${popularCount.toLocaleString()}+`, label: 'Popular Devices' },
               { value: 'Free',   label: 'Always Free to Search' },
               { value: '6',     label: 'Platforms Tracked' },
             ].map(stat => (
-              <div key={stat.label} className="bg-white rounded-2xl p-6 shadow-sm border border-[#d1ecd7]">
-                <div className="text-3xl font-bold text-[#2e6f40] mb-1">{stat.value}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+              <div key={stat.label} className="card-lift bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#d1ecd7] shadow-[var(--shadow-sm)]">
+                <div className="text-3xl font-extrabold text-[#2e6f40] mb-1">{stat.value}</div>
+                <div className="text-gray-500 text-sm font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          {/* Secondary CTAs — de-emphasized; the platform picker below is primary */}
-          <div className="mt-8 flex items-center justify-center gap-3 text-sm">
-            <a href="#how-it-works" className="text-gray-500 hover:text-[#2e6f40] font-medium underline underline-offset-4">
+          {/* Trust row */}
+          <div className="animate-fade-up delay-4 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#2e6f40]" /> No account needed
+            </span>
+            <a href="#how-it-works" className="inline-flex items-center gap-1.5 font-medium hover:text-[#2e6f40] transition-colors underline underline-offset-4 decoration-[#a3d9b0]">
               How It Works
             </a>
-            <span className="text-gray-300">·</span>
-            <Link href="/compatibility" className="text-gray-500 hover:text-[#2e6f40] font-medium underline underline-offset-4">
+            <Link href="/compatibility" className="inline-flex items-center gap-1.5 font-medium hover:text-[#2e6f40] transition-colors underline underline-offset-4 decoration-[#a3d9b0]">
               Browse All Devices
             </Link>
           </div>
@@ -116,126 +135,107 @@ export default async function Home() {
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Alexa */}
-            <div className="group border-2 border-gray-100 rounded-xl overflow-hidden hover:border-[#2e6f40] hover:shadow-md transition-all">
-              <div className="h-36 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full translate-x-8 translate-y-8" />
-                </div>
-                <div className="text-center relative z-10">
-                  <div className="w-14 h-14 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-white border-opacity-30">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-                    </svg>
+            {[
+              {
+                key: 'alexa',
+                label: 'Alexa',
+                title: 'Amazon Alexa',
+                gradient: 'from-blue-400 to-blue-600',
+                href: '/compatibility?ecosystem=alexa&popular=1',
+                desc: 'Voice control with Echo devices. Largest selection of compatible products.',
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                ),
+              },
+              {
+                key: 'google',
+                label: 'Google',
+                title: 'Google Home',
+                gradient: 'from-red-400 to-red-600',
+                href: '/compatibility?ecosystem=google_home&popular=1',
+                desc: 'Google Assistant integration. Great with Android phones and Nest products.',
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                ),
+              },
+              {
+                key: 'homekit',
+                label: 'HomeKit',
+                title: 'Apple HomeKit',
+                gradient: 'from-gray-600 to-gray-900',
+                href: '/compatibility?ecosystem=apple_homekit&popular=1',
+                desc: 'Siri voice control. Secure and private. Best for iPhone and iPad users.',
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                ),
+              },
+              {
+                key: 'home_assistant',
+                label: 'Home Assistant',
+                title: 'Home Assistant',
+                gradient: 'from-teal-500 to-teal-700',
+                href: '/compatibility?ecosystem=home_assistant&popular=1',
+                desc: 'For hands-on folks who want full control. A little more setup, a lot more flexibility.',
+                icon: (
+                  <>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </>
+                ),
+              },
+            ].map(platform => (
+              <Link
+                key={platform.key}
+                href={platform.href}
+                className="card-lift group flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-[#a3d9b0] shadow-[var(--shadow-sm)]"
+              >
+                <div className={`h-36 bg-gradient-to-br ${platform.gradient} flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-10" aria-hidden="true">
+                    <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full translate-x-8 translate-y-8" />
                   </div>
-                  <span className="text-white text-xs font-bold tracking-wider uppercase opacity-90">Alexa</span>
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">Amazon Alexa</h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Voice control with Echo devices. Largest selection of compatible products.
-                </p>
-                <Link href="/compatibility?ecosystem=alexa&popular=1" className="text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
-                  Show compatible devices
-                </Link>
-              </div>
-            </div>
-
-            {/* Google */}
-            <div className="group border-2 border-gray-100 rounded-xl overflow-hidden hover:border-[#2e6f40] hover:shadow-md transition-all">
-              <div className="h-36 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full translate-x-8 translate-y-8" />
-                </div>
-                <div className="text-center relative z-10">
-                  <div className="w-14 h-14 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-white border-opacity-30">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                    </svg>
+                  <div className="text-center relative z-10">
+                    <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-white/30 transition-transform duration-200 group-hover:scale-110">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                        {platform.icon}
+                      </svg>
+                    </div>
+                    <span className="text-white text-xs font-bold tracking-wider uppercase opacity-90">{platform.label}</span>
                   </div>
-                  <span className="text-white text-xs font-bold tracking-wider uppercase opacity-90">Google</span>
                 </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">Google Home</h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Google Assistant integration. Great with Android phones and Nest products.
-                </p>
-                <Link href="/compatibility?ecosystem=google_home&popular=1" className="text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
-                  Show compatible devices
-                </Link>
-              </div>
-            </div>
-
-            {/* HomeKit */}
-            <div className="group border-2 border-gray-100 rounded-xl overflow-hidden hover:border-[#2e6f40] hover:shadow-md transition-all">
-              <div className="h-36 bg-gradient-to-br from-gray-600 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full translate-x-8 translate-y-8" />
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">{platform.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-1">
+                    {platform.desc}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-[#2e6f40] text-sm font-semibold group-hover:gap-2 transition-all">
+                    Show compatible devices
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
-                <div className="text-center relative z-10">
-                  <div className="w-14 h-14 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-white border-opacity-30">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                    </svg>
-                  </div>
-                  <span className="text-white text-xs font-bold tracking-wider uppercase opacity-90">HomeKit</span>
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">Apple HomeKit</h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Siri voice control. Secure and private. Best for iPhone and iPad users.
-                </p>
-                <Link href="/compatibility?ecosystem=apple_homekit&popular=1" className="text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
-                  Show compatible devices
-                </Link>
-              </div>
-            </div>
-
-            {/* Home Assistant */}
-            <div className="group border-2 border-gray-100 rounded-xl overflow-hidden hover:border-[#2e6f40] hover:shadow-md transition-all">
-              <div className="h-36 bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full translate-x-8 translate-y-8" />
-                </div>
-                <div className="text-center relative z-10">
-                  <div className="w-14 h-14 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-white border-opacity-30">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <span className="text-white text-xs font-bold tracking-wider uppercase opacity-90">Home Assistant</span>
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">Home Assistant</h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  For hands-on folks who want full control. A little more setup, a lot more flexibility.
-                </p>
-                <Link href="/compatibility?ecosystem=home_assistant&popular=1" className="text-[#2e6f40] text-sm font-semibold group-hover:text-[#1f4d2b] transition-colors">
-                  Show compatible devices
-                </Link>
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
 
           {/* Device types teaser */}
-          <div className="mt-12 bg-[#f0f9f2] border border-[#d1ecd7] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Not sure what devices to buy?</h3>
-              <p className="text-gray-600 text-sm max-w-lg">
-                Our visual device guide breaks down smart bulbs, plugs, locks, thermostats, cameras, sensors,
-                switches, and doorbells — with prices, brands, and buying tips.
-              </p>
+          <div className="mt-12 bg-gradient-to-br from-[#f0f9f2] to-[#e6f5ea] border border-[#d1ecd7] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="hidden sm:flex flex-shrink-0 w-12 h-12 rounded-xl bg-white items-center justify-center border border-[#d1ecd7] shadow-[var(--shadow-sm)]">
+                <Boxes className="w-6 h-6 text-[#2e6f40]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Not sure what devices to buy?</h3>
+                <p className="text-gray-600 text-sm max-w-lg">
+                  Our visual device guide breaks down smart bulbs, plugs, locks, thermostats, cameras, sensors,
+                  switches, and doorbells — with prices, brands, and buying tips.
+                </p>
+              </div>
             </div>
             <Link
               href="/getting-started/device-types"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-sm whitespace-nowrap"
+              className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-[var(--shadow-green)] whitespace-nowrap"
             >
-              Browse Device Types →
+              Browse Device Types
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
@@ -334,9 +334,7 @@ export default async function Home() {
                   our database of {popularCount.toLocaleString()}+ popular smart home devices.
                 </p>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-2 text-gray-400 text-sm">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                  <Search className="w-4 h-4" />
                   Try: smart bulb, door lock, thermostat…
                 </div>
               </div>
@@ -388,23 +386,24 @@ export default async function Home() {
           <div className="text-center mt-12">
             <Link
               href="/compatibility"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-md"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#2e6f40] text-white rounded-xl font-semibold hover:bg-[#3d8b54] transition-colors shadow-[var(--shadow-green)]"
             >
               Start Searching Devices
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      <DeviceCategoryShowcase />
+      <DeviceCategoryShowcase categoryCounts={categoryCounts} />
 
       {/* ── Amazon Best Sellers ──────────────────────────────────────── */}
       {bestsellers.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-3">
-                <span>★</span> Amazon Best Sellers
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-3">
+                <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" /> Amazon Best Sellers
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-3">
                 Popular picks to get you started
@@ -418,7 +417,7 @@ export default async function Home() {
               {bestsellers.map(product => {
                 const amazonUrl = generateAmazonLink(product.name, product.brand);
                 return (
-                  <div key={product.id} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                  <div key={product.id} className="card-lift bg-white rounded-xl border border-gray-100 shadow-[var(--shadow-sm)] flex flex-col">
                     <div className="relative aspect-square bg-gray-50 rounded-t-xl overflow-hidden">
                       {product.image_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -446,8 +445,17 @@ export default async function Home() {
                       </h3>
 
                       {product.rating && (
-                        <div className="flex items-center gap-1 mb-2 text-yellow-400 text-sm">
-                          {'★'.repeat(Math.round(product.rating))}{'☆'.repeat(5 - Math.round(product.rating))}
+                        <div className="flex items-center gap-0.5 mb-2">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-3.5 h-3.5 ${
+                                i < Math.round(product.rating!)
+                                  ? 'fill-yellow-400 text-yellow-400'
+                                  : 'fill-gray-200 text-gray-200'
+                              }`}
+                            />
+                          ))}
                           <span className="text-gray-500 text-xs ml-1">{product.rating.toFixed(1)}</span>
                         </div>
                       )}
@@ -485,9 +493,10 @@ export default async function Home() {
             <div className="text-center mt-8 space-y-3">
               <Link
                 href="/bestsellers"
-                className="inline-flex items-center gap-2 text-[#2e6f40] font-semibold hover:text-[#1f4d2b] transition-colors"
+                className="group inline-flex items-center gap-1.5 text-[#2e6f40] font-semibold hover:text-[#1f4d2b] transition-colors"
               >
-                View All Best Sellers →
+                View All Best Sellers
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <AffiliateDisclosure />
             </div>
@@ -500,8 +509,8 @@ export default async function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded-full text-sm font-semibold mb-3">
-              📡 Advanced Setup
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded-full text-sm font-semibold mb-3">
+              <RadioTower className="w-4 h-4" /> Advanced Setup
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
               Protocol Controllers & Coordinators
@@ -513,9 +522,9 @@ export default async function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="group bg-white rounded-xl border-2 border-amber-100 p-6 hover:border-amber-300 transition-colors">
-              <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
-                📡
+            <div className="card-lift group bg-white rounded-xl border-2 border-amber-100 p-6 hover:border-amber-300">
+              <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
+                <Radio className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Zigbee Coordinators</h3>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
@@ -527,9 +536,9 @@ export default async function Home() {
               </Link>
             </div>
 
-            <div className="group bg-white rounded-xl border-2 border-blue-100 p-6 hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
-                🔊
+            <div className="card-lift group bg-white rounded-xl border-2 border-blue-100 p-6 hover:border-blue-300">
+              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                <RadioTower className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Z-Wave Controllers</h3>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
@@ -541,9 +550,9 @@ export default async function Home() {
               </Link>
             </div>
 
-            <div className="group bg-white rounded-xl border-2 border-purple-100 p-6 hover:border-purple-300 transition-colors">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">
-                🧵
+            <div className="card-lift group bg-white rounded-xl border-2 border-purple-100 p-6 hover:border-purple-300">
+              <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4">
+                <Waypoints className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Matter & Thread</h3>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
@@ -581,7 +590,7 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="bg-white p-6 rounded-xl border border-[#d1ecd7] hover:shadow-md transition-shadow">
+            <div className="bg-white p-6 rounded-xl border border-[#d1ecd7] card-lift shadow-[var(--shadow-sm)]">
               <div className="w-12 h-12 bg-[#2e6f40] rounded-xl flex items-center justify-center mb-4 shadow-sm">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -594,7 +603,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-purple-200 hover:shadow-md transition-shadow">
+            <div className="bg-white p-6 rounded-xl border border-purple-200 card-lift shadow-[var(--shadow-sm)]">
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4 shadow-sm">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
@@ -608,7 +617,7 @@ export default async function Home() {
             </div>
 
             {ADVANCED_MODE && (
-            <div className="bg-white p-6 rounded-xl border border-[#d1ecd7] hover:shadow-md transition-shadow">
+            <div className="bg-white p-6 rounded-xl border border-[#d1ecd7] card-lift shadow-[var(--shadow-sm)]">
               <div className="w-12 h-12 bg-[#3d8b54] rounded-xl flex items-center justify-center mb-4 shadow-sm">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -622,7 +631,7 @@ export default async function Home() {
             </div>
             )}
 
-            <div className="bg-white p-6 rounded-xl border border-orange-200 hover:shadow-md transition-shadow">
+            <div className="bg-white p-6 rounded-xl border border-orange-200 card-lift shadow-[var(--shadow-sm)]">
               <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4 shadow-sm">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -727,7 +736,7 @@ export default async function Home() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #2e6f40, #3d8b54)' }}>
-                  <span className="text-white font-bold text-sm">H³</span>
+                  <HomeIcon className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-lg font-bold">Home Hub</span>
               </div>

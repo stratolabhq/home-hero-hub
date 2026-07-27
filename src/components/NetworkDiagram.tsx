@@ -272,7 +272,7 @@ export default function NetworkDiagram({ userProducts }: Props) {
           `<div style="color:#6B7280;margin-bottom:6px">${d.brand}</div>` +
           `<div style="color:#374151;margin-bottom:4px">${d.protocols.join(' · ')}</div>` +
           `<div style="font-size:11px">${ecoLabels}</div>` +
-          (d.room ? `<div style="color:#9CA3AF;margin-top:4px;font-size:11px">📍 ${d.room}</div>` : '')
+          (d.room ? `<div style="color:#9CA3AF;margin-top:4px;font-size:11px">Room: ${d.room}</div>` : '')
         );
       })
       .on('mousemove', (e: MouseEvent) => {
