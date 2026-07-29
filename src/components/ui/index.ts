@@ -7,3 +7,4 @@ export { ToastContainer, useToast } from './Toast';
 export type { ToastMessage, ToastType } from './Toast';
 export { ChatMessage, ChatTypingIndicator } from './ChatMessage';
 export { CodeBlock } from './CodeBlock';
+export { MultiSelectDropdown } from './MultiSelectDropdown';

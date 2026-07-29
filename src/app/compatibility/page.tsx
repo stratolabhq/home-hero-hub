@@ -5,6 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { MultiSelectDropdown } from '@/components/ui/MultiSelectDropdown';
 import { Check, X, AlertTriangle, Star } from 'lucide-react';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import { generateAmazonLink, trackAmazonClick } from '@/lib/amazon-affiliate';
@@ -249,10 +250,15 @@ function CompatibilityContent() {
       // products.category value(s) (see category-slugs.ts) so the count
       // shown on the card matches what loads here. Not a "starter view":
       // no ranking/cap, just a normal curated (popularOnly default) filter.
-      const match = CATEGORY_SLUGS.find(c => c.slug === categoryParam);
+      // Supports a comma-separated list of slugs (?category=lighting,security)
+      // so multiple categories can be pre-selected; single values still work.
+      const slugs = categoryParam.split(',').map(s => s.trim()).filter(Boolean);
+      const dbCategories = Array.from(
+        new Set(slugs.flatMap(slug => CATEGORY_SLUGS.find(c => c.slug === slug)?.dbCategories ?? []))
+      );
       setFilters({
         ...DEFAULT_FILTERS,
-        categories: match ? match.dbCategories : [],
+        categories: dbCategories,
       });
     } else {
       setFilters(loadFilters());
@@ -345,9 +351,6 @@ function CompatibilityContent() {
 
   const toggleProtocol = (p: string) =>
     patch({ protocols: filters.protocols.includes(p) ? filters.protocols.filter(x => x !== p) : [...filters.protocols, p] });
-
-  const toggleCategory = (c: string) =>
-    patch({ categories: filters.categories.includes(c) ? filters.categories.filter(x => x !== c) : [...filters.categories, c] });
 
   const togglePriceBucket = (b: PriceBucket) =>
     patch({ priceBuckets: filters.priceBuckets.includes(b) ? filters.priceBuckets.filter(x => x !== b) : [...filters.priceBuckets, b] });
@@ -556,21 +559,14 @@ function CompatibilityContent() {
               {/* Categories */}
               <div>
                 <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Category</label>
-                <div className="flex flex-wrap gap-2">
-                  {categories.map(cat => (
-                    <button
-                      key={cat}
-                      onClick={() => toggleCategory(cat)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
-                        filters.categories.includes(cat)
-                          ? 'bg-[#3d8b54] text-white border-[#3d8b54]'
-                          : 'bg-white text-gray-600 border-gray-300 hover:border-[#6fbf7d]'
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
+                <MultiSelectDropdown
+                  options={categories}
+                  selected={filters.categories}
+                  onChange={next => patch({ categories: next })}
+                  allLabel="All categories"
+                  itemNoun="categories"
+                  ariaLabel="Filter by device category"
+                />
               </div>
 
               {/* Price + Toggles */}
